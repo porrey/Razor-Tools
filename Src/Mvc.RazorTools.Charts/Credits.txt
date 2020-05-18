@@ -3,4 +3,4 @@ http://morrisjs.github.io/morris.js/
 
 Also uses:
 http://momentjs.com/
-http://unscriptable.com/2009/03/20/debouncing-javascript-methods/
+http://benalman.com/projects/jquery-throttle-debounce-plugin/
