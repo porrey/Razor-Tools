@@ -1,42 +1,54 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
-    <Version>2.0.0</Version>
-    <Description>Provides chart options in MVC Razor views that can be written using standard C# code. These charts are based on morris.js.</Description>
-    <PackageProjectUrl>https://github.com/porrey/Razor-Tools</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/porrey/Razor-Tools.git</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <NeutralLanguage>en-US</NeutralLanguage>
-    <Copyright>Copyright © Daniel Porrey 2014-2020</Copyright>
-    <Authors>Daniel M Porrey</Authors>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
+		<Version>2.0.0</Version>
+		<Description>Provides chart options in MVC Razor views that can be written using standard C# code. These charts are based on morris.js.</Description>
+		<PackageProjectUrl>https://github.com/porrey/Razor-Tools</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/porrey/Razor-Tools.git</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<Copyright>Copyright © Daniel Porrey 2014-2020</Copyright>
+		<Authors>Daniel M Porrey</Authors>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-  </PropertyGroup>
+		<PackageReleaseNotes>Updated for Microsoft AspNetCore.</PackageReleaseNotes>
+		<PackageIcon>charts.png</PackageIcon>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>Mvc.RazorTools.Charts.xml</DocumentationFile>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>Mvc.RazorTools.Charts.xml</DocumentationFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="wwwroot\razortools.charts.unobtrusive.js" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="wwwroot\lib\dist\razortools\js\jquery.ba-throttle-debounce.js" />
+		<None Remove="wwwroot\lib\dist\razortools\js\moment.js" />
+		<None Remove="wwwroot\lib\dist\razortools\js\ReadMe.txt" />
+		<None Remove="wwwroot\razortools.charts.unobtrusive.js" />
+		<None Include="..\..\Images\charts.png">
+		  <Pack>True</Pack>
+		  <PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Content Include="wwwroot\lib\dist\razortools\js\razortools.charts.unobtrusive.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="wwwroot\lib\dist\razortools\js\jquery.ba-throttle-debounce.js" />
+		<Content Include="wwwroot\lib\dist\razortools\js\moment.js" />
+		<Content Include="wwwroot\lib\dist\razortools\js\razortools.charts.unobtrusive.js">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="wwwroot\lib\dist\razortools\js\ReadMe.txt" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Mvc.RazorTools.Base\Mvc.RazorTools.Base.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Mvc.RazorTools.Base\Mvc.RazorTools.Base.csproj" />
+	</ItemGroup>
 
 </Project>
