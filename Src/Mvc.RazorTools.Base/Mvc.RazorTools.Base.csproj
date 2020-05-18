@@ -1,10 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
+    <Description>Provides basic functionality to create a page tag with attributes and class information and place this HTML into a Razor page with C# code. This library is the base for all Razor Tools libraries that provided unobtrusive JavaScript capabilities for well-known jQuery plug-ins.</Description>
+    <NeutralLanguage>English (United States)</NeutralLanguage>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/porrey/Razor-Tools.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/porrey/Razor-Tools</PackageProjectUrl>
+    <Copyright>Copyright © Daniel Porrey 2014-2020</Copyright>
+    <Authors>Daniel M Porrey</Authors>
+    <Version>2.0.0</Version>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
