@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.RazorTools.Base", "Mvc.RazorTools.Base\Mvc.RazorTools.Base.csproj", "{67E390A3-6546-445D-AC7A-A2824B8E1410}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.RazorTools.Charts", "Mvc.RazorTools.Charts.csproj\Mvc.RazorTools.Charts.csproj", "{9395508B-EF83-4BE0-8673-65B53216B777}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.RazorTools.Charts", "Mvc.RazorTools.Charts\Mvc.RazorTools.Charts.csproj", "{9395508B-EF83-4BE0-8673-65B53216B777}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
