@@ -20,11 +20,15 @@
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<PackageReleaseNotes>Updated for Microsoft AspNetCore.</PackageReleaseNotes>
-		<PackageIcon>html-page-design.png</PackageIcon>
+		<PackageIcon>Mvc.RazorTools.Base.png</PackageIcon>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<DocumentationFile>Mvc.RazorTools.Base.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <DocumentationFile>Mvc.RazorTools.Base.xml</DocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -32,7 +36,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Include="..\..\Images\html-page-design.png">
+	  <None Include="..\..\Images\Mvc.RazorTools.Base.png">
 	    <Pack>True</Pack>
 	    <PackagePath></PackagePath>
 	  </None>

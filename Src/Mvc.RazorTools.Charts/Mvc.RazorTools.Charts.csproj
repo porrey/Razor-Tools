@@ -20,25 +20,33 @@
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<PackageReleaseNotes>Updated for Microsoft AspNetCore.</PackageReleaseNotes>
-		<PackageIcon>charts.png</PackageIcon>
+		<PackageIcon>Mvc.RazorTools.Charts.png</PackageIcon>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<DocumentationFile>Mvc.RazorTools.Charts.xml</DocumentationFile>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <DocumentationFile>Mvc.RazorTools.Charts.xml</DocumentationFile>
+	</PropertyGroup>
+
 	<ItemGroup>
+		<None Remove="Mvc.RazorTools.Charts.Credits.txt" />
 		<None Remove="wwwroot\lib\dist\razortools\js\jquery.ba-throttle-debounce.js" />
 		<None Remove="wwwroot\lib\dist\razortools\js\moment.js" />
 		<None Remove="wwwroot\lib\dist\razortools\js\ReadMe.txt" />
 		<None Remove="wwwroot\razortools.charts.unobtrusive.js" />
-		<None Include="..\..\Images\charts.png">
+		<None Include="..\..\Images\Mvc.RazorTools.Charts.png">
 		  <Pack>True</Pack>
 		  <PackagePath></PackagePath>
 		</None>
 	</ItemGroup>
 
 	<ItemGroup>
+		<Content Include="Mvc.RazorTools.Charts.Credits.txt">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Content>
 		<Content Include="wwwroot\lib\dist\razortools\js\jquery.ba-throttle-debounce.js" />
 		<Content Include="wwwroot\lib\dist\razortools\js\moment.js" />
 		<Content Include="wwwroot\lib\dist\razortools\js\razortools.charts.unobtrusive.js">
