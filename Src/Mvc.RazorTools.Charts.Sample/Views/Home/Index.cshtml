@@ -1,0 +1,157 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+
+	// ***
+	// *** Default values for all charts. Note the colors are taken from the
+	// *** bootstrap theme file (variables.less)
+	// ***
+	string[] colors = new string[] { "#2A9FD6", "#77B300", "#FF8800", "#CC0000", "#9933CC" };
+	int gridTextSize = 9;
+	float fillOpacity = 0.75F;
+}
+
+<div class="text-center">
+	<h1 class="display-4">Charts</h1>
+
+	<div class="row">
+		<div class="col-12 mb-5 pt-3 pb-3 card">
+			<pre class="text-left">
+@@Html.RenderChart(new RazorBarChart("monthlyPrecipitation")
+{
+	DataUrl = this.Url.Action("MonthlyPrecipitation", "Home"),
+	XKey = "month",
+	YKeys = new string[] { "avg", "rec", "actual" },
+	Labels = new string[] { "Average", "Record", "Actual" },
+	GridTextSize = gridTextSize,
+	BarColors = colors
+})
+			</pre>
+
+			@Html.RenderChart(new RazorBarChart("monthlyPrecipitation")
+			{
+				DataUrl = this.Url.Action("MonthlyPrecipitation", "Home"),
+				XKey = "month",
+				YKeys = new string[] { "avg", "rec", "actual" },
+				Labels = new string[] { "Average", "Record", "Actual" },
+				GridTextSize = gridTextSize,
+				BarColors = colors
+			})
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-12 mb-5 pt-3 pb-3 card">
+			<pre class="text-left">
+@@Html.RenderChart(new RazorLineChart("actualPrecipitation")
+{
+	DataUrl = this.Url.Action("ActualPrecipitation", "Home"),
+	XKey = "month",
+	YKeys = new string[] { "a2103", "a2012" },
+	Labels = new string[] { "2013", "2012" },
+	LineColors = colors,
+	DateFormat = new DateFormatter("MMMM"),
+	XLabels = xLabel.Month,
+	XLabelFormat = new DateFormatter("MMMM"),
+	GridTextSize = gridTextSize,
+	FillOpactiy = fillOpacity,
+	Ymax = "8",
+	ChartHeight = "350px"
+})
+			</pre>
+			@Html.RenderChart(new RazorLineChart("actualPrecipitation")
+			{
+				DataUrl = this.Url.Action("ActualPrecipitation", "Home"),
+				XKey = "month",
+				YKeys = new string[] { "a2103", "a2012" },
+				Labels = new string[] { "2013", "2012" },
+				LineColors = colors,
+				DateFormat = new DateFormatter("MMMM"),
+				XLabels = xLabel.Month,
+				XLabelFormat = new DateFormatter("MMMM"),
+				GridTextSize = gridTextSize,
+				FillOpactiy = fillOpacity,
+				Ymax = "8",
+				ChartHeight = "350px"
+			})
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-12 mb-5 pt-3 pb-3 card">
+			<pre class="text-left">
+@@Html.RenderChart(new RazorDonutChart("seasonalPrecipitation")
+{
+	DataUrl = this.Url.Action("SeasonalPrecipitation", "Home"),
+	Colors = colors,
+	Formatter = new AppendFormatter(" in"),
+	LabelColor = "#BBBBBB"
+})
+			</pre>
+			@Html.RenderChart(new RazorDonutChart("seasonalPrecipitation")
+			{
+				DataUrl = this.Url.Action("SeasonalPrecipitation", "Home"),
+				Colors = colors,
+				Formatter = new AppendFormatter(" in"),
+				LabelColor = "#BBBBBB"
+			})
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-12 mb-5 pt-3 pb-3 card">
+			<pre class="text-left">
+@@Html.RenderChart(new RazorDonutChart("fiveYearTotals")
+{
+	DataUrl = this.Url.Action("FiveYearTotals", "Home"),
+	Colors = colors,
+	Formatter = new AppendFormatter(" in"),
+	LabelColor = "#BBBBBB"
+})
+			</pre>
+			@Html.RenderChart(new RazorDonutChart("fiveYearTotals")
+			{
+				DataUrl = this.Url.Action("FiveYearTotals", "Home"),
+				Colors = colors,
+				Formatter = new AppendFormatter(" in"),
+				LabelColor = "#BBBBBB"
+			})
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-12 pt-3 pb-3 card">
+			<pre class="text-left">
+@@Html.RenderChart(new RazorAreaChart("totalPrecipitation")
+{
+	DataUrl = this.Url.Action("TotalPrecipitation", "Home"),
+	XKey = "month",
+	YKeys = new string[] { "tot" },
+	Labels = new string[] { "Year to Date" },
+	Smooth = true,
+	FillOpactiy = fillOpacity,
+	PostUnits = "in",
+	GridTextSize = gridTextSize,
+	LineColors = colors,
+	DateFormat = new DateFormatter("MMMM, YYYY"),
+	XLabels = xLabel.Month,
+	XLabelFormat = new DateFormatter("MMMM")
+})
+			</pre>
+			@Html.RenderChart(new RazorAreaChart("totalPrecipitation")
+			{
+				DataUrl = this.Url.Action("TotalPrecipitation", "Home"),
+				XKey = "month",
+				YKeys = new string[] { "tot" },
+				Labels = new string[] { "Year to Date" },
+				Smooth = true,
+				FillOpactiy = fillOpacity,
+				PostUnits = "in",
+				GridTextSize = gridTextSize,
+				LineColors = colors,
+				DateFormat = new DateFormatter("MMMM, YYYY"),
+				XLabels = xLabel.Month,
+				XLabelFormat = new DateFormatter("MMMM")
+			})
+		</div>
+	</div>
+</div>
