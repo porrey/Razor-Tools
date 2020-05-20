@@ -27,51 +27,51 @@ namespace Mvc.RazorTools.FontAwesome
 	/// <summary>
 	/// Defines the properties necessary to create a Font Awesome tag in an MVC Razor view.
 	/// </summary>
-	public partial class FontAwesomeIcon : MvcRazorObject
+	public partial class FaIcon : MvcRazorObject
 	{
 		/// <summary>
-		/// Initializes a new empty instance of a <see cref="FontAwesomeIcon"/> object. Note
+		/// Initializes a new empty instance of a <see cref="FaIcon"/> object. Note
 		/// this empty version will not display any icon until the Id property is set.
 		/// </summary>
-		public FontAwesomeIcon()
+		public FaIcon()
 		{
 			this.IncludeIdInHtml = false;
 		}
 
 		/// <summary>
-		/// Initializes a new instance of a <see cref="FontAwesomeIcon"/> object with the
+		/// Initializes a new instance of a <see cref="FaIcon"/> object with the
 		/// specified Id. The Id represents the icon name in the CSS style sheet for Font Awesome.
 		/// </summary>
 		/// <param name="iconId">The CSS style sheet name of the icon this instance represents.</param>
-		public FontAwesomeIcon(string iconId)
+		public FaIcon(string iconId)
 			: this()
 		{
 			this.IconId = iconId;
 		}
 
 		/// <summary>
-		/// Initializes a new instance of a <see cref="FontAwesomeIcon"/> object with the
+		/// Initializes a new instance of a <see cref="FaIcon"/> object with the
 		/// specified Id and Unicode value. The Unicode value is for display purposes only and it
 		/// not used by this library.
 		/// </summary>
 		/// <param name="iconId">The CSS style sheet name of the icon this instance represents.</param>
-		/// <param name="unicode">An <see cref="Int32" value representing the Unicode value of the font.</param>
-		public FontAwesomeIcon(string iconId, int unicode)
+		/// <param name="unicode">An <see cref="Int32"/> value representing the Unicode value of the font.</param>
+		public FaIcon(string iconId, int unicode)
 			: this(iconId)
 		{
 			this.Unicode = unicode;
 		}
 
-		internal FontAwesomeIcon(string iconId, int unicode, bool locked, string name, LicenseType license, IList<string> freeStyles, IList<string> proStyles)
+		internal FaIcon(string iconId, int unicode, bool locked, string name, LicenseType license, IList<string> freeStyles, IList<string> proStyles)
 		{
 			this.Id = iconId;
 			this.IconId = iconId;
 			this.Unicode = unicode;
-			this.Locked = locked;
 			this.Name = name;
 			this.License = license;
 			this.FreeStyles = freeStyles;
 			this.ProStyles = proStyles;
+			this.Locked = locked;
 		}
 
 		private string _iconId = System.String.Empty;
@@ -91,8 +91,7 @@ namespace Mvc.RazorTools.FontAwesome
 				if (!this.Locked)
 				{
 					_iconId = value;
-					this.UpdateClassAttribute(FontAwesomeStyles.Icon);
-					this.UpdateClassAttribute("Id", _iconId);
+					this.UpdateClassAttribute($"fa-{_iconId}");
 				}
 				else
 				{
@@ -177,30 +176,39 @@ namespace Mvc.RazorTools.FontAwesome
 		public bool IsAlias => false;
 
 		/// <summary>
-		/// Initializes and returns a new instance of a <see cref="FontAwesomeIcon"/> object
+		/// Initializes and returns a new instance of a <see cref="FaIcon"/> object
 		/// with the specified Id.
 		/// </summary>
 		/// <param name="iconId">The CSS style sheet name of the icon this instance represents.</param>
-		/// <returns>A newly initialized <see cref="FontAwesomeIcon"/> object.</returns>
-		public static FontAwesomeIcon Create(string iconId)
+		/// <returns>A newly initialized <see cref="FaIcon"/> object.</returns>
+		public static FaIcon Create(string iconId)
 		{
-			return new FontAwesomeIcon() { Id = iconId, IconId = iconId };
+			return new FaIcon()
+			{ 
+				Id = iconId, 
+				IconId = iconId 
+			};
 		}
 
 		/// <summary>
-		/// Initializes and returns a new instance of a <see cref="FontAwesomeIcon"/> object
+		/// Initializes and returns a new instance of a <see cref="FaIcon"/> object
 		/// with the specified Id and Unicode value.
 		/// </summary>
 		/// <param name="iconId">The CSS style sheet name of the icon this instance represents.</param>
 		/// <param name="unicode">A <see cref="Int32"/> value that represents the Unicode value of the font.</param>
-		/// <returns>A newly initialized <see cref="FontAwesomeIcon"/> object.</returns>
-		public static FontAwesomeIcon Create(string iconId, int unicode)
+		/// <returns>A newly initialized <see cref="FaIcon"/> object.</returns>
+		public static FaIcon Create(string iconId, int unicode)
 		{
-			return new FontAwesomeIcon() { Id = iconId, IconId = iconId, Unicode = unicode };
+			return new FaIcon()
+			{ 
+				Id = iconId, 
+				IconId = iconId, 
+				Unicode = unicode 
+			};
 		}
 
 		/// <summary>
-		/// Initializes and returns a new instance of a <see cref="FontAwesomeIcon"/> object.
+		/// Initializes and returns a new instance of a <see cref="FaIcon"/> object.
 		/// </summary>
 		/// <param name="iconId">The CSS style sheet name of the icon this instance represents.</param>
 		/// <param name="unicode">A <see cref="Int32"/> value that represents the Unicode value of the font.</param>
@@ -209,22 +217,32 @@ namespace Mvc.RazorTools.FontAwesome
 		/// <param name="license">Indicates the type of license required to use this icon.</param>
 		/// <param name="freeStyles">Lists the styles supported with the free license.</param>
 		/// <param name="proStyles">Lists the styles supported with the pro license.</param>
-		/// <returns>A newly initialized <see cref="FontAwesomeIcon"/> object.</returns>
-		internal static FontAwesomeIcon Create(string iconId, int unicode, bool locked, string name, LicenseType license, IList<string> freeStyles, IList<string> proStyles)
+		/// <returns>A newly initialized <see cref="FaIcon"/> object.</returns>
+		internal static FaIcon Create(string iconId, int unicode, bool locked, string name, LicenseType license, IList<string> freeStyles, IList<string> proStyles)
 		{
-			return new FontAwesomeIcon() { Id = iconId, IconId = iconId, Unicode = unicode, Locked = locked, Name = name, License = license, FreeStyles = freeStyles, ProStyles = proStyles };
+			return new FaIcon()
+			{
+				Id = iconId,
+				IconId = iconId,
+				Unicode = unicode,
+				Locked = locked,
+				Name = name,
+				License = license,
+				FreeStyles = freeStyles,
+				ProStyles = proStyles
+			};
 		}
 
 		/// <summary>
-		/// Initializes and returns a new instance of a <see cref="FontAwesomeIcon"/> object
+		/// Initializes and returns a new instance of a <see cref="FaIcon"/> object
 		/// with the specified Id and custom class attributes.
 		/// </summary>
 		/// <param name="iconId">The CSS style sheet name of the icon this instance represents.</param>
 		/// <param name="classAttributes">A list of custom class attributes for this instance.</param>
-		/// <returns>A newly initialized <see cref="FontAwesomeIcon"/> object.</returns>
-		public static FontAwesomeIcon Create(string iconId, IDictionary<string, string> classAttributes)
+		/// <returns>A newly initialized <see cref="FaIcon"/> object.</returns>
+		public static FaIcon Create(string iconId, IDictionary<string, string> classAttributes)
 		{
-			FontAwesomeIcon returnValue = new FontAwesomeIcon(iconId);
+			FaIcon returnValue = new FaIcon(iconId);
 
 			returnValue.MergeClassAttributes(classAttributes);
 
@@ -232,16 +250,16 @@ namespace Mvc.RazorTools.FontAwesome
 		}
 
 		/// <summary>
-		/// Initializes and returns a new instance of a <see cref="FontAwesomeIcon"/> object
+		/// Initializes and returns a new instance of a <see cref="FaIcon"/> object
 		/// with the specified Id, Unicode value and custom class attributes.
 		/// </summary>
 		/// <param name="iconId">The CSS style sheet name of the icon this instance represents.</param>
 		/// <param name="unicode">A <see cref="Int32"/> value that represents the Unicode value of the font.</param>
 		/// <param name="classAttributes">A list of custom class attributes for this instance.</param>
-		/// <returns>A newly initialized <see cref="FontAwesomeIcon"/> object.</returns>
-		public static FontAwesomeIcon Create(string iconId, int unicode, IDictionary<string, string> classAttributes)
+		/// <returns>A newly initialized <see cref="FaIcon"/> object.</returns>
+		public static FaIcon Create(string iconId, int unicode, IDictionary<string, string> classAttributes)
 		{
-			FontAwesomeIcon returnValue = new FontAwesomeIcon(iconId, unicode);
+			FaIcon returnValue = new FaIcon(iconId, unicode);
 
 			returnValue.MergeClassAttributes(classAttributes);
 
@@ -271,24 +289,41 @@ namespace Mvc.RazorTools.FontAwesome
 		//	return item.Html.ToString();
 		//}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		protected override string OnInitializeHtmlTag()
 		{
 			return "i";
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		protected override object OnClone()
 		{
-			FontAwesomeIcon returnValue = FontAwesomeIcon.Create(this.IconId, this.Unicode);
+			FaIcon returnValue = FaIcon.Create(this.IconId, this.Unicode);
 			returnValue.Locked = false;
 			returnValue.MergeClassAttributes(this.ClassAttributes);
 			return returnValue;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		protected override string OnInitializeName()
 		{
 			return this.IconId;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
 		protected string ConvertId(string id)
 		{
 			string returnValue = String.Empty;

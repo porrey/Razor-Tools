@@ -24,5 +24,22 @@ namespace Mvc.RazorTools.FontAwesome.CodeDesigner
 		{
 			return $"{this.Id}, Class Name = {this.ClassName}, License = {this.License}";
 		}
+
+		public override bool Equals(object obj)
+		{
+			bool returnValue = false;
+
+			if (obj is Font font)
+			{
+				returnValue = (font.Id == this.Id);
+			}
+
+			return returnValue;
+		}
+
+		public override int GetHashCode()
+		{
+			return HashCode.Combine(this.Id);
+		}
 	}
 }

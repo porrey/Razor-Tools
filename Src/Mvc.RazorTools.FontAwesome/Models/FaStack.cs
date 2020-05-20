@@ -8,16 +8,16 @@ namespace Mvc.RazorTools.FontAwesome
 	/// more affects or more icons. This class provides a mechanism to
 	/// stack icons using a list.
 	/// </summary>
-	public class FontAwesomeStack : MvcRazorObject
+	public class FaStack : MvcRazorObject
 	{
 		/// <summary>
 		/// Initializes a new instance of the Mvc.RazorTools.FontAwesome.FontAwesomeStack
 		/// object.
 		/// </summary>
-		public FontAwesomeStack()
+		public FaStack()
 		{
 			this.IncludeIdInHtml = false;
-			this.AddClassAttribute(FontAwesomeStyles.Stack);
+			this.AddClassAttribute(FaStackAttributes.Stack.ClassAttribute);
 		}
 
 		/// <summary>
@@ -25,7 +25,7 @@ namespace Mvc.RazorTools.FontAwesome
 		/// object the specified top icon.
 		/// </summary>
 		/// <param name="topItem">The top icon in the stack.</param>
-		public FontAwesomeStack(FontAwesomeIcon topItem)
+		public FaStack(FaIcon topItem)
 			: this()
 		{
 			this.Items.Add(topItem);
@@ -37,7 +37,7 @@ namespace Mvc.RazorTools.FontAwesome
 		/// </summary>
 		/// <param name="topItem">The top icon in the stack.</param>
 		/// <param name="classAttributes">The custom class attributes applied to the stack HTML tag (not the icons).</param>
-		public FontAwesomeStack(FontAwesomeIcon topItem, IDictionary<string,string> classAttributes)
+		public FaStack(FaIcon topItem, IDictionary<string,string> classAttributes)
 			: this()
 		{
 			this.Items.Add(topItem);
@@ -50,7 +50,7 @@ namespace Mvc.RazorTools.FontAwesome
 		/// </summary>
 		/// <param name="topItem">The top icon in the stack.</param>
 		/// <param name="bottomItem">The bottom icon in the stack.</param>
-		public FontAwesomeStack(FontAwesomeIcon topItem, FontAwesomeIcon bottomItem)
+		public FaStack(FaIcon topItem, FaIcon bottomItem)
 			: this()
 		{
 			this.Items.Add(topItem);
@@ -64,7 +64,7 @@ namespace Mvc.RazorTools.FontAwesome
 		/// <param name="topItem">The top icon in the stack.</param>
 		/// <param name="bottomItem">The bottom icon in the stack.</param>
 		/// <param name="classAttributes">The custom class attributes applied to the stack HTML tag (not the icons).</param>
-		public FontAwesomeStack(FontAwesomeIcon topItem, FontAwesomeIcon bottomItem, IDictionary<string, string> classAttributes)
+		public FaStack(FaIcon topItem, FaIcon bottomItem, IDictionary<string, string> classAttributes)
 			: this()
 		{
 			this.Items.Add(topItem);
@@ -79,7 +79,7 @@ namespace Mvc.RazorTools.FontAwesome
 		/// <param name="topItem">The top icon in the stack.</param>
 		/// <param name="middleItem">The middle icon in the stack.</param>
 		/// <param name="bottomItem">The bottom icon in the stack.</param>
-		public FontAwesomeStack(FontAwesomeIcon topItem, FontAwesomeIcon middleItem, FontAwesomeIcon bottomItem)
+		public FaStack(FaIcon topItem, FaIcon middleItem, FaIcon bottomItem)
 			: this()
 		{
 			this.Items.Add(topItem);
@@ -95,7 +95,7 @@ namespace Mvc.RazorTools.FontAwesome
 		/// <param name="middleItem">The middle icon in the stack.</param>
 		/// <param name="bottomItem">The bottom icon in the stack.</param>
 		/// <param name="classAttributes">The custom class attributes applied to the stack HTML tag (not the icons).</param>
-		public FontAwesomeStack(FontAwesomeIcon topItem, FontAwesomeIcon middleItem, FontAwesomeIcon bottomItem, IDictionary<string, string> classAttributes)
+		public FaStack(FaIcon topItem, FaIcon middleItem, FaIcon bottomItem, IDictionary<string, string> classAttributes)
 			: this()
 		{
 			this.Items.Add(topItem);
@@ -110,10 +110,10 @@ namespace Mvc.RazorTools.FontAwesome
 		/// on the top.
 		/// </summary>
 		/// <param name="items">A list of icons to be stacked.</param>
-		public FontAwesomeStack(IEnumerable<FontAwesomeIcon> items)
+		public FaStack(IEnumerable<FaIcon> items)
 			: this()
 		{
-			foreach (FontAwesomeIcon item in items)
+			foreach (FaIcon item in items)
 			{
 				this.Items.Add(item);
 			}
@@ -126,10 +126,10 @@ namespace Mvc.RazorTools.FontAwesome
 		/// </summary>
 		/// <param name="items">The list containing the stack of icons.</param>
 		/// <param name="classAttributes">The custom class attributes applied to the stack HTML tag (not the icons).</param>
-		public FontAwesomeStack(IEnumerable<FontAwesomeIcon> items, IDictionary<string, string> classAttributes)
+		public FaStack(IEnumerable<FaIcon> items, IDictionary<string, string> classAttributes)
 			: this()
 		{
-			foreach (FontAwesomeIcon item in items)
+			foreach (FaIcon item in items)
 			{
 				this.Items.Add(item);
 			}
@@ -144,10 +144,10 @@ namespace Mvc.RazorTools.FontAwesome
 		/// </summary>
 		/// <param name="items">The list containing the stack of icons.</param>
 		/// <param name="classAttributes">The custom class attributes applied to the stack HTML tag (not the icons).</param>
-		public FontAwesomeStack(IEnumerable<FontAwesomeIcon> items, IEnumerable<string> classAttributes)
+		public FaStack(IEnumerable<FaIcon> items, IEnumerable<string> classAttributes)
 			: this()
 		{
-			foreach (FontAwesomeIcon item in items)
+			foreach (FaIcon item in items)
 			{
 				this.Items.Add(item);
 			}
@@ -159,37 +159,41 @@ namespace Mvc.RazorTools.FontAwesome
 		/// Creates a new instance of Mvc.RazorTools.FontAwesome.FontAwesomeStack with
 		/// the specified items.
 		/// </summary>
-		/// <param name="items">A List of <see cref="FontAwesomeIcon"/> items.</param>
+		/// <param name="items">A List of <see cref="FaIcon"/> items.</param>
 		/// <returns>A new Mvc.RazorTools.FontAwesome.FontAwesomeStack instance.</returns>
-		public static FontAwesomeStack Create(params FontAwesomeIcon[] items)
+		public static FaStack Create(params FaIcon[] items)
 		{
-			return new FontAwesomeStack(items);
+			return new FaStack(items);
 		}
 
 		/// <summary>
 		/// Gets the list of stacked icons.
 		/// </summary>
-		public List<FontAwesomeIcon> Items { get; } = new List<FontAwesomeIcon>();
+		public List<FaIcon> Items { get; } = new List<FaIcon>();
 
-		protected override void OnGetInnerHtml(TagBuilder html)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="tagBuilder"></param>
+		protected override void OnGetInnerHtml(TagBuilder tagBuilder)
 		{
 			// ***
 			// *** Build text that will place each icon between the tags
 			// ***
-			foreach (FontAwesomeIcon item in this.Items)
+			foreach (FaIcon item in this.Items)
 			{
-				FontAwesomeIcon icon = (FontAwesomeIcon)item.Clone();
+				FaIcon icon = (FaIcon)item.Clone();
 
 				// ***
 				// *** The icon must have either the Stack1x or Stack2x attribute set
 				// ***
-				if (!icon.ClassAttributes.ContainsKey(FontAwesomeStyles.Stack1x) &&
-					!icon.ClassAttributes.ContainsKey(FontAwesomeStyles.Stack2x))
+				if (!icon.ClassAttributes.ContainsKey(FaStackAttributes.Stack1x.ClassAttribute) &&
+					!icon.ClassAttributes.ContainsKey(FaStackAttributes.Stack2x.ClassAttribute))
 				{
 					// ***
 					// *** Default to Stack1x
 					// ***
-					icon.AddClassAttribute(FontAwesomeStyles.Stack1x);
+					icon.AddClassAttribute(FaStackAttributes.Stack1x.ClassAttribute);
 				}
 
 				// ***
@@ -200,18 +204,26 @@ namespace Mvc.RazorTools.FontAwesome
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		protected override string OnInitializeHtmlTag()
 		{
 			return "span";
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		protected override object OnClone()
 		{
-			FontAwesomeStack returnValue = new FontAwesomeStack();
+			FaStack returnValue = new FaStack();
 
-			foreach (FontAwesomeIcon item in this.Items)
+			foreach (FaIcon item in this.Items)
 			{
-				returnValue.Items.Add((FontAwesomeIcon)item.Clone());
+				returnValue.Items.Add((FaIcon)item.Clone());
 			}
 
 			// ***

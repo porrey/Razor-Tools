@@ -23,12 +23,8 @@
 		<PackageIcon>Mvc.RazorTools.Charts.png</PackageIcon>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	<PropertyGroup>
 		<DocumentationFile>Mvc.RazorTools.Charts.xml</DocumentationFile>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-	  <DocumentationFile>Mvc.RazorTools.Charts.xml</DocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
