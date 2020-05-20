@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.RazorTools.Charts", "Mv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.RazorTools.Charts.Sample", "Mvc.RazorTools.Charts.Sample\Mvc.RazorTools.Charts.Sample.csproj", "{FFF43849-A427-4DA5-B2AB-5E6A47593315}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.RazorTools.FontAwesome", "Mvc.RazorTools.FontAwesome\Mvc.RazorTools.FontAwesome.csproj", "{4F4BB0BE-B94D-46EA-8951-FCBD20A8952B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.RazorTools.FontAwesome.CodeDesigner", "Mvc.RazorTools.FontAwesome.CodeDesigner\Mvc.RazorTools.FontAwesome.CodeDesigner.csproj", "{13F415AB-1390-4A8E-80C3-7DF9BF581599}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{FFF43849-A427-4DA5-B2AB-5E6A47593315}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFF43849-A427-4DA5-B2AB-5E6A47593315}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFF43849-A427-4DA5-B2AB-5E6A47593315}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F4BB0BE-B94D-46EA-8951-FCBD20A8952B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F4BB0BE-B94D-46EA-8951-FCBD20A8952B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F4BB0BE-B94D-46EA-8951-FCBD20A8952B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F4BB0BE-B94D-46EA-8951-FCBD20A8952B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13F415AB-1390-4A8E-80C3-7DF9BF581599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13F415AB-1390-4A8E-80C3-7DF9BF581599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13F415AB-1390-4A8E-80C3-7DF9BF581599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13F415AB-1390-4A8E-80C3-7DF9BF581599}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
