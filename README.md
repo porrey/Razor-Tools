@@ -38,6 +38,3 @@ To install use the .NET CLI
 or Package manager
 
 	PM>Install-Package Mvc.RazorTools.FontAwesome -Version 5.0.0
-
-
-
