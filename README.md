@@ -1,6 +1,6 @@
-# Razor-Tools
+# RazorTools
 The Razor Tools library is designed to wrap JavaScript and JQuery objects into C# methods. Objects can be easily added to Razor views with basic C# code. All objects are created and initialized using unobtrusive JavaScript techniques and fluent API. This allows complex objects to be created within your views with simple C# statements.
-## Mvc.RazorTools.Base
+## Base Object
 ![](https://github.com/porrey/Razor-Tools/raw/master/Images/Mvc.RazorTools.Base-64.png)
 
 This library provides the base class for all RazorTools objects. It provides the basic code for building tags and embedding them in Razor views. Al of the RazorTools packages will be based on this library. Generally, you will not add this library directly to your project.
@@ -20,7 +20,7 @@ or Package manager
 ![](https://github.com/porrey/Razor-Tools/raw/master/Images/Mvc.RazorTools.FontAwesome-64.png)
 
 ### Overview
-Use Font Awesome icon in your views with a fluent API. referenc your FOnt Awesome package or download and install the files locally. For more information see the documentation in the repo Wiki pages: [documentation](https://github.com/porrey/Razor-Tools/wiki/RazorTools-Font-Awesome)
+Use Font Awesome icon in your views with a fluent API. referenc your Font Awesome package or download and install the files locally. For more information see the documentation in the repo Wiki pages: [documentation](https://github.com/porrey/Razor-Tools/wiki/RazorTools-Font-Awesome)
 ### Install
 To install use the .NET CLI
 
