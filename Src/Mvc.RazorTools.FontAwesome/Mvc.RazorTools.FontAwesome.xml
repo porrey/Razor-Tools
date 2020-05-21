@@ -10,14 +10,21 @@
             object to be used within the Razor view.
             </summary>
         </member>
-        <member name="M:Mvc.RazorTools.FontAwesome.FaIconExtensions.WithStyle(Mvc.RazorTools.FontAwesome.FaIcon,Mvc.RazorTools.FontAwesome.FaqStyle)">
+        <member name="M:Mvc.RazorTools.FontAwesome.FaIconExtensions.WithStyle(Mvc.RazorTools.FontAwesome.FaIcon,Mvc.RazorTools.FontAwesome.FaStyle)">
             <summary>
             Applies a style to the icon.
             </summary>
             <param name="icon">The icon the style is applied.</param>
-            <param name="style">The <see cref="T:Mvc.RazorTools.FontAwesome.FaqStyle"/> that will be
+            <param name="style">The <see cref="T:Mvc.RazorTools.FontAwesome.FaStyle"/> that will be
             applied to the icon.</param>
             <returns>The updated icon.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.FontAwesome.FaIconExtensions.AsBrand(Mvc.RazorTools.FontAwesome.FaIcon)">
+            <summary>
+            
+            </summary>
+            <param name="icon"></param>
+            <returns></returns>
         </member>
         <member name="M:Mvc.RazorTools.FontAwesome.FaIconExtensions.WithSize(Mvc.RazorTools.FontAwesome.FaIcon,Mvc.RazorTools.FontAwesome.FaSize)">
             <summary>
@@ -27,20 +34,29 @@
             <param name="size">An <see cref="T:Mvc.RazorTools.FontAwesome.FaSize"/> to increase or decrease the default size.</param>
             <returns></returns>
         </member>
-        <member name="M:Mvc.RazorTools.FontAwesome.FaIconExtensions.WithAttribute(Mvc.RazorTools.FontAwesome.FaIcon,Mvc.RazorTools.FontAwesome.FaAttribute)">
+        <member name="M:Mvc.RazorTools.FontAwesome.FaIconExtensions.WithOption(Mvc.RazorTools.FontAwesome.FaIcon,Mvc.RazorTools.FontAwesome.FaOption)">
             <summary>
             
             </summary>
             <param name="icon"></param>
-            <param name="attribute"></param>
+            <param name="option"></param>
             <returns></returns>
         </member>
-        <member name="M:Mvc.RazorTools.FontAwesome.FaIconExtensions.WithClassAttribute(Mvc.RazorTools.FontAwesome.FaIcon,System.String)">
+        <member name="M:Mvc.RazorTools.FontAwesome.FaIconExtensions.WithClass(Mvc.RazorTools.FontAwesome.FaIcon,System.String)">
             <summary>
             Add any custom class attribute to the icon.
             </summary>
             <param name="icon"></param>
             <param name="classAttribute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mvc.RazorTools.FontAwesome.FaIconExtensions.WithCssStyle(Mvc.RazorTools.FontAwesome.FaIcon,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="icon"></param>
+            <param name="name"></param>
+            <param name="value"></param>
             <returns></returns>
         </member>
         <member name="M:Mvc.RazorTools.FontAwesome.FaIconExtensions.WithTransform(Mvc.RazorTools.FontAwesome.FaIcon,Mvc.RazorTools.FontAwesome.FaTransform)">
@@ -59,7 +75,7 @@
             <param name="attribute"></param>
             <returns></returns>
         </member>
-        <member name="M:Mvc.RazorTools.FontAwesome.FaIconExtensions.GetCssOnly(Mvc.RazorTools.FontAwesome.FaIcon)">
+        <member name="M:Mvc.RazorTools.FontAwesome.FaIconExtensions.CssOnly(Mvc.RazorTools.FontAwesome.FaIcon)">
             <summary>
             Gets the class attribute value only for the given FontAwesomeIcon instance.
             </summary>
@@ -72,7 +88,7 @@
             Extensions methods for Mvc.RazorTools.FontAwesome.FontAwesomeStackHtml
             </summary>
         </member>
-        <member name="M:Mvc.RazorTools.FontAwesome.FaStackBlockExtensions.BeginFontAaStack(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper)">
+        <member name="M:Mvc.RazorTools.FontAwesome.FaStackBlockExtensions.BeginFaStack(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper)">
             <summary>
             Creates an instance of <see cref="T:Mvc.RazorTools.FontAwesome.FaStackBlock"/> with the
             specified <see cref="T:Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper"/> object. Intended to be wrapped in a
@@ -91,6 +107,14 @@
             <param name="attribute">A <see cref="T:Mvc.RazorTools.FontAwesome.FaStackAttribute"/> attribute to apply.</param>
             <returns>An instance of <see cref="T:Mvc.RazorTools.FontAwesome.FaStackBlock"/>.</returns>
         </member>
+        <member name="M:Mvc.RazorTools.FontAwesome.FaStackBlockExtensions.BeginFaStack(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Mvc.RazorTools.FontAwesome.FaAttribute[])">
+            <summary>
+            
+            </summary>
+            <param name="html"></param>
+            <param name="attributes"></param>
+            <returns></returns>
+        </member>
         <member name="T:Mvc.RazorTools.FontAwesome.FaStackExtensions">
             <summary>
             Provides a set of extension methods for a Mvc.RazorTools.FontAwesome.FontAwesomeStack
@@ -107,7 +131,7 @@
             <param name="items">The class attributes to be added to the existing instance.</param>
             <returns>A new modified instance of the Mvc.RazorTools.FontAwesome.FontAwesomeStack object.</returns>
         </member>
-        <member name="M:Mvc.RazorTools.FontAwesome.FaStackExtensions.WithStyle(Mvc.RazorTools.FontAwesome.FaStack,Mvc.RazorTools.FontAwesome.FaqStyle)">
+        <member name="M:Mvc.RazorTools.FontAwesome.FaStackExtensions.WithStyle(Mvc.RazorTools.FontAwesome.FaStack,Mvc.RazorTools.FontAwesome.FaStyle)">
             <summary>
             
             </summary>
@@ -129,51 +153,12 @@
             methods are referenced in the razor view using the @Html keyword.
             </summary>
         </member>
-        <member name="M:Mvc.RazorTools.FontAwesome.HtmlExtensions.FontAwesome(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Mvc.RazorTools.FontAwesome.FaIcon,System.String[])">
+        <member name="M:Mvc.RazorTools.FontAwesome.HtmlExtensions.Fa(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Mvc.RazorTools.FontAwesome.FaIcon)">
             <summary>
-            Inserts the specified FontAwesomeIcon into the view.
+            
             </summary>
-            <param name="html">The view's current <see cref="T:Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper"/> instance.</param>
-            <param name="item">The icon to be displayed. This can be a custom instance or one of the
-            predefined icons in <see cref="T:Mvc.RazorTools.FontAwesome.FaIcons"/> (for example, to display the star icon use
-            <see cref="F:Mvc.RazorTools.FontAwesome.FaIcons.Star"/>).</param>
-            <param name="classAttributes">The custom attributes to be added to the icon.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Mvc.RazorTools.FontAwesome.HtmlExtensions.FontAwesome(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.String,System.String[])">
-            <summary>
-            Inserts the specified <see cref="T:Mvc.RazorTools.FontAwesome.FaIcon"/> into the view.
-            </summary>
-            <param name="html">The view's current <see cref="T:Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper"/> instance.</param>
-            <param name="item">The CSS class name of the icon to be displayed (for example, to display the star icon
-            use fas-star).</param>
-            <param name="classAttributes">The custom attributes to be added to the icon.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Mvc.RazorTools.FontAwesome.HtmlExtensions.FontAwesomeStack(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Mvc.RazorTools.FontAwesome.FaStack,System.String[])">
-            <summary>
-            Insert the specified icon stack into the view.
-            </summary>
-            <param name="html">The view's current <see cref="T:Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper"/> instance.</param>
-            <param name="stack">The stack instance to display.</param>
-            <param name="classAttributes">The custom attributes to be added to the stack (not the icons).</param>
-            <returns></returns>
-        </member>
-        <member name="M:Mvc.RazorTools.FontAwesome.HtmlExtensions.FontAwesomeStack(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.Collections.Generic.IEnumerable{Mvc.RazorTools.FontAwesome.FaIcon},System.String[])">
-            <summary>
-            Insert the specified list of icons as a stack into the view.
-            </summary>
-            <param name="html">The view's current <see cref="T:Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper"/> instance.</param>
-            <param name="items">The list of icons to stack.</param>
-            <param name="classAttributes">The custom attributes to be added to the stack (not the icons).</param>
-            <returns></returns>
-        </member>
-        <member name="M:Mvc.RazorTools.FontAwesome.HtmlExtensions.FontAwesomeStack(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Mvc.RazorTools.FontAwesome.FaIcon[])">
-            <summary>
-            Insert the specified list of icons as a stack into the view.
-            </summary>
-            <param name="html">The view's current <see cref="T:Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper"/> instance.</param>
-            <param name="items">The list of icons to stack.</param>
+            <param name="html"></param>
+            <param name="item"></param>
             <returns></returns>
         </member>
         <member name="T:Mvc.RazorTools.FontAwesome.FontAwesomeException">
@@ -234,54 +219,6 @@
         <member name="P:Mvc.RazorTools.FontAwesome.FaAttribute.ClassAttribute">
             <summary>
             Gets/sets the class attribute used in the HTML tag.
-            </summary>
-        </member>
-        <member name="T:Mvc.RazorTools.FontAwesome.FaAttributes">
-            <summary>
-            Contains a set of predefined class attributes for the Font Awesome
-            icons. The items are defined on the Font Awesome web site and are
-            intended to modify the existing icons in some way. For example, some
-            attributes will rotate the icon, spin it or alter the default size.
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.FontAwesome.FaAttributes.Border">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.FontAwesome.FaAttributes.FixedWidth">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.FontAwesome.FaAttributes.Inverse">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.FontAwesome.FaAttributes.PullRight">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.FontAwesome.FaAttributes.PullLeft">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.FontAwesome.FaAttributes.SwapOpacity">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.FontAwesome.FaAttributes.Ul">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.FontAwesome.FaAttributes.Li">
-            <summary>
-            
             </summary>
         </member>
         <member name="T:Mvc.RazorTools.FontAwesome.LicenseType">
@@ -11919,22 +11856,60 @@
             Gets the version of Font Awesome that this library is based on.
             </summary>
         </member>
-        <member name="P:Mvc.RazorTools.FontAwesome.FaIconSet.IconCount">
-            <summary>
-            Gets the number of icons defined in the current version of Font Awesome. Note this number
-            will be greater than the count shown on the FontAwesome web site due to the icons that are
-            aliased.
-            </summary>
-        </member>
-        <member name="P:Mvc.RazorTools.FontAwesome.FaIconSet.AllItems">
+        <member name="P:Mvc.RazorTools.FontAwesome.FaIconSet.All">
             <summary>
             Gets a Dictionary of predefined icons by class name. This dictionary
             allows querying of the icons using LINQ.
             </summary>
         </member>
-        <member name="T:Mvc.RazorTools.FontAwesome.FaqStyle">
+        <member name="T:Mvc.RazorTools.FontAwesome.FaOption">
             <summary>
-            Represents a style to apply to a FontAwesome icon.
+            Represents an option to apply to a FontAwesome icon.
+            </summary>
+        </member>
+        <member name="T:Mvc.RazorTools.FontAwesome.FaOptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.FontAwesome.FaOptions.Border">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.FontAwesome.FaOptions.FixedWidth">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.FontAwesome.FaOptions.Inverse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.FontAwesome.FaOptions.PullRight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.FontAwesome.FaOptions.PullLeft">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.FontAwesome.FaOptions.SwapOpacity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.FontAwesome.FaOptions.Ul">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.FontAwesome.FaOptions.Li">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:Mvc.RazorTools.FontAwesome.FaSize">
@@ -12190,6 +12165,11 @@
             written to the <see cref="T:Microsoft.AspNetCore.Mvc.Rendering.ViewContext"/>.
             </summary>
         </member>
+        <member name="T:Mvc.RazorTools.FontAwesome.FaStyle">
+            <summary>
+            Represents a style to apply to a FontAwesome icon.
+            </summary>
+        </member>
         <member name="T:Mvc.RazorTools.FontAwesome.FaStyles">
             <summary>
             Defines the possible styles to use with a FontAwesome icon.
@@ -12222,10 +12202,7 @@
         </member>
         <member name="T:Mvc.RazorTools.FontAwesome.FaTransforms">
             <summary>
-            Contains a set of predefined class attributes for the Font Awesome
-            icons. The items are defined on the Font Awesome web site and are
-            intended to modify the existing icons in some way. For example, some
-            attributes will rotate the icon, spin it or alter the default size.
+            
             </summary>
         </member>
         <member name="F:Mvc.RazorTools.FontAwesome.FaTransforms.Spin">

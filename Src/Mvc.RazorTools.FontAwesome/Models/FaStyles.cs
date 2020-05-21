@@ -8,7 +8,7 @@
 		/// <summary>
 		/// The icon is to be displayed with the Solid style.
 		/// </summary>
-		public static FaqStyle Solid = new FaqStyle()
+		public static FaStyle Solid = new FaStyle()
 		{
 			Name = "Solid",
 			ClassAttribute = "fas"
@@ -17,7 +17,7 @@
 		/// <summary>
 		/// The icon is to be displayed with the Regular style.
 		/// </summary>
-		public static FaqStyle Regular = new FaqStyle()
+		public static FaStyle Regular = new FaStyle()
 		{
 			Name = "Regular",
 			ClassAttribute = "far"
@@ -26,7 +26,7 @@
 		/// <summary>
 		/// The icon is to be displayed with the Light style.
 		/// </summary>
-		public static FaqStyle Light = new FaqStyle()
+		public static FaStyle Light = new FaStyle()
 		{
 			Name = "Light",
 			ClassAttribute = "fal"
@@ -35,7 +35,7 @@
 		/// <summary>
 		/// The icon is to be displayed with the Duotone style.
 		/// </summary>
-		public static FaqStyle Duotone = new FaqStyle()
+		public static FaStyle Duotone = new FaStyle()
 		{
 			Name = "Duotone",
 			ClassAttribute = "fad"

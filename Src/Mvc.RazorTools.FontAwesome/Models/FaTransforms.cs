@@ -1,10 +1,7 @@
 ﻿namespace Mvc.RazorTools.FontAwesome
 {
 	/// <summary>
-	/// Contains a set of predefined class attributes for the Font Awesome
-	/// icons. The items are defined on the Font Awesome web site and are
-	/// intended to modify the existing icons in some way. For example, some
-	/// attributes will rotate the icon, spin it or alter the default size.
+	/// 
 	/// </summary>
 	public static class FaTransforms
 	{

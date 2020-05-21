@@ -266,29 +266,6 @@ namespace Mvc.RazorTools.FontAwesome
 			return returnValue;
 		}
 
-		///// <summary>
-		///// Converts this instance of the <see cref="FontAwesomeIcon"/>
-		///// to a System.Web.Mvc.MvcHtmlString object containing the HTML markup 
-		///// for the icon.
-		///// </summary>
-		///// <param name="item">The <see cref="FontAwesomeIcon"/> instance to be converted.</param>
-		///// <returns>A System.Web.Mvc.MvcHtmlString object containing the HTML markup for this Font Awesome icon.</returns>
-		//public static implicit operator IHtmlContent(FontAwesomeIcon item)
-		//{
-		//	return item.Html;
-		//}
-
-		///// <summary>
-		///// Converts this instance of the <see cref="FontAwesomeIcon"/>
-		///// to an System.String object containing the HTML markup for the icon.
-		///// </summary>
-		///// <param name="item">The <see cref="FontAwesomeIcon"/> instance to be converted.</param>
-		///// <returns>A System.String object containing the HTML markup for this Font Awesome icon.</returns>
-		//public static implicit operator string(FontAwesomeIcon item)
-		//{
-		//	return item.Html.ToString();
-		//}
-
 		/// <summary>
 		/// 
 		/// </summary>

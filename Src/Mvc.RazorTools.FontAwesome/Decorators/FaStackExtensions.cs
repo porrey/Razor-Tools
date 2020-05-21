@@ -37,7 +37,7 @@ namespace Mvc.RazorTools.FontAwesome
 		/// <param name="stack"></param>
 		/// <param name="style"></param>
 		/// <returns></returns>
-		public static FaStack WithStyle([NotNull]this FaStack stack, [NotNull]FaqStyle style)
+		public static FaStack WithStyle([NotNull]this FaStack stack, [NotNull]FaStyle style)
 		{
 			return stack.Customize(style.ClassAttribute);
 		}

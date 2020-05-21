@@ -15,7 +15,7 @@ namespace Mvc.RazorTools.FontAwesome
 		/// </summary>
 		/// <param name="html">An instance of <see cref="IHtmlHelper"/>.</param>
 		/// <returns>An instance of <see cref="FaStackBlock"/>.</returns>
-		public static FaStackBlock BeginFontAaStack([NotNull]this IHtmlHelper html)
+		public static FaStackBlock BeginFaStack([NotNull]this IHtmlHelper html)
 		{
 			return new FaStackBlock(html);
 		}
@@ -31,6 +31,24 @@ namespace Mvc.RazorTools.FontAwesome
 		public static FaStackBlock BeginFaStack([NotNull]this IHtmlHelper html, [NotNull]FaAttribute attribute)
 		{
 			return new FaStackBlock(html, attribute.ClassAttribute);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="html"></param>
+		/// <param name="attributes"></param>
+		/// <returns></returns>
+		public static FaStackBlock BeginFaStack([NotNull]this IHtmlHelper html, [NotNull]params FaAttribute[] attributes)
+		{
+			FaStackBlock returnValue = new FaStackBlock(html);
+
+			foreach (FaAttribute attribute in attributes)
+			{
+				
+			}
+
+			return returnValue;
 		}
 	}
 }

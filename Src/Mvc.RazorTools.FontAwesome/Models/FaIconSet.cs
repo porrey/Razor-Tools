@@ -14,17 +14,10 @@ namespace Mvc.RazorTools.FontAwesome
 		public static string Version => "5.13.0";
 
 		/// <summary>
-		/// Gets the number of icons defined in the current version of Font Awesome. Note this number
-		/// will be greater than the count shown on the FontAwesome web site due to the icons that are
-		/// aliased.
-		/// </summary>
-		public static int IconCount => AllItems.Count();
-
-		/// <summary>
 		/// Gets a Dictionary of predefined icons by class name. This dictionary
 		/// allows querying of the icons using LINQ.
 		/// </summary>
-		public static Dictionary<string, FaIcon> AllItems { get; } = new Dictionary<string, FaIcon>
+		public static Dictionary<string, FaIcon> All { get; } = new Dictionary<string, FaIcon>
 		{
 			{ FaIcons.X500px.Id, FaIcons.X500px },
 			{ FaIcons.Abacus.Id, FaIcons.Abacus },

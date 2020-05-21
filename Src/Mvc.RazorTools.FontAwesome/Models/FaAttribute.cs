@@ -3,7 +3,7 @@
 	/// <summary>
 	/// Represents a size to apply to a FontAwesome icon.
 	/// </summary>
-	public class FaAttribute
+	public abstract class FaAttribute
 	{
 		/// <summary>
 		/// Gets/sets the name of the size.

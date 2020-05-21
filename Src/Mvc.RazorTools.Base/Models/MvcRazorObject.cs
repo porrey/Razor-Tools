@@ -194,15 +194,6 @@ namespace Mvc.RazorTools
 			}
 		}
 
-		///// <summary>
-		///// Returns a string that contains the HTML of the current object.
-		///// </summary>
-		///// <returns>A string that contains the HTML of the current object.</returns>
-		//public override string ToString()
-		//{
-		//	return (string)this;
-		//}
-
 		/// <summary>
 		/// Returns a deep copy of this instance.
 		/// </summary>
@@ -425,31 +416,6 @@ namespace Mvc.RazorTools
 			}
 		}
 		#endregion
-
-		//#region Static Members
-		///// <summary>
-		///// Converts this instance of the <see cref="MvcRazorObject"></see>
-		///// to an <see cref="IHtmlContent"/> object containing the HTML markup 
-		///// for the icon.
-		///// </summary>
-		///// <param name="item">The <see cref="MvcRazorObject"></see> instance to be converted.</param>
-		///// <returns>A <see cref="IHtmlContent"/> object containing the HTML markup for this object.</returns>
-		//public static implicit operator IHtmlContent(MvcRazorObject item)
-		//{
-		//	return item.Html;
-		//}
-
-		///// <summary>
-		///// Converts this instance of the <see cref="MvcRazorObject"/>
-		///// to an <see cref="String"/> object containing the HTML markup for the icon.
-		///// </summary>
-		///// <param name="item">The <see cref="MvcRazorObject"/> instance to be converted.</param>
-		///// <returns>A <see cref="String"/> object containing the HTML markup for this object.</returns>
-		//public static implicit operator string(MvcRazorObject item)
-		//{
-		//	return item.Html.ToString();
-		//}
-		//#endregion
 
 		#region Protected Members
 		/// <summary>
