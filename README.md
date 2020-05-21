@@ -1,5 +1,5 @@
 # Razor-Tools
-The Razor Tools library is designed to wrap JavaScript and JQuery obejcts into C# methods. Objects can be easily added to Razor views with basic C# code. All objects are created and initialized using unobtrusive javascript techniques.
+The Razor Tools library is designed to wrap JavaScript and JQuery obejcts into C# methods. Objects can be easily added to Razor views with basic C# code. All objects are created and initialized using unobtrusive javascript techniques and fluent API.
 
 ## Mvc.RazorTools.Base
 This librry provides the base class for all RazorTools objects. It provides the baic code for builing tags and ebmedding them in Razor views.
