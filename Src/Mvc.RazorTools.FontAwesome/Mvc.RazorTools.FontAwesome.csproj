@@ -15,8 +15,6 @@
 		<Authors>Daniel M Porrey</Authors>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
-		<PublishRepositoryUrl>true</PublishRepositoryUrl>
-		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<PackageReleaseNotes>Updated for Microsoft AspNetCore. Currently supports all icons in version 5.13.0.</PackageReleaseNotes>
@@ -25,23 +23,26 @@
 		<AssemblyVersion>5.13.0.0</AssemblyVersion>
 		<PackageIcon>Mvc.RazorTools.FontAwesome.png</PackageIcon>  </PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	<PropertyGroup>
 		<DocumentationFile>Mvc.RazorTools.FontAwesome.xml</DocumentationFile>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-	  <DocumentationFile>Mvc.RazorTools.FontAwesome.xml</DocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\Mvc.RazorTools.Base\Mvc.RazorTools.Base.csproj" />
 	</ItemGroup>
 
-  <ItemGroup>
-    <None Include="..\..\Images\Mvc.RazorTools.FontAwesome.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\Images\Mvc.RazorTools.FontAwesome.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
 
 </Project>
