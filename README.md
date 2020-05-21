@@ -20,7 +20,7 @@ or Package manager
 ![](https://github.com/porrey/Razor-Tools/raw/master/Images/Mvc.RazorTools.FontAwesome-64.png)
 
 ### Overview
-Use Font Awesome icon in your views with a fluent API. referenc your FOnt Awesome package or download and install the files locally. For more information see the documentation in the repo Wiki pages: [documentation](https://github.com/porrey/Razor-Tools.wiki.git)
+Use Font Awesome icon in your views with a fluent API. referenc your FOnt Awesome package or download and install the files locally. For more information see the documentation in the repo Wiki pages: [documentation](https://github.com/porrey/Razor-Tools/wiki/RazorTools-Font-Awesome)
 ### Install
 To install use the .NET CLI
 
