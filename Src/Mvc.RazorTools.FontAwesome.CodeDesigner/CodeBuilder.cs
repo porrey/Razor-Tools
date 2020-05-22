@@ -4,13 +4,11 @@ using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
-using Mvc.RazorTools.FontAwesome.CodeDesigner;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace ConsoleApp4_Delete
+namespace Mvc.RazorTools.FontAwesome.CodeDesigner
 {
 	public static class CodeBuilder
 	{

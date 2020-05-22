@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
-		<RootNamespace>ConsoleApp4_Delete</RootNamespace>
+		<RootNamespace>Mvc.RazorTools.FontAwesome.CodeDesigner</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
