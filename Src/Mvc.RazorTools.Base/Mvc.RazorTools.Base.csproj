@@ -13,31 +13,41 @@
 		<Copyright>Copyright © Daniel Porrey 2014-2020</Copyright>
 		<Authors>Daniel M Porrey</Authors>
 		<Version>2.0.1</Version>
+		<PackageReleaseNotes>Updated for Microsoft AspNetCore.</PackageReleaseNotes>
+		<PackageIcon>Mvc.RazorTools.Base.png</PackageIcon>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<IncludeSymbols>true</IncludeSymbols>
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<PackageReleaseNotes>Updated for Microsoft AspNetCore.</PackageReleaseNotes>
-		<PackageIcon>Mvc.RazorTools.Base.png</PackageIcon>
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
+		<EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
+	</ItemGroup>
+	
 	<PropertyGroup>
 		<DocumentationFile>Mvc.RazorTools.Base.xml</DocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
-		<PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures"
+											Version="2.2.0" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub"
+											Version="1.0.0"
+											PrivateAssets="All"/>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Include="..\..\Images\Mvc.RazorTools.Base.png">
-	    <Pack>True</Pack>
-	    <PackagePath></PackagePath>
-	  </None>
+		<None Include="..\..\Images\Mvc.RazorTools.Base.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
 	</ItemGroup>
 
 </Project>

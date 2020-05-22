@@ -13,13 +13,23 @@
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<Copyright>Copyright © Daniel Porrey 2014-2020</Copyright>
 		<Authors>Daniel M Porrey</Authors>
+		<PackageReleaseNotes>Updated for Microsoft AspNetCore.</PackageReleaseNotes>
+		<PackageIcon>Mvc.RazorTools.Charts.png</PackageIcon>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<IncludeSymbols>true</IncludeSymbols>
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<PackageReleaseNotes>Updated for Microsoft AspNetCore.</PackageReleaseNotes>
-		<PackageIcon>Mvc.RazorTools.Charts.png</PackageIcon>
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 	</PropertyGroup>
+
+	<PropertyGroup>
+		<TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
+		<EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
+	</ItemGroup>
 
 	<PropertyGroup>
 		<DocumentationFile>Mvc.RazorTools.Charts.xml</DocumentationFile>
@@ -32,31 +42,21 @@
 		<None Remove="wwwroot\lib\dist\razortools\js\ReadMe.txt" />
 		<None Remove="wwwroot\razortools.charts.unobtrusive.js" />
 		<None Include="..\..\Images\Mvc.RazorTools.Charts.png">
-		  <Pack>True</Pack>
-		  <PackagePath></PackagePath>
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
 		</None>
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Include="Mvc.RazorTools.Charts.Credits.txt">
-		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-		</Content>
+		<Content Include="Mvc.RazorTools.Charts.Credits.txt" />
 		<Content Include="wwwroot\lib\dist\razortools\js\jquery.ba-throttle-debounce.js" />
 		<Content Include="wwwroot\lib\dist\razortools\js\moment.js" />
-		<Content Include="wwwroot\lib\dist\razortools\js\razortools.charts.unobtrusive.js">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
+		<Content Include="wwwroot\lib\dist\razortools\js\razortools.charts.unobtrusive.js" />
 		<Content Include="wwwroot\lib\dist\razortools\js\ReadMe.txt" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
-	    <PrivateAssets>all</PrivateAssets>
-	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-	  </PackageReference>
-	</ItemGroup>
-
-	<ItemGroup>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
 		<ProjectReference Include="..\Mvc.RazorTools.Base\Mvc.RazorTools.Base.csproj" />
 	</ItemGroup>
 
