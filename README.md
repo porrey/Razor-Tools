@@ -1,5 +1,5 @@
 ![GitHub](https://img.shields.io/github/license/porrey/Razor-Tools?style=for-the-badge)
-[![Build Status](https://img.shields.io/travis/porrey/Razor-Tools/master?style=for-the-badge)](https://travis-ci.org/porrey/Razor-Tools)
+[![Build Status](https://img.shields.io/travis/porrey/Razor-Tools/master?style=for-the-badge)](https://travis-ci.com/porrey/Razor-Tools)
 
 # RazorTools
 The Razor Tools library is designed to wrap JavaScript and JQuery objects into C# methods. Objects can be easily added to Razor views with basic C# code. All objects are created and initialized using unobtrusive JavaScript techniques and fluent API. This allows complex objects to be created within your views with simple C# statements.
