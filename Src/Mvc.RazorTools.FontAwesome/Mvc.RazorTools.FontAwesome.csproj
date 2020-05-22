@@ -5,10 +5,10 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
-		<Version>5.0.0</Version>
+		<Version>5.0.1</Version>
 		<Description>Provides Font Awesome 5.13.0 icons in MVC Razor views that can be written using standard C# code.</Description>
 		<PackageProjectUrl>https://github.com/porrey/Razor-Tools</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/porrey/Razor-Tools.git</RepositoryUrl>
+		<RepositoryUrl>https://github.com/porrey/Razor-Tools</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<Copyright>Copyright © Daniel Porrey 2014-2020</Copyright>
@@ -21,7 +21,17 @@
 		<AssemblyName>Mvc.RazorTools.FontAwesome</AssemblyName>
 		<RootNamespace>Mvc.RazorTools.FontAwesome</RootNamespace>
 		<AssemblyVersion>5.13.0.0</AssemblyVersion>
-		<PackageIcon>Mvc.RazorTools.FontAwesome.png</PackageIcon>  </PropertyGroup>
+		<PackageIcon>Mvc.RazorTools.FontAwesome.png</PackageIcon>
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
+	</ItemGroup>
 
 	<PropertyGroup>
 		<DocumentationFile>Mvc.RazorTools.FontAwesome.xml</DocumentationFile>
@@ -39,10 +49,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
+		<PackageReference Include="Microsoft.SourceLink.GitHub"
+											Version="1.0.0"
+											PrivateAssets="All"/>
 	</ItemGroup>
 
 </Project>

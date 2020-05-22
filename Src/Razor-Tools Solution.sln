@@ -9,11 +9,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.RazorTools.Charts", "Mv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.RazorTools.FontAwesome", "Mvc.RazorTools.FontAwesome\Mvc.RazorTools.FontAwesome.csproj", "{4F4BB0BE-B94D-46EA-8951-FCBD20A8952B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.RazorTools.FontAwesome.CodeDesigner", "Mvc.RazorTools.FontAwesome.CodeDesigner\Mvc.RazorTools.FontAwesome.CodeDesigner.csproj", "{13F415AB-1390-4A8E-80C3-7DF9BF581599}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.RazorTools.FontAwesome.CodeDesigner", "Mvc.RazorTools.FontAwesome.CodeDesigner\Mvc.RazorTools.FontAwesome.CodeDesigner.csproj", "{13F415AB-1390-4A8E-80C3-7DF9BF581599}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.RazorTools.FontAwesome.Example", "Mvc.RazorTools.FontAwesome.Example\Mvc.RazorTools.FontAwesome.Example.csproj", "{0EE1058B-E259-4402-989B-9FB1E8A58501}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.RazorTools.FontAwesome.Example", "Mvc.RazorTools.FontAwesome.Example\Mvc.RazorTools.FontAwesome.Example.csproj", "{0EE1058B-E259-4402-989B-9FB1E8A58501}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.RazorTools.Charts.Example", "Mvc.RazorTools.Charts.Example\Mvc.RazorTools.Charts.Example.csproj", "{89546F20-1571-4B8D-811D-A77127D7B3E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.RazorTools.Base.Tests", "Mvc.RazorTools.Base.Tests\Mvc.RazorTools.Base.Tests.csproj", "{246C027A-43B7-481A-A2A4-4FF4DC14ED93}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.RazorTools.Charts.Tests", "Mvc.RazorTools.Charts.Tests\Mvc.RazorTools.Charts.Tests.csproj", "{D780C0EE-0DE8-483D-9345-315C32331019}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.RazorTools.FontAwesome.Tests", "Mvc.RazorTools.FontAwesome.Tests\Mvc.RazorTools.FontAwesome.Tests.csproj", "{8714B209-1C5A-4474-9862-8F920DD6CE2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +51,18 @@ Global
 		{89546F20-1571-4B8D-811D-A77127D7B3E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89546F20-1571-4B8D-811D-A77127D7B3E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89546F20-1571-4B8D-811D-A77127D7B3E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{246C027A-43B7-481A-A2A4-4FF4DC14ED93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{246C027A-43B7-481A-A2A4-4FF4DC14ED93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{246C027A-43B7-481A-A2A4-4FF4DC14ED93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{246C027A-43B7-481A-A2A4-4FF4DC14ED93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D780C0EE-0DE8-483D-9345-315C32331019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D780C0EE-0DE8-483D-9345-315C32331019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D780C0EE-0DE8-483D-9345-315C32331019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D780C0EE-0DE8-483D-9345-315C32331019}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8714B209-1C5A-4474-9862-8F920DD6CE2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8714B209-1C5A-4474-9862-8F920DD6CE2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8714B209-1C5A-4474-9862-8F920DD6CE2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8714B209-1C5A-4474-9862-8F920DD6CE2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
