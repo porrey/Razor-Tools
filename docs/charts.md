@@ -1,7 +1,10 @@
-
+---
 layout: page
-title: "RazorTools - Charts"
-permalink: /charts/
+title: RazorTools - Charts
+description: Learn how to install and use RazorTools - CHarts in your MVC AspNetCore applications.
+permalink: /charts
+
+---
 
 ## Bar Chart
 The sample code below generates a bar chart.
