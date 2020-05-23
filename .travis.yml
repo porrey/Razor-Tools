@@ -10,6 +10,6 @@ script:
   - dotnet pack Src/Mvc.RazorTools.Base/Mvc.RazorTools.Base.csproj --configuration Release
   - dotnet pack Src/Mvc.RazorTools.Charts/Mvc.RazorTools.Charts.csproj --configuration Release
   - dotnet pack Src/Mvc.RazorTools.FontAwesome/Mvc.RazorTools.FontAwesome.csproj --configuration Release
-  - dotnet nuget push Src\\Mvc.RazorTools.Base\\bin\\Release\\Mvc.RazorTools.Base.*.nupkg -k NUGET_API_KEY -s https://api.nuget.org/v3/index.json --skip-duplicate
-  - dotnet nuget push Src\\Mvc.RazorTools.Charts\\bin\\Release\\Mvc.RazorTools.Charts.*.nupkg -k NUGET_API_KEY -s https://api.nuget.org/v3/index.json --skip-duplicate
-  - dotnet nuget push Src\\Mvc.RazorTools.FontAwesome\\bin\\Release\\Mvc.RazorTools.FontAwesome.*.nupkg -k NUGET_API_KEY -s https://api.nuget.org/v3/index.json --skip-duplicate
+  - dotnet nuget push Src/Mvc.RazorTools.Base/bin/Release/Mvc.RazorTools.Base.*.nupkg -k NUGET_API_KEY -s https://api.nuget.org/v3/index.json --skip-duplicate
+  - dotnet nuget push Src/Mvc.RazorTools.Charts/bin/Release/Mvc.RazorTools.Charts.*.nupkg -k NUGET_API_KEY -s https://api.nuget.org/v3/index.json --skip-duplicate
+  - dotnet nuget push Src/Mvc.RazorTools.FontAwesome/bin/Release/Mvc.RazorTools.FontAwesome.*.nupkg -k NUGET_API_KEY -s https://api.nuget.org/v3/index.json --skip-duplicate
