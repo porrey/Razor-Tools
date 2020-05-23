@@ -10,7 +10,7 @@ The current version of these libraries are built for **.NET Core** with dependen
 ### Concept
 The basic concept of RazorTools is to provide fluent APIs to create JQuery and JavScript objects in Razor views. Syntax such as 
 
-	@Html.Create FancyObject().WithStyle(Style.Cool).UsingData("Home", "Data")
+	@Html.CreateFancyObject().WithStyle(Style.Cool).UsingData("Home", "Data")
 can be used to generate complex objects that interact with the controller to retrieve data while keeping the view code clean and straight forward. In some cases, objects can also be render using simple statements such as
 
 	@Html.RenderObject(new FancyObject("fancyObject123")
