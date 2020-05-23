@@ -5,7 +5,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
-		<Version>5.0.1</Version>
+		<Version>5.0.2</Version>
 		<Description>Provides Font Awesome 5.13.0 icons in MVC Razor views that can be written using standard C# code.</Description>
 		<PackageProjectUrl>https://github.com/porrey/Razor-Tools</PackageProjectUrl>
 		<NeutralLanguage>en-US</NeutralLanguage>
@@ -14,7 +14,6 @@
 		<PackageReleaseNotes>Updated for Microsoft AspNetCore. Currently supports all icons in version 5.13.0.</PackageReleaseNotes>
 		<AssemblyName>Mvc.RazorTools.FontAwesome</AssemblyName>
 		<RootNamespace>Mvc.RazorTools.FontAwesome</RootNamespace>
-		<AssemblyVersion>5.13.0.0</AssemblyVersion>
 		<PackageIcon>Mvc.RazorTools.FontAwesome.png</PackageIcon>
 		<RepositoryUrl>https://github.com/porrey/Razor-Tools</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
@@ -22,8 +21,13 @@
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<IncludeSymbols>true</IncludeSymbols>
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 	</PropertyGroup>
-	
+
+	<ItemGroup>
+		<SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
+	</ItemGroup>
+
 	<ItemGroup>
 		<None Include="..\..\Images\Mvc.RazorTools.FontAwesome.png">
 			<Pack>True</Pack>
@@ -32,7 +36,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Mvc.RazorTools.Base\Mvc.RazorTools.Base.csproj" />
+		<ProjectReference Include="..\Mvc.RazorTools.Base\Mvc.RazorTools.Base.csproj" />
 	</ItemGroup>
 
 </Project>
