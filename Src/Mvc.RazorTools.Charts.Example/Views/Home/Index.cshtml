@@ -80,7 +80,7 @@
 		<div class="col-12 mb-5 pt-3 pb-3 card">
 			<h2 class="text-left mb-3">Line Chart</h2>
 			<pre class="text-left">
-@@(Chart.Create&lt;RazorBarChart&gt;()
+@@(Chart.Create&lt;RazorLineChart&gt;()
 	.WithId("actualPrecipitation")
 	.UsingDataFrom(this.Url.Action("ActualPrecipitation", "Home"))
 	.WithHeight("350px")
