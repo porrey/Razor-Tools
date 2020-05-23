@@ -1,10 +1,9 @@
-//
-// ***
-// *** Razor Tools Unobtrusive Charts version 2.0.0
-// *** Copyright 2013-2020 Daniel M. Porrey
-// *** Licensed under LGPL-3.0
-// *** https://github.com/porrey/Razor-Tools/blob/master/LICENSE
-// ***
+/*!
+	Razor Tools Unobtrusive Charts version 2.0.0
+	Copyright 2013-2020 Daniel M. Porrey
+	Licensed under LGPL-3.0
+	https://github.com/porrey/Razor-Tools/blob/master/LICENSE
+*/
 
 $(function () {
 	// ***
@@ -453,7 +452,8 @@ module RazorTools {
 			new ChartOption('formatter', false, true, [ChartType.MorrisDonut], OptionType.FormatCallback),
 			new ChartOption('labelColor', false, true, [ChartType.MorrisDonut], OptionType.String),
 			new ChartOption('backgroundColor', false, true, [ChartType.MorrisDonut], OptionType.String),
-			new ChartOption('resize', false, true, [ChartType.MorrisArea, ChartType.MorrisLine, ChartType.MorrisBar, ChartType.MorrisDonut], OptionType.Boolean)
+			new ChartOption('resize', false, true, [ChartType.MorrisArea, ChartType.MorrisLine, ChartType.MorrisBar, ChartType.MorrisDonut], OptionType.Boolean),
+			new ChartOption('xLabelAngle', false, true, [ChartType.MorrisArea, ChartType.MorrisLine], OptionType.String)
 		];
 	}
 }

@@ -126,6 +126,11 @@ namespace Mvc.RazorTools.Charts
 		CallbackFormatter XLabelFormat { get; set; }
 
 		/// <summary>
+		/// The angle in degrees from horizontal to draw x-axis labels.
+		/// </summary>
+		int? XLabelAngle { get; set; }
+
+		/// <summary>
 		/// Specifies the x axis labeling interval. By default the interval will be automatically computed.
 		/// </summary>
 		xLabel XLabels { get; set; }

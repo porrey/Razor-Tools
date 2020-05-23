@@ -326,6 +326,15 @@
             <param name="xLabelFormat">A callback object.</param>
             <returns>An updated instance of the chart.</returns>
         </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithXLabelAngle``1(``0,System.Nullable{System.Int32})">
+            <summary>
+            Sets the angle in degrees from horizontal to draw x-axis labels.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="xLabelAngle">The angle in degrees from horizontal.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
         <member name="M:Mvc.RazorTools.Charts.Chart.WithYLabelFormat``1(``0,Mvc.RazorTools.Charts.CallbackFormatter)">
             <summary>
             A format callback that accepts y-values and formats them for display as y-axis labels.
@@ -922,6 +931,11 @@
             default formatter chosen by the automatic labeler or the xLabels option. 
             </summary>
         </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.XLabelAngle">
+            <summary>
+            The angle in degrees from horizontal to draw x-axis labels.
+            </summary>
+        </member>
         <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.XLabels">
             <summary>
             Specifies the x axis labeling interval. By default the interval will be automatically computed.
@@ -1316,6 +1330,11 @@
             <summary>
             A format string that accepts Date objects and formats them for display as x-axis labels. Overrides the 
             default formatter chosen by the automatic labeler or the xLabels option. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.RazorLineChart.XLabelAngle">
+            <summary>
+            The angle in degrees from horizontal to draw x-axis labels.
             </summary>
         </member>
         <member name="P:Mvc.RazorTools.Charts.RazorLineChart.YLabelFormat">

@@ -37,6 +37,7 @@ namespace Mvc.RazorTools.Charts
 		private CallbackFormatter _dateFormat = null;
 		private xLabel _xLabels = null;
 		private CallbackFormatter _xLabelFormat = null;
+		private int? _xLabelAngle = null;
 		private CallbackFormatter _yLabelFormat = null;
 		private IEnumerable<float> _goals = null;
 		private int? _goalStrokeWidth = 1;
@@ -308,6 +309,22 @@ namespace Mvc.RazorTools.Charts
 			{
 				_xLabelFormat = value;
 				this.SetAttribute("xLabelFormat", value);
+			}
+		}
+
+		/// <summary>
+		/// The angle in degrees from horizontal to draw x-axis labels.
+		/// </summary>
+		public int? XLabelAngle
+		{
+			get
+			{
+				return _xLabelAngle;
+			}
+			set
+			{
+				_xLabelAngle = value;
+				this.SetAttribute("xLabelAngle", value);
 			}
 		}
 

@@ -5,7 +5,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
-		<Version>5.0.2</Version>
+		<Version>5.0.3</Version>
 		<Description>Provides Font Awesome 5.13.0 icons in MVC Razor views that can be written using standard C# code.</Description>
 		<PackageProjectUrl>https://github.com/porrey/Razor-Tools</PackageProjectUrl>
 		<NeutralLanguage>en-US</NeutralLanguage>

@@ -24,9 +24,8 @@ namespace Mvc.RazorTools.FontAwesome
 		/// <returns>The updated icon.</returns>
 		public static FaIcon WithStyle([NotNull]this FaIcon icon, [NotNull]FaStyle style)
 		{
-			FaIcon returnValue = icon.Clone() as FaIcon;
-			returnValue.AddClassAttribute(style.ClassAttribute);
-			return returnValue;
+			icon.AddClassAttribute(style.ClassAttribute);
+			return icon;
 		}
 
 		/// <summary>
@@ -36,9 +35,8 @@ namespace Mvc.RazorTools.FontAwesome
 		/// <returns></returns>
 		public static FaIcon AsBrand([NotNull]this FaIcon icon)
 		{
-			FaIcon returnValue = icon.Clone() as FaIcon;
-			returnValue.AddClassAttribute("fab");
-			return returnValue;
+			icon.AddClassAttribute("fab");
+			return icon;
 		}
 
 		/// <summary>

@@ -5,7 +5,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
-		<Version>2.0.2</Version>
+		<Version>2.0.3</Version>
 		<Description>Provides chart options in MVC Razor views that can be written using standard C# code. These charts are based on morris.js.</Description>
 		<PackageProjectUrl>https://github.com/porrey/Razor-Tools</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/porrey/Razor-Tools</RepositoryUrl>
@@ -23,31 +23,27 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
+	  <Content Include="wwwroot\lib\razortools\dist\js\moment.js" />
+	  <Content Include="wwwroot\lib\razortools\dist\js\Mvc.RazorTools.Charts.Credits.txt" />
+	  <Content Include="wwwroot\lib\razortools\dist\js\razortools.charts.unobtrusive.js" />
+	  <Content Include="wwwroot\lib\razortools\dist\js\ReadMe.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<SourceRoot Include="$(MSBuildThisFileDirectory)/" />
 	</ItemGroup>
 	
 	<PropertyGroup>
 		<DocumentationFile>Mvc.RazorTools.Charts.xml</DocumentationFile>
+		<FileVersion>2.0.3</FileVersion>
+		<AssemblyVersion>2.0.3</AssemblyVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Remove="Mvc.RazorTools.Charts.Credits.txt" />
-		<None Remove="wwwroot\lib\dist\razortools\js\jquery.ba-throttle-debounce.js" />
-		<None Remove="wwwroot\lib\dist\razortools\js\moment.js" />
-		<None Remove="wwwroot\lib\dist\razortools\js\ReadMe.txt" />
-		<None Remove="wwwroot\razortools.charts.unobtrusive.js" />
 		<None Include="..\..\Images\Mvc.RazorTools.Charts.png">
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>
 		</None>
-	</ItemGroup>
-
-	<ItemGroup>
-		<Content Include="Mvc.RazorTools.Charts.Credits.txt" />
-		<Content Include="wwwroot\lib\dist\razortools\js\jquery.ba-throttle-debounce.js" />
-		<Content Include="wwwroot\lib\dist\razortools\js\moment.js" />
-		<Content Include="wwwroot\lib\dist\razortools\js\razortools.charts.unobtrusive.js" />
-		<Content Include="wwwroot\lib\dist\razortools\js\ReadMe.txt" />
 	</ItemGroup>
 
 	<ItemGroup>

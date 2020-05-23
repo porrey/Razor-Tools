@@ -12,7 +12,7 @@
 		<PackageProjectUrl>https://github.com/porrey/Razor-Tools</PackageProjectUrl>
 		<Copyright>Copyright © Daniel Porrey 2014-2020</Copyright>
 		<Authors>Daniel M Porrey</Authors>
-		<Version>2.0.2</Version>
+		<Version>2.0.3</Version>
 		<PackageReleaseNotes>Updated for Microsoft AspNetCore.</PackageReleaseNotes>
 		<PackageIcon>Mvc.RazorTools.Base.png</PackageIcon>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -23,11 +23,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
+		<SourceRoot Include="$(MSBuildThisFileDirectory)/" />
 	</ItemGroup>
 	
 	<PropertyGroup>
 		<DocumentationFile>Mvc.RazorTools.Base.xml</DocumentationFile>
+		<FileVersion>2.0.3</FileVersion>
+		<AssemblyVersion>2.0.3</AssemblyVersion>
 	</PropertyGroup>
 
 	<ItemGroup>

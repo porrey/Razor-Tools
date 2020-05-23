@@ -8,27 +8,27 @@
 	<!-- Details -->
 	<ul class="list-group mb-5 w-50">
 		<li class="list-group-item d-flex justify-content-between align-items-center active">
-			<span>@Html.Fa(FaIcons.Comment.WithStyle(FaStyles.Solid)) Version</span>
+			<span>@(FaIcons.Comment.Create().WithStyle(FaStyles.Solid)) Version</span>
 			<span class="badge badge-primary badge-pill">@FaIconSet.Version</span>
 		</li>
 		<li class="list-group-item d-flex justify-content-between align-items-center">
-			<span>@Html.Fa(FaIcons.ChevronCircleRight.WithStyle(FaStyles.Solid)) Total Icons</span>
+			<span>@(FaIcons.ChevronCircleRight.Create().WithStyle(FaStyles.Solid)) Total Icons</span>
 			<span class="badge badge-primary badge-pill">@FaIconSet.All.Count().ToString("#,###")</span>
 		</li>
 		<li class="list-group-item d-flex justify-content-between align-items-center">
-			<span>@Html.Fa(FaIcons.ChevronCircleRight.WithStyle(FaStyles.Solid)) Free Icons</span>
+			<span>@(FaIcons.ChevronCircleRight.Create().WithStyle(FaStyles.Solid)) Free Icons</span>
 			<span class="badge badge-primary badge-pill">@FaIconSet.All.Where(t => (t.Value.License & FaLicenseType.Free) == FaLicenseType.Free).Count().ToString("#,###")</span>
 		</li>
 		<li class="list-group-item d-flex justify-content-between align-items-center">
-			<span>@Html.Fa(FaIcons.ChevronCircleRight.WithStyle(FaStyles.Solid)) Free Icon Variations</span>
+			<span>@(FaIcons.ChevronCircleRight.Create().WithStyle(FaStyles.Solid)) Free Icon Variations</span>
 			<span class="badge badge-primary badge-pill">@FaIconSet.All.Where(t => (t.Value.License & FaLicenseType.Free) == FaLicenseType.Free).SelectMany(t => t.Value.FreeStyles).Count().ToString("#,###")</span>
 		</li>
 		<li class="list-group-item d-flex justify-content-between align-items-center">
-			<span>@Html.Fa(FaIcons.ChevronCircleRight.WithStyle(FaStyles.Solid)) Pro Icons</span>
+			<span>@(FaIcons.ChevronCircleRight.Create().WithStyle(FaStyles.Solid)) Pro Icons</span>
 			<span class="badge badge-primary badge-pill">@FaIconSet.All.Where(t => (t.Value.License & FaLicenseType.Pro) == FaLicenseType.Pro).Count().ToString("#,###")</span>
 		</li>
 		<li class="list-group-item d-flex justify-content-between align-items-center">
-			<span>@Html.Fa(FaIcons.ChevronCircleRight.WithStyle(FaStyles.Solid)) Pro Icon Variations</span>
+			<span>@(FaIcons.ChevronCircleRight.Create().WithStyle(FaStyles.Solid)) Pro Icon Variations</span>
 			<span class="badge badge-primary badge-pill">@FaIconSet.All.Where(t => (t.Value.License & FaLicenseType.Pro) == FaLicenseType.Pro).SelectMany(t => t.Value.ProStyles).Count().ToString("#,###")</span>
 		</li>
 	</ul>
@@ -48,68 +48,68 @@
 				<tbody>
 					<tr>
 						<td>Standard</td>
-						<td>@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid))</td>
-						<td><pre>@@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid))</pre></td>
+						<td>@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid))</td>
+						<td><pre>@@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid))</pre></td>
 					</tr>
 					<tr>
 						<td>Xs</td>
-						<td>@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Xs))</td>
-						<td><pre>@@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Xs))</pre></td>
+						<td>@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Xs))</td>
+						<td><pre>@@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Xs))</pre></td>
 					</tr>
 					<tr>
 						<td>Sm</td>
-						<td>@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Sm))</td>
-						<td><pre>@@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Sm))</pre></td>
+						<td>@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Sm))</td>
+						<td><pre>@@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Sm))</pre></td>
 					</tr>
 					<tr>
 						<td>Lg</td>
-						<td>@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg))</td>
-						<td><pre>@@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg))</pre></td>
+						<td>@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg))</td>
+						<td><pre>@@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg))</pre></td>
 					</tr>
 					<tr>
 						<td>Lg2x</td>
-						<td>@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg2x))</td>
-						<td><pre>@@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg2x))</pre></td>
+						<td>@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg2x))</td>
+						<td><pre>@@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg2x))</pre></td>
 					</tr>
 					<tr>
 						<td>Lg3x</td>
-						<td>@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg3x))</td>
-						<td><pre>@@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg3x))</pre></td>
+						<td>@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg3x))</td>
+						<td><pre>@@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg3x))</pre></td>
 					</tr>
 					<tr>
 						<td>Lg4x</td>
-						<td>@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg4x))</td>
-						<td><pre>@@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg4x))</pre></td>
+						<td>@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg4x))</td>
+						<td><pre>@@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg4x))</pre></td>
 					</tr>
 					<tr>
 						<td>Lg5x</td>
-						<td>@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg5x))</td>
-						<td><pre>@@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg5x))</pre></td>
+						<td>@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg5x))</td>
+						<td><pre>@@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg5x))</pre></td>
 					</tr>
 					<tr>
 						<td>Lg6x</td>
-						<td>@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg6x))</td>
-						<td><pre>@@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg6x))</pre></td>
+						<td>@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg6x))</td>
+						<td><pre>@@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg6x))</pre></td>
 					</tr>
 					<tr>
 						<td>Lg7x</td>
-						<td>@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg7x))</td>
-						<td><pre>@@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg7x))</pre></td>
+						<td>@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg7x))</td>
+						<td><pre>@@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg7x))</pre></td>
 					</tr>
 					<tr>
 						<td>Lg8x</td>
-						<td>@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg8x))</td>
-						<td><pre>@@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg8x))</pre></td>
+						<td>@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg8x))</td>
+						<td><pre>@@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg8x))</pre></td>
 					</tr>
 					<tr>
 						<td>Lg9x</td>
-						<td>@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg9x))</td>
-						<td><pre>@@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg9x))</pre></td>
+						<td>@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg9x))</td>
+						<td><pre>@@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg9x))</pre></td>
 					</tr>
 					<tr>
 						<td>Lg10x</td>
-						<td>@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg10x))</td>
-						<td><pre>@@Html.Fa(FaIcons.Quidditch.WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg10x))</pre></td>
+						<td>@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg10x))</td>
+						<td><pre>@@(FaIcons.Quidditch.Create().WithStyle(FaStyles.Solid).WithSize(FaSizes.Lg10x))</pre></td>
 					</tr>
 				</tbody>
 			</table>
@@ -131,43 +131,43 @@
 				<tbody>
 					<tr>
 						<td>Spin</td>
-						<td>@Html.Fa(FaIcons.Cog.WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Spin))</td>
-						<td><pre>@@Html.Fa(FaIcons.Acorn.WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Spin))</pre></td>
+						<td>@(FaIcons.Cog.Create().WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Spin))</td>
+						<td><pre>@@(FaIcons.Acorn.Create().WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Spin))</pre></td>
 					</tr>
 					<tr>
 						<td>Pulse</td>
-						<td>@Html.Fa(FaIcons.Cog.WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Pulse))</td>
-						<td><pre>@@Html.Fa(FaIcons.Acorn.WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Pulse))</pre></td>
+						<td>@(FaIcons.Cog.Create().WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Pulse))</td>
+						<td><pre>@@(FaIcons.Acorn.Create().WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Pulse))</pre></td>
 					</tr>
 					<tr>
 						<td>Rotate90</td>
-						<td>@Html.Fa(FaIcons.Flask.WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Rotate90))</td>
-						<td><pre>@@Html.Fa(FaIcons.Acorn.WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Rotate90))</pre></td>
+						<td>@(FaIcons.Flask.Create().WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Rotate90))</td>
+						<td><pre>@@(FaIcons.Acorn.Create().WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Rotate90))</pre></td>
 					</tr>
 					<tr>
 						<td>Rotate180</td>
-						<td>@Html.Fa(FaIcons.Flask.WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Rotate180))</td>
-						<td><pre>@@Html.Fa(FaIcons.Acorn.WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Rotate180))</pre></td>
+						<td>@(FaIcons.Flask.Create().WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Rotate180))</td>
+						<td><pre>@@(FaIcons.Acorn.Create().WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Rotate180))</pre></td>
 					</tr>
 					<tr>
 						<td>Rotate270</td>
-						<td>@Html.Fa(FaIcons.Flask.WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Rotate270))</td>
-						<td><pre>@@Html.Fa(FaIcons.Acorn.WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Rotate270))</pre></td>
+						<td>@(FaIcons.Flask.Create().WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Rotate270))</td>
+						<td><pre>@@(FaIcons.Acorn.Create().WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Rotate270))</pre></td>
 					</tr>
 					<tr>
 						<td>FlipHorizontal</td>
-						<td>@Html.Fa(FaIcons.Leaf.WithStyle(FaStyles.Solid).WithTransform(FaTransforms.FlipHorizontal))</td>
-						<td><pre>@@Html.Fa(FaIcons.Acorn.WithStyle(FaStyles.Solid).WithTransform(FaTransforms.FlipHorizontal))</pre></td>
+						<td>@(FaIcons.Leaf.Create().WithStyle(FaStyles.Solid).WithTransform(FaTransforms.FlipHorizontal))</td>
+						<td><pre>@@(FaIcons.Acorn.Create().WithStyle(FaStyles.Solid).WithTransform(FaTransforms.FlipHorizontal))</pre></td>
 					</tr>
 					<tr>
 						<td>FlipVertical</td>
-						<td>@Html.Fa(FaIcons.Leaf.WithStyle(FaStyles.Solid).WithTransform(FaTransforms.FlipVertical))</td>
-						<td><pre>@@Html.Fa(FaIcons.Acorn.WithStyle(FaStyles.Solid).WithTransform(FaTransforms.FlipVertical))</pre></td>
+						<td>@(FaIcons.Leaf.Create().WithStyle(FaStyles.Solid).WithTransform(FaTransforms.FlipVertical))</td>
+						<td><pre>@@(FaIcons.Acorn.Create().WithStyle(FaStyles.Solid).WithTransform(FaTransforms.FlipVertical))</pre></td>
 					</tr>
 					<tr>
 						<td>Both</td>
-						<td>@Html.Fa(FaIcons.Leaf.WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Both))</td>
-						<td><pre>@@Html.Fa(FaIcons.Acorn.WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Both))</pre></td>
+						<td>@(FaIcons.Leaf.Create().WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Both))</td>
+						<td><pre>@@(FaIcons.Acorn.Create().WithStyle(FaStyles.Solid).WithTransform(FaTransforms.Both))</pre></td>
 					</tr>
 				</tbody>
 			</table>
@@ -189,28 +189,28 @@
 				<tbody>
 					<tr>
 						<td>Border</td>
-						<td>@Html.Fa(FaIcons.Helicopter.WithStyle(FaStyles.Solid).WithOption(FaOptions.Border))</td>
-						<td><pre>@@Html.Fa(FaIcons.Cog.WithStyle(FaStyles.Solid).WithAttribute(FaAttributes.Border))</pre></td>
+						<td>@(FaIcons.Helicopter.Create().WithStyle(FaStyles.Solid).WithOption(FaOptions.Border))</td>
+						<td><pre>@@(FaIcons.Cog.Create().WithStyle(FaStyles.Solid).WithAttribute(FaAttributes.Border))</pre></td>
 					</tr>
 					<tr>
 						<td>FixedWidth</td>
-						<td>@Html.Fa(FaIcons.Helicopter.WithStyle(FaStyles.Solid).WithOption(FaOptions.FixedWidth))</td>
-						<td><pre>@@Html.Fa(FaIcons.Cog.WithStyle(FaStyles.Solid).WithAttribute(FaAttributes.FixedWidth))</pre></td>
+						<td>@(FaIcons.Helicopter.Create().WithStyle(FaStyles.Solid).WithOption(FaOptions.FixedWidth))</td>
+						<td><pre>@@(FaIcons.Cog.Create().WithStyle(FaStyles.Solid).WithAttribute(FaAttributes.FixedWidth))</pre></td>
 					</tr>
 					<tr>
 						<td>PullLeft</td>
-						<td>@Html.Fa(FaIcons.Helicopter.WithStyle(FaStyles.Solid).WithOption(FaOptions.PullLeft))</td>
-						<td><pre>@@Html.Fa(FaIcons.Cog.WithStyle(FaStyles.Solid).WithAttribute(FaAttributes.PullLeft))</pre></td>
+						<td>@(FaIcons.Helicopter.Create().WithStyle(FaStyles.Solid).WithOption(FaOptions.PullLeft))</td>
+						<td><pre>@@(FaIcons.Cog.Create().WithStyle(FaStyles.Solid).WithAttribute(FaAttributes.PullLeft))</pre></td>
 					</tr>
 					<tr>
 						<td>PullRight</td>
-						<td>@Html.Fa(FaIcons.Helicopter.WithStyle(FaStyles.Solid).WithOption(FaOptions.PullRight))</td>
-						<td><pre>@@Html.Fa(FaIcons.Cog.WithStyle(FaStyles.Solid).WithAttribute(FaAttributes.PullRight))</pre></td>
+						<td>@(FaIcons.Helicopter.Create().WithStyle(FaStyles.Solid).WithOption(FaOptions.PullRight))</td>
+						<td><pre>@@(FaIcons.Cog.Create().WithStyle(FaStyles.Solid).WithAttribute(FaAttributes.PullRight))</pre></td>
 					</tr>
 					<tr>
 						<td>Inverse</td>
-						<td><div class="bg-dark">@Html.Fa(FaIcons.Helicopter.WithStyle(FaStyles.Solid).WithOption(FaOptions.Inverse))</div></td>
-						<td><pre>@@Html.Fa(FaIcons.Cog.WithStyle(FaStyles.Solid).WithAttribute(FaAttributes.Inverse))</pre></td>
+						<td><div class="bg-dark">@(FaIcons.Helicopter.Create().WithStyle(FaStyles.Solid).WithOption(FaOptions.Inverse))</div></td>
+						<td><pre>@@(FaIcons.Cog.Create().WithStyle(FaStyles.Solid).WithAttribute(FaAttributes.Inverse))</pre></td>
 					</tr>
 				</tbody>
 			</table>
@@ -232,33 +232,33 @@
 				<tbody>
 					<tr>
 						<td>FacebookF</td>
-						<td>@Html.Fa(FaIcons.FacebookF.AsBrand())</td>
-						<td><pre>@@Html.Fa(FaIcons.FacebookF.AsBrand())</pre></td>
+						<td>@(FaIcons.FacebookF.AsBrand())</td>
+						<td><pre>@@(FaIcons.FacebookF.AsBrand())</pre></td>
 					</tr>
 					<tr>
 						<td>Fedex</td>
-						<td>@Html.Fa(FaIcons.Fedex.AsBrand())</td>
-						<td><pre>@@Html.Fa(FaIcons.Fedex.AsBrand())</pre></td>
+						<td>@(FaIcons.Fedex.AsBrand())</td>
+						<td><pre>@@(FaIcons.Fedex.AsBrand())</pre></td>
 					</tr>
 					<tr>
 						<td>Firefox</td>
-						<td>@Html.Fa(FaIcons.Firefox.AsBrand())</td>
-						<td><pre>@@Html.Fa(FaIcons.Firefox.AsBrand())</pre></td>
+						<td>@(FaIcons.Firefox.AsBrand())</td>
+						<td><pre>@@(FaIcons.Firefox.AsBrand())</pre></td>
 					</tr>
 					<tr>
 						<td>Usb</td>
-						<td>@Html.Fa(FaIcons.Usb.AsBrand())</td>
-						<td><pre>@@Html.Fa(FaIcons.Usb.AsBrand())</pre></td>
+						<td>@(FaIcons.Usb.AsBrand())</td>
+						<td><pre>@@(FaIcons.Usb.AsBrand())</pre></td>
 					</tr>
 					<tr>
 						<td>Ups</td>
-						<td>@Html.Fa(FaIcons.Ups.AsBrand())</td>
-						<td><pre>@@Html.Fa(FaIcons.Ups.AsBrand())</pre></td>
+						<td>@(FaIcons.Ups.AsBrand())</td>
+						<td><pre>@@(FaIcons.Ups.AsBrand())</pre></td>
 					</tr>
 					<tr>
 						<td>Spotify</td>
-						<td>@Html.Fa(FaIcons.Spotify.AsBrand())</td>
-						<td><pre>@@Html.Fa(FaIcons.Spotify.AsBrand())</pre></td>
+						<td>@(FaIcons.Spotify.AsBrand())</td>
+						<td><pre>@@(FaIcons.Spotify.AsBrand())</pre></td>
 					</tr>
 				</tbody>
 			</table>
@@ -289,8 +289,8 @@
 					<p>
 						@using (Html.BeginFaStack(FaSizes.Lg2x))
 						{
-							@FaIcons.Sun.WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack2x)
-							@FaIcons.Thermometer.WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack1x).WithOption(FaOptions.Inverse)
+							@FaIcons.Sun.Create().WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack2x)
+							@FaIcons.Thermometer.Create().WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack1x).WithOption(FaOptions.Inverse)
 						}
 					</p>
 				</div>
@@ -298,8 +298,8 @@
 					<pre class="pre-window">
 @@using (Html.BeginFaStack(FaSizes.Lg2x))
 {
-	@@FaIcons.Sun.WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack2x)
-	@@FaIcons.Thermometer.WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack1x).WithAttribute(FaAttributes.Inverse)
+	@@FaIcons.Sun.Create().WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack2x)
+	@@FaIcons.Thermometer.Create().WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack1x).WithAttribute(FaAttributes.Inverse)
 }
 					</pre>
 				</div>
@@ -312,16 +312,16 @@
 				<div class="col-2 text-left">
 					@using (Html.BeginFaStack(FaSizes.Lg3x))
 					{
-						@FaIcons.Grin.WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack2x)
-						@FaIcons.ExpandAlt.WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack1x).WithOption(FaOptions.Inverse).WithTransform(FaTransforms.Spin)
+						@FaIcons.Grin.Create().WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack2x)
+						@FaIcons.ExpandAlt.Create().WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack1x).WithOption(FaOptions.Inverse).WithTransform(FaTransforms.Spin)
 					}
 				</div>
 				<div class="col-8 text-left">
 					<pre class="pre-window">
 @@using (Html.BeginFaStack())
 {
-	@@FaIcons.Grin.WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack2x)
-	@@FaIcons.ExpandAlt.WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack1x).WithAttribute(FaAttributes.Inverse).WithTransform(FaTransforms.Spin)
+	@@FaIcons.Grin.Create().WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack2x)
+	@@FaIcons.ExpandAlt.Create().WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack1x).WithAttribute(FaAttributes.Inverse).WithTransform(FaTransforms.Spin)
 }
 					</pre>
 				</div>
@@ -334,16 +334,16 @@
 				<div class="col-2 text-left">
 					@using (Html.BeginFaStack(FaSizes.Lg2x))
 					{
-						@FaIcons.Camera.WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack1x)
-						@FaIcons.Ban.WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack2x).WithCssStyle("color", "tomato")
+						@FaIcons.Camera.Create().WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack1x)
+						@FaIcons.Ban.Create().WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack2x).WithCssStyle("color", "tomato")
 					}
 				</div>
 				<div class="col-8 text-left">
 					<pre class="pre-window">
 @@using (Html.BeginFaStack(FaSizes.Lg2x))
 {
-	@@FaIcons.Ban.WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack2x).WithClass("color", "tomato")
-	@@FaIcons.Camera.WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack1x)
+	@@FaIcons.Ban.Create().WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack2x).WithClass("color", "tomato")
+	@@FaIcons.Camera.Create().WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack1x)
 }
 					</pre>
 				</div>
@@ -356,16 +356,16 @@
 				<div class="col-2 text-left">
 					@using (Html.BeginFaStack(FaSizes.Lg2x))
 					{
-						@FaIcons.Square.WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack2x)
-						@FaIcons.Terminal.WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack1x).WithOption(FaOptions.Inverse)
+						@FaIcons.Square.Create().WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack2x)
+						@FaIcons.Terminal.Create().WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack1x).WithOption(FaOptions.Inverse)
 					}
 				</div>
 				<div class="col-8 text-left">
 					<pre class="pre-window">
 @@using (Html.BeginFaStack(FaSizes.Lg2x))
 {
-	@@FaIcons.Square.WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack2x)
-	@@FaIcons.Terminal.WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack1x).WithAttribute(FaAttributes.Inverse)
+	@@FaIcons.Square.Create().WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack2x)
+	@@FaIcons.Terminal.Create().WithStyle(FaStyles.Solid).WithStackAttribute(FaStackAttributes.Stack1x).WithAttribute(FaAttributes.Inverse)
 }
 					</pre>
 				</div>
@@ -388,8 +388,8 @@
 				<tbody>
 					<tr>
 						<td>Color</td>
-						<td>@Html.Fa(FaIcons.Smile.WithStyle(FaStyles.Solid).WithCssStyle("color", "red"))</td>
-						<td><pre>@@Html.Fa(FaIcons.Smile.WithStyle(FaStyles.Solid).WithCssStyle("color", "red"))</pre></td>
+						<td>@(FaIcons.Smile.Create().WithStyle(FaStyles.Solid).WithCssStyle("color", "red"))</td>
+						<td><pre>@@(FaIcons.Smile.Create().WithStyle(FaStyles.Solid).WithCssStyle("color", "red"))</pre></td>
 					</tr>
 				</tbody>
 			</table>
@@ -401,11 +401,11 @@
 				<h4 class="card-header">Paragraph</h4>
 				<div class="card-body">
 					<h4 class="card-title">Pull Left</h4>
-					<p class="card-text">@Html.Fa(FaIcons.QuoteLeft.WithStyle(FaStyles.Solid).WithOption(FaOptions.PullLeft).WithSize(FaSizes.Lg3x)) Gatsby believed in the green light, the orgastic future that year by year recedes before us. It eluded us then, but that’s no matter — tomorrow we will run faster, stretch our arms further... And one fine morning — So we beat on, boats against the current, borne back ceaselessly into the past.</p>
+					<p class="card-text">@(FaIcons.QuoteLeft.Create().WithStyle(FaStyles.Solid).WithOption(FaOptions.PullLeft).WithSize(FaSizes.Lg3x)) Gatsby believed in the green light, the orgastic future that year by year recedes before us. It eluded us then, but that’s no matter — tomorrow we will run faster, stretch our arms further... And one fine morning — So we beat on, boats against the current, borne back ceaselessly into the past.</p>
 				</div>
 				<div class="card-footer text-muted">
 					<pre>
-@@Html.Fa(FaIcons.QuoteLeft.WithStyle(FaStyles.Solid).WithOption(FaOptions.PullLeft).WithSize(FaSizes.Lg3x))
+@@(FaIcons.QuoteLeft.Create().WithStyle(FaStyles.Solid).WithOption(FaOptions.PullLeft).WithSize(FaSizes.Lg3x))
 					</pre>
 				</div>
 			</div>
@@ -415,11 +415,11 @@
 				<h4 class="card-header">Paragraph</h4>
 				<div class="card-body">
 					<h4 class="card-title">Pull Right</h4>
-					<p class="card-text">@Html.Fa(FaIcons.QuoteRight.WithStyle(FaStyles.Solid).WithOption(FaOptions.PullRight).WithSize(FaSizes.Lg3x)) Gatsby believed in the green light, the orgastic future that year by year recedes before us. It eluded us then, but that’s no matter — tomorrow we will run faster, stretch our arms further... And one fine morning — So we beat on, boats against the current, borne back ceaselessly into the past.</p>
+					<p class="card-text">@(FaIcons.QuoteRight.Create().WithStyle(FaStyles.Solid).WithOption(FaOptions.PullRight).WithSize(FaSizes.Lg3x)) Gatsby believed in the green light, the orgastic future that year by year recedes before us. It eluded us then, but that’s no matter — tomorrow we will run faster, stretch our arms further... And one fine morning — So we beat on, boats against the current, borne back ceaselessly into the past.</p>
 				</div>
 				<div class="card-footer text-muted">
 					<pre>
-@@Html.Fa(FaIcons.QuoteRight.WithStyle(FaStyles.Solid).WithOption(FaOptions.PullRight).WithSize(FaSizes.Lg3x))
+@@(FaIcons.QuoteRight.Create().WithStyle(FaStyles.Solid).WithOption(FaOptions.PullRight).WithSize(FaSizes.Lg3x))
 					</pre>
 				</div>
 			</div>

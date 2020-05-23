@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Mvc.RazorTools.FontAwesome
@@ -11,14 +10,14 @@ namespace Mvc.RazorTools.FontAwesome
 	public static class HtmlExtensions
 	{
 		/// <summary>
-		/// 
+		/// All of the icons in <see cref="FaIcons"/> are locked and can be modified. This method creates
+		/// a copy of the specified icon that can be styled and modified in a Razor view/page.
 		/// </summary>
-		/// <param name="html"></param>
-		/// <param name="item"></param>
-		/// <returns></returns>
-		public static IHtmlContent Fa([NotNull]this IHtmlHelper html, FaIcon item)
+		/// <param name="item">The <see cref="FaIcon"/> instance that is being created.</param>
+		/// <returns>Returns an instance of <see cref="FaIcon"/> that can be styled and modified.</returns>
+		public static FaIcon Create([NotNull]this FaIcon item)
 		{
-			return item.Html;
+			return (FaIcon)item.Clone();
 		}
 	}
 }

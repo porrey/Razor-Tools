@@ -508,6 +508,20 @@ namespace Mvc.RazorTools.Charts
 		}
 
 		/// <summary>
+		/// Sets the angle in degrees from horizontal to draw x-axis labels.
+		/// </summary>
+		/// <typeparam name="TChart">The chart Type.</typeparam>
+		/// <param name="chart">An instance of a chart.</param>
+		/// <param name="xLabelAngle">The angle in degrees from horizontal.</param>
+		/// <returns>An updated instance of the chart.</returns>
+		public static TChart WithXLabelAngle<TChart>(this TChart chart, int? xLabelAngle)
+			where TChart : IRazorLineChart
+		{
+			chart.XLabelAngle = xLabelAngle;
+			return chart;
+		}
+		
+		/// <summary>
 		/// A format callback that accepts y-values and formats them for display as y-axis labels.
 		/// </summary>
 		/// <typeparam name="TChart">The chart Type.</typeparam>

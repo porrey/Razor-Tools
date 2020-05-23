@@ -16,6 +16,7 @@
 	<!-- Bar Chart -->
 	<div class="row">
 		<div class="col-12 mb-5 pt-3 pb-3 card">
+			<h2 class="text-left mb-3">Bar Chart</h2>
 			<pre class="text-left">
 @@(Chart.Create&lt;RazorBarChart&gt;()
 	.WithId("monthlyPrecipitation1")
@@ -25,8 +26,8 @@
 	.WithLabels(new string[] { "Average", "Record", "Actual" })
 	.WithGridTextSize(gridTextSize)
 	.WithBarColors(colors)
-	.HideHover(HideHoverState.Auto)
-	.PreventResizing())
+	.WithHoverState(ChartHoverState.Auto)
+	.AllowResizing())
 			</pre>
 
 			@(Chart.Create<RazorBarChart>()
@@ -38,13 +39,14 @@
 					.WithGridTextSize(gridTextSize)
 					.WithBarColors(colors)
 					.WithHoverState(ChartHoverState.Auto)
-					.PreventResizing())
+					.AllowResizing())
 		</div>
 	</div>
 
-	<!-- Bar Chart Stacked -->
+	<!-- Stacked Bar Chart -->
 	<div class="row">
 		<div class="col-12 mb-5 pt-3 pb-3 card">
+			<h2 class="text-left mb-3">Stacked Bar Chart</h2>
 			<pre class="text-left">
 @@(Chart.Create&lt;RazorBarChart&gt;()
 	.WithId("monthlyPrecipitation2")
@@ -55,7 +57,8 @@
 	.WithGridTextSize(gridTextSize)
 	.WithBarColors(colors)
 	.AsStacked()
-	.HideHover(HideHoverState.True))
+	.WithHoverState(ChartHoverState.True)
+	.AllowResizing())
 			</pre>
 
 			@(Chart.Create<RazorBarChart>()
@@ -67,13 +70,15 @@
 					.WithGridTextSize(gridTextSize)
 					.WithBarColors(colors)
 					.AsStacked()
-					.WithHoverState(ChartHoverState.True))
+					.WithHoverState(ChartHoverState.True)
+					.AllowResizing())
 		</div>
 	</div>
 
 	<!-- Line Chart -->
 	<div class="row">
 		<div class="col-12 mb-5 pt-3 pb-3 card">
+			<h2 class="text-left mb-3">Line Chart</h2>
 			<pre class="text-left">
 @@(Chart.Create&lt;RazorBarChart&gt;()
 	.WithId("actualPrecipitation")
@@ -82,12 +87,14 @@
 	.WithXKey("month")
 	.WithYKeys(new string[] { "a2103", "a2012" })
 	.WithLabels ( new string[] { "2013", "2012" })
+	.WithXLabelAngle(60)
 	.WithDateFormat (new DateFormatter("MMMM"))
 	.WithXLabels(xLabel.Month)
 	.WithXLabelFormat(new DateFormatter("MMMM"))
 	.WithGridTextSize(gridTextSize)
 	.WithFillOpacity (fillOpacity)
-	.WithYmax ("8"))
+	.WithYmax ("8")
+	.AllowResizing())
 			</pre>
 			@(Chart.Create<RazorLineChart>()
 					.WithId("actualPrecipitation")
@@ -96,38 +103,44 @@
 					.WithXKey("month")
 					.WithYKeys(new string[] { "a2103", "a2012" })
 					.WithLabels ( new string[] { "2013", "2012" })
+					.WithXLabelAngle(60)
 					.WithDateFormat (new DateFormatter("MMMM"))
 					.WithXLabels(xLabel.Month)
 					.WithXLabelFormat(new DateFormatter("MMMM"))
 					.WithGridTextSize(gridTextSize)
 					.WithFillOpacity (fillOpacity)
-					.WithYmax ("8"))
+					.WithYmax ("8")
+					.AllowResizing())
 		</div>
 	</div>
 
 	<!-- Donut Chart -->
 	<div class="row">
 		<div class="col-12 mb-5 pt-3 pb-3 card">
+			<h2 class="text-left mb-3">Donut Chart 1</h2>
 			<pre class="text-left">
 @@(Chart.Create&lt;RazorBarChart&gt;()
 	.WithId("seasonalPrecipitation")
 	.UsingDataFrom(this.Url.Action("SeasonalPrecipitation", "Home"))
 	.WithColors(colors)
 	.WithFormatter(new AppendFormatter(" in"))
-	.WithLabelColor("#BBBBBB"))
+	.WithLabelColor("#BBBBBB")
+	.AllowResizing())
 			</pre>
-				@(Chart.Create<RazorDonutChart>()
+			@(Chart.Create<RazorDonutChart>()
 					.WithId("seasonalPrecipitation")
 					.UsingDataFrom(this.Url.Action("SeasonalPrecipitation", "Home"))
 					.WithColors(colors)
 					.WithFormatter(new AppendFormatter(" in"))
-					.WithLabelColor("#BBBBBB"))
+					.WithLabelColor("#BBBBBB")
+					.AllowResizing())
 		</div>
 	</div>
 
 	<!-- Donut Chart -->
 	<div class="row">
 		<div class="col-12 mb-5 pt-3 pb-3 card">
+			<h2 class="text-left mb-3">Donut Chart 2</h2>
 			<pre class="text-left">
 @@(Chart.Create&lt;RazorBarChart&gt;()
 	.WithId("fiveYearTotals")
@@ -137,9 +150,10 @@
 	.WithFormatter(new AppendFormatter(" in"))
 	.WithLabelColor("#BBBBBB")
 	.WithBackgroundColor("#353535")
-	.AllowResizing())
+	.AllowResizing()
+	.PreventResizing())
 			</pre>
-				@(Chart.Create<RazorDonutChart>()
+			@(Chart.Create<RazorDonutChart>()
 					.WithId("fiveYearTotals")
 					.UsingDataFrom(this.Url.Action("FiveYearTotals", "Home"))
 					.WithHeight("200px")
@@ -147,13 +161,15 @@
 					.WithFormatter(new AppendFormatter(" in"))
 					.WithLabelColor("#BBBBBB")
 					.WithBackgroundColor("#353535")
-					.AllowResizing())
+					.AllowResizing()
+					.PreventResizing())
 		</div>
 	</div>
 
 	<!-- Area Chart -->
 	<div class="row">
 		<div class="col-12 pt-3 pb-3 card">
+			<h2 class="text-left mb-3">Area Chart</h2>
 			<pre class="text-left">
 @@(Chart.Create&lt;RazorBarChart&gt;()
 	.WithId("totalPrecipitation")
@@ -168,9 +184,10 @@
 	.WithLineColors(colors)
 	.WithDateFormat(new DateFormatter("MMMM, YYYY"))
 	.WithXLabels(xLabel.Month)
-	.WithXLabelFormat(new DateFormatter("MMMM")))
+	.WithXLabelFormat(new DateFormatter("MMMM"))
+	.AllowResizing())
 			</pre>
-				@(Chart.Create<RazorAreaChart>()
+			@(Chart.Create<RazorAreaChart>()
 					.WithId("totalPrecipitation")
 					.UsingDataFrom(this.Url.Action("TotalPrecipitation", "Home"))
 					.WithXKey("month")
@@ -183,7 +200,8 @@
 					.WithLineColors(colors)
 					.WithDateFormat(new DateFormatter("MMMM, YYYY"))
 					.WithXLabels(xLabel.Month)
-					.WithXLabelFormat(new DateFormatter("MMMM")))
+					.WithXLabelFormat(new DateFormatter("MMMM"))
+					.AllowResizing())
 		</div>
 	</div>
 </div>
