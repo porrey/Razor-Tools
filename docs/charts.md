@@ -1,3 +1,8 @@
+
+layout: page
+title: "RazorTools - Charts"
+permalink: /charts/
+
 ## Bar Chart
 The sample code below generates a bar chart.
 		
