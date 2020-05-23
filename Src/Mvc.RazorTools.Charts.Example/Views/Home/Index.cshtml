@@ -13,145 +13,177 @@
 <div class="text-center">
 	<h1 class="display-4">Charts</h1>
 
+	<!-- Bar Chart -->
 	<div class="row">
 		<div class="col-12 mb-5 pt-3 pb-3 card">
 			<pre class="text-left">
-@@Html.RenderChart(new RazorBarChart("monthlyPrecipitation")
-{
-	DataUrl = this.Url.Action("MonthlyPrecipitation", "Home"),
-	XKey = "month",
-	YKeys = new string[] { "avg", "rec", "actual" },
-	Labels = new string[] { "Average", "Record", "Actual" },
-	GridTextSize = gridTextSize,
-	BarColors = colors
-})
+@@(Chart.Create&lt;RazorBarChart&gt;()
+	.WithId("monthlyPrecipitation1")
+	.UsingDataFrom(this.Url.Action("MonthlyPrecipitation", "Home"))
+	.WithXKey("month")
+	.WithYKeys(new string[] { "avg", "rec", "actual" })
+	.WithLabels(new string[] { "Average", "Record", "Actual" })
+	.WithGridTextSize(gridTextSize)
+	.WithBarColors(colors)
+	.HideHover(HideHoverState.Auto)
+	.PreventResizing())
 			</pre>
 
-			@Html.RenderChart(new RazorBarChart("monthlyPrecipitation")
-			{
-				DataUrl = this.Url.Action("MonthlyPrecipitation", "Home"),
-				XKey = "month",
-				YKeys = new string[] { "avg", "rec", "actual" },
-				Labels = new string[] { "Average", "Record", "Actual" },
-				GridTextSize = gridTextSize,
-				BarColors = colors
-			})
+			@(Chart.Create<RazorBarChart>()
+					.WithId("monthlyPrecipitation1")
+					.UsingDataFrom(this.Url.Action("MonthlyPrecipitation", "Home"))
+					.WithXKey("month")
+					.WithYKeys(new string[] { "avg", "rec", "actual" })
+					.WithLabels(new string[] { "Average", "Record", "Actual" })
+					.WithGridTextSize(gridTextSize)
+					.WithBarColors(colors)
+					.WithHoverState(ChartHoverState.Auto)
+					.PreventResizing())
 		</div>
 	</div>
 
+	<!-- Bar Chart Stacked -->
 	<div class="row">
 		<div class="col-12 mb-5 pt-3 pb-3 card">
 			<pre class="text-left">
-@@Html.RenderChart(new RazorLineChart("actualPrecipitation")
-{
-	DataUrl = this.Url.Action("ActualPrecipitation", "Home"),
-	XKey = "month",
-	YKeys = new string[] { "a2103", "a2012" },
-	Labels = new string[] { "2013", "2012" },
-	LineColors = colors,
-	DateFormat = new DateFormatter("MMMM"),
-	XLabels = xLabel.Month,
-	XLabelFormat = new DateFormatter("MMMM"),
-	GridTextSize = gridTextSize,
-	FillOpactiy = fillOpacity,
-	Ymax = "8",
-	ChartHeight = "350px"
-})
+@@(Chart.Create&lt;RazorBarChart&gt;()
+	.WithId("monthlyPrecipitation2")
+	.UsingDataFrom(this.Url.Action("MonthlyPrecipitation", "Home"))
+	.WithXKey("month")
+	.WithYKeys(new string[] { "avg", "rec", "actual" })
+	.WithLabels(new string[] { "Average", "Record", "Actual" })
+	.WithGridTextSize(gridTextSize)
+	.WithBarColors(colors)
+	.AsStacked()
+	.HideHover(HideHoverState.True))
 			</pre>
-			@Html.RenderChart(new RazorLineChart("actualPrecipitation")
-			{
-				DataUrl = this.Url.Action("ActualPrecipitation", "Home"),
-				XKey = "month",
-				YKeys = new string[] { "a2103", "a2012" },
-				Labels = new string[] { "2013", "2012" },
-				LineColors = colors,
-				DateFormat = new DateFormatter("MMMM"),
-				XLabels = xLabel.Month,
-				XLabelFormat = new DateFormatter("MMMM"),
-				GridTextSize = gridTextSize,
-				FillOpactiy = fillOpacity,
-				Ymax = "8",
-				ChartHeight = "350px"
-			})
+
+			@(Chart.Create<RazorBarChart>()
+					.WithId("monthlyPrecipitation2")
+					.UsingDataFrom(this.Url.Action("MonthlyPrecipitation", "Home"))
+					.WithXKey("month")
+					.WithYKeys(new string[] { "avg", "rec", "actual" })
+					.WithLabels(new string[] { "Average", "Record", "Actual" })
+					.WithGridTextSize(gridTextSize)
+					.WithBarColors(colors)
+					.AsStacked()
+					.WithHoverState(ChartHoverState.True))
 		</div>
 	</div>
 
+	<!-- Line Chart -->
 	<div class="row">
 		<div class="col-12 mb-5 pt-3 pb-3 card">
 			<pre class="text-left">
-@@Html.RenderChart(new RazorDonutChart("seasonalPrecipitation")
-{
-	DataUrl = this.Url.Action("SeasonalPrecipitation", "Home"),
-	Colors = colors,
-	Formatter = new AppendFormatter(" in"),
-	LabelColor = "#BBBBBB"
-})
+@@(Chart.Create&lt;RazorBarChart&gt;()
+	.WithId("actualPrecipitation")
+	.UsingDataFrom(this.Url.Action("ActualPrecipitation", "Home"))
+	.WithHeight("350px")
+	.WithXKey("month")
+	.WithYKeys(new string[] { "a2103", "a2012" })
+	.WithLabels ( new string[] { "2013", "2012" })
+	.WithDateFormat (new DateFormatter("MMMM"))
+	.WithXLabels(xLabel.Month)
+	.WithXLabelFormat(new DateFormatter("MMMM"))
+	.WithGridTextSize(gridTextSize)
+	.WithFillOpacity (fillOpacity)
+	.WithYmax ("8"))
 			</pre>
-			@Html.RenderChart(new RazorDonutChart("seasonalPrecipitation")
-			{
-				DataUrl = this.Url.Action("SeasonalPrecipitation", "Home"),
-				Colors = colors,
-				Formatter = new AppendFormatter(" in"),
-				LabelColor = "#BBBBBB"
-			})
+			@(Chart.Create<RazorLineChart>()
+					.WithId("actualPrecipitation")
+					.UsingDataFrom(this.Url.Action("ActualPrecipitation", "Home"))
+					.WithHeight("350px")
+					.WithXKey("month")
+					.WithYKeys(new string[] { "a2103", "a2012" })
+					.WithLabels ( new string[] { "2013", "2012" })
+					.WithDateFormat (new DateFormatter("MMMM"))
+					.WithXLabels(xLabel.Month)
+					.WithXLabelFormat(new DateFormatter("MMMM"))
+					.WithGridTextSize(gridTextSize)
+					.WithFillOpacity (fillOpacity)
+					.WithYmax ("8"))
 		</div>
 	</div>
 
+	<!-- Donut Chart -->
 	<div class="row">
 		<div class="col-12 mb-5 pt-3 pb-3 card">
 			<pre class="text-left">
-@@Html.RenderChart(new RazorDonutChart("fiveYearTotals")
-{
-	DataUrl = this.Url.Action("FiveYearTotals", "Home"),
-	Colors = colors,
-	Formatter = new AppendFormatter(" in"),
-	LabelColor = "#BBBBBB"
-})
+@@(Chart.Create&lt;RazorBarChart&gt;()
+	.WithId("seasonalPrecipitation")
+	.UsingDataFrom(this.Url.Action("SeasonalPrecipitation", "Home"))
+	.WithColors(colors)
+	.WithFormatter(new AppendFormatter(" in"))
+	.WithLabelColor("#BBBBBB"))
 			</pre>
-			@Html.RenderChart(new RazorDonutChart("fiveYearTotals")
-			{
-				DataUrl = this.Url.Action("FiveYearTotals", "Home"),
-				Colors = colors,
-				Formatter = new AppendFormatter(" in"),
-				LabelColor = "#BBBBBB"
-			})
+				@(Chart.Create<RazorDonutChart>()
+					.WithId("seasonalPrecipitation")
+					.UsingDataFrom(this.Url.Action("SeasonalPrecipitation", "Home"))
+					.WithColors(colors)
+					.WithFormatter(new AppendFormatter(" in"))
+					.WithLabelColor("#BBBBBB"))
 		</div>
 	</div>
 
+	<!-- Donut Chart -->
+	<div class="row">
+		<div class="col-12 mb-5 pt-3 pb-3 card">
+			<pre class="text-left">
+@@(Chart.Create&lt;RazorBarChart&gt;()
+	.WithId("fiveYearTotals")
+	.UsingDataFrom(this.Url.Action("FiveYearTotals", "Home"))
+	.WithHeight("200px")
+	.WithColors(colors)
+	.WithFormatter(new AppendFormatter(" in"))
+	.WithLabelColor("#BBBBBB")
+	.WithBackgroundColor("#353535")
+	.AllowResizing())
+			</pre>
+				@(Chart.Create<RazorDonutChart>()
+					.WithId("fiveYearTotals")
+					.UsingDataFrom(this.Url.Action("FiveYearTotals", "Home"))
+					.WithHeight("200px")
+					.WithColors(colors)
+					.WithFormatter(new AppendFormatter(" in"))
+					.WithLabelColor("#BBBBBB")
+					.WithBackgroundColor("#353535")
+					.AllowResizing())
+		</div>
+	</div>
+
+	<!-- Area Chart -->
 	<div class="row">
 		<div class="col-12 pt-3 pb-3 card">
 			<pre class="text-left">
-@@Html.RenderChart(new RazorAreaChart("totalPrecipitation")
-{
-	DataUrl = this.Url.Action("TotalPrecipitation", "Home"),
-	XKey = "month",
-	YKeys = new string[] { "tot" },
-	Labels = new string[] { "Year to Date" },
-	Smooth = true,
-	FillOpactiy = fillOpacity,
-	PostUnits = "in",
-	GridTextSize = gridTextSize,
-	LineColors = colors,
-	DateFormat = new DateFormatter("MMMM, YYYY"),
-	XLabels = xLabel.Month,
-	XLabelFormat = new DateFormatter("MMMM")
-})
+@@(Chart.Create&lt;RazorBarChart&gt;()
+	.WithId("totalPrecipitation")
+	.UsingDataFrom(this.Url.Action("TotalPrecipitation", "Home"))
+	.WithXKey("month")
+	.WithYKeys(new string[] { "tot" })
+	.WithLabels(new string[] { "Year to Date" })
+	.WithLineSmoothing()
+	.WithFillOpacity(fillOpacity)
+	.WithPostUnits("in")
+	.WithGridTextSize(gridTextSize)
+	.WithLineColors(colors)
+	.WithDateFormat(new DateFormatter("MMMM, YYYY"))
+	.WithXLabels(xLabel.Month)
+	.WithXLabelFormat(new DateFormatter("MMMM")))
 			</pre>
-			@Html.RenderChart(new RazorAreaChart("totalPrecipitation")
-			{
-				DataUrl = this.Url.Action("TotalPrecipitation", "Home"),
-				XKey = "month",
-				YKeys = new string[] { "tot" },
-				Labels = new string[] { "Year to Date" },
-				Smooth = true,
-				FillOpactiy = fillOpacity,
-				PostUnits = "in",
-				GridTextSize = gridTextSize,
-				LineColors = colors,
-				DateFormat = new DateFormatter("MMMM, YYYY"),
-				XLabels = xLabel.Month,
-				XLabelFormat = new DateFormatter("MMMM")
-			})
+				@(Chart.Create<RazorAreaChart>()
+					.WithId("totalPrecipitation")
+					.UsingDataFrom(this.Url.Action("TotalPrecipitation", "Home"))
+					.WithXKey("month")
+					.WithYKeys(new string[] { "tot" })
+					.WithLabels(new string[] { "Year to Date" })
+					.WithLineSmoothing()
+					.WithFillOpacity(fillOpacity)
+					.WithPostUnits("in")
+					.WithGridTextSize(gridTextSize)
+					.WithLineColors(colors)
+					.WithDateFormat(new DateFormatter("MMMM, YYYY"))
+					.WithXLabels(xLabel.Month)
+					.WithXLabelFormat(new DateFormatter("MMMM")))
 		</div>
 	</div>
 </div>

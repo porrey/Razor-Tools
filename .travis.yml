@@ -3,5 +3,13 @@ solution: Src/Razor-Tools-Solution.sln
 dotnet: 3.1
 mono: none
 script:
-  - dotnet build Src/Razor-Tools-Solution.sln --configuration Release --framework netcoreapp3.1
+  - dotnet build Src/Mvc.RazorTools.Base/Mvc.RazorTools.Base.csproj --configuration Release --framework netstandard2.1
+  - dotnet build Src/Mvc.RazorTools.Charts/Mvc.RazorTools.Charts.csproj --configuration Release --framework netstandard2.1
+  - dotnet build Src/Mvc.RazorTools.FontAwesome/Mvc.RazorTools.FontAwesome.csproj --configuration Release --framework netstandard2.1
   - dotnet test Src/Razor-Tools-Solution.sln --framework netcoreapp3.1
+  - dotnet pack Src/Mvc.RazorTools.Base/Mvc.RazorTools.Base.csproj --configuration Release
+  - dotnet pack Src/Mvc.RazorTools.Charts/Mvc.RazorTools.Charts.csproj --configuration Release
+  - dotnet pack Src/Mvc.RazorTools.FontAwesome/Mvc.RazorTools.FontAwesome.csproj --configuration Release
+  - dotnet nuget push Src\Mvc.RazorTools.Base\bin\Release\Mvc.RazorTools.Base.*.nupkg -k NUGET_KEY -s https://api.nuget.org/v3/index.json --skip-duplicate
+  - dotnet nuget push Src\Mvc.RazorTools.Charts\bin\Release\Mvc.RazorTools.Charts.*.nupkg -k NUGET_KEY -s https://api.nuget.org/v3/index.json --skip-duplicate
+  - dotnet nuget push Src\Mvc.RazorTools.FontAwesome\bin\Release\Mvc.RazorTools.FontAwesome.*.nupkg -k NUGET_KEY -s https://api.nuget.org/v3/index.json --skip-duplicate

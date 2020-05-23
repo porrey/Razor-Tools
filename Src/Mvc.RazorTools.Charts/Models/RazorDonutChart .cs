@@ -19,14 +19,24 @@ using System.Collections.Generic;
 namespace Mvc.RazorTools.Charts
 {
 	/// <summary>
-	/// A razor donut chart.
+	/// Represents a razor donut chart.
 	/// </summary>
-	public class RazorDonutChart : RazorChart
+	public class RazorDonutChart : RazorChart, IRazorDonutChart
 	{
 		private IEnumerable<string> _colors = null;
 		private CallbackFormatter _formatter = null;
 		private string _backgroundColor = null;
 		private string _labelColor = null;
+
+		/// <summary>
+		/// Creates a new instance of a Morris Donut Chart.
+		/// </summary>
+		public RazorDonutChart()
+			: base(RazorChartType.Donut)
+		{
+			this.HtmlTag = "div";
+			this.IncludeIdInHtml = true;
+		}
 
 		/// <summary>
 		/// Creates a new instance of a Morris Donut Chart with
@@ -42,7 +52,7 @@ namespace Mvc.RazorTools.Charts
 
 		/// <summary>
 		/// An array of strings containing HTML-style hex colors for each of the donut 
-		/// segments.  Note: if there are fewer colors than segments, the colors will 
+		/// segments. Note: if there are fewer colors than segments, the colors will 
 		/// cycle back to the start of the array when exhausted. 
 		/// </summary>
 		public IEnumerable<string> Colors

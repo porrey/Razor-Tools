@@ -1,7 +1,8 @@
 ﻿// ***
-// *** Morris Unobtrusive jQuery v0.4.3 (https://charts.codeplex.com)
-// *** Copyright 2013 Daniel M. Porrey
-// *** Licensed under https://charts.codeplex.com/license
+// *** Razor Tools Unobtrusive Charts version 2.0.0
+// *** Copyright 2013-2020 Daniel M. Porrey
+// *** Licensed under LGPL-3.0
+// *** https://github.com/porrey/Razor-Tools/blob/master/LICENSE
 // ***
 
 // ***
@@ -83,7 +84,8 @@ var chartOptions =
 		{ name: 'colors', isRequired: false, autoLoad: true, chart: [chartTypes.Donut], optionType: chartOptionTypes.StringArray },
 		{ name: 'formatter', isRequired: false, autoLoad: true, chart: [chartTypes.Donut], optionType: chartOptionTypes.FormatCallback },
 		{ name: 'labelColor', isRequired: false, autoLoad: true, chart: [chartTypes.Donut], optionType: chartOptionTypes.String },
-		{ name: 'backgroundColor', isRequired: false, autoLoad: true, chart: [chartTypes.Donut], optionType: chartOptionTypes.String }
+		{ name: 'backgroundColor', isRequired: false, autoLoad: true, chart: [chartTypes.Donut], optionType: chartOptionTypes.String },
+		{ name: 'resize', isRequired: false, autoLoad: true, chart: [chartTypes.Area, chartTypes.Line, chartTypes.Bar, chartTypes.Donut], optionType: chartOptionTypes.Boolean }
 	];
 
 // ***
@@ -109,7 +111,7 @@ var formatters =
 // ***
 $(function () {
 	// ***
-	// *** Attach to the resize event. Debounce will ensure this is called once
+	// *** Attach to the resize event. De-bounce will ensure this is called once
 	// *** after the window stops resizing.
 	// ***
 	$(window).resize($.debounce(250, true, function (e) {

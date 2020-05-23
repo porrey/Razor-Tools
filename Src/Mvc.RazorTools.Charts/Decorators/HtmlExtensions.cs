@@ -30,10 +30,10 @@ namespace Mvc.RazorTools.Charts
 		/// </summary>
 		/// <param name="html">An instance of <see cref="IHtmlHelper"/>.</param>
 		/// <param name="chart">An instance of the chart to display.</param>
-		/// <returns></returns>
+		/// <returns>An updated instance of the chart.</returns>
 		public static IHtmlContent MorrisChart(this IHtmlHelper html, RazorChart chart)
 		{
-			return chart.Html;
+			return chart;
 		}
 
 		/// <summary>
@@ -41,10 +41,20 @@ namespace Mvc.RazorTools.Charts
 		/// </summary>
 		/// <param name="html">An instance of <see cref="IHtmlHelper"/>.</param>
 		/// <param name="chart">An instance of the chart to display.</param>
-		/// <returns></returns>
+		/// <returns>An updated instance of the chart.</returns>
 		public static IHtmlContent RenderChart(this IHtmlHelper html, RazorChart chart)
 		{
-			return chart.Html;
+			return chart;
+		}
+
+		/// <summary>
+		/// Extension method to display a Razor Chart in a view.
+		/// </summary>
+		/// <param name="chart">An instance of the chart to display.</param>
+		/// <returns>An updated instance of the chart.</returns>
+		public static IHtmlContent RenderChart(RazorChart chart)
+		{
+			return chart;
 		}
 	}
 }

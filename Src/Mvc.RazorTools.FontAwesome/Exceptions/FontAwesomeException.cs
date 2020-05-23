@@ -9,7 +9,7 @@ namespace Mvc.RazorTools.FontAwesome
 	public abstract class FontAwesomeException : RazorToolsException
 	{
 		/// <summary>
-		/// Initializes a new instance of the Mvc.RazorTools.FontAwesome.FontAwesomeException class.
+		/// Initializes a new instance of the <see cref="FontAwesomeException"/> class.
 		/// </summary>
 		public FontAwesomeException()
 			: base()
@@ -17,7 +17,7 @@ namespace Mvc.RazorTools.FontAwesome
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the Mvc.RazorTools.FontAwesome.FontAwesomeException 
+		/// Initializes a new instance of the <see cref="FontAwesomeException"/> 
 		/// class with the specified error message.
 		/// </summary>
 		/// <param name="message">A System.String containing the error message that describes the exception.</param>
@@ -27,7 +27,7 @@ namespace Mvc.RazorTools.FontAwesome
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the Mvc.RazorTools.FontAwesome.FontAwesomeException 
+		/// Initializes a new instance of the <see cref="FontAwesomeException"/>
 		/// class with the specified formatted error message.
 		/// </summary>
 		/// <param name="format">A composite format string.</param>
@@ -38,7 +38,7 @@ namespace Mvc.RazorTools.FontAwesome
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the Mvc.RazorTools.FontAwesome.FontAwesomeException
+		/// Initializes a new instance of the <see cref="FontAwesomeException"/>
 		/// class with a specified error message and a reference to the inner exception 
 		/// that is the cause of this exception.
 		/// </summary>
@@ -51,12 +51,12 @@ namespace Mvc.RazorTools.FontAwesome
 		}
 
 		/// <summary>
-		/// When overridden in a derived class, sets the System.Runtime.Serialization.SerializationInfo 
+		/// When overridden in a derived class, sets the <see cref="SerializationInfo"/>
 		/// with information about the exception.
 		/// </summary>
-		/// <param name="info">The System.Runtime.Serialization.SerializationInfo that holds the serialized 
+		/// <param name="info">The <see cref="SerializationInfo"/> that holds the serialized 
 		/// object data about the exception being thrown.</param>
-		/// <param name="context">The System.Runtime.Serialization.StreamingContext that contains contextual 
+		/// <param name="context">The <see cref="StreamingContext"/> that contains contextual 
 		/// information about the source or destination.</param>
 		public FontAwesomeException(SerializationInfo info, StreamingContext context)
 			: base(info, context)

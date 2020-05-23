@@ -4,6 +4,502 @@
         <name>Mvc.RazorTools.Charts</name>
     </assembly>
     <members>
+        <member name="T:Mvc.RazorTools.Charts.Chart">
+            <summary>
+            Extension methods to create charts with fluent API.
+            </summary>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.Create``1">
+            <summary>
+            Creates a new chart.
+            </summary>
+            <typeparam name="TChart">Specify the chart type to create.</typeparam>
+            <returns>The newly created instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithId``1(``0,System.String)">
+            <summary>
+            Sets the HTML node ID for this chart.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="id"></param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.UsingDataFrom``1(``0,System.String)">
+            <summary>
+            Sets the URL used to retrieve data for the chart.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="url"></param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithHeight``1(``0,System.String)">
+            <summary>
+            Sets the height of the div tag to preserve space for the chart. Set this value to 
+            null to allow the chart to dynamically size.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="height">An CSS/HTML compatible string that represents a height.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.AllowResizing``1(``0)">
+            <summary>
+            Enable automatic resizing when the containing element resizes (default: false).
+            This has a significant performance impact, so it is disabled by default.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.PreventResizing``1(``0)">
+            <summary>
+            Disables automatic resizing when the containing element resizes.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithXKey``1(``0,System.String)">
+            <summary>
+            Sets a string containing the name of the attribute that contains date (X) values. Timestamps 
+            are accepted in the form of millisecond timestamps (as returned by Date.getTime() or as 
+            strings in the following formats:
+            •2012
+            •2012 Q1
+            •2012 W1
+            •2012-02
+            •2012-02-24
+            •2012-02-24 15:00
+            •2012-02-24 15:00:00
+            •2012-02-24 15:00:00.000
+            Note: when using millisecond timestamps, it's recommended that you check out the dateFormat option. 
+            Note 2: date/time strings can optionally contain a T between the date and time parts, and/or a Z 
+            suffix, for compatibility with ISO-8601 dates.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="xkey">The name of the XKey attribute.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithYKeys``1(``0,System.String[])">
+            <summary>
+            Sets the list of strings containing names of attributes that contain Y values (one for each series of 
+            data to be plotted).
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="ykeys">A list of Y values.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithLabels``1(``0,System.String[])">
+            <summary>
+            Sets the list of strings containing labels for the data series to be plotted (corresponding to the 
+            values in the YKeys option).
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="labels">A list of label values.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithHoverState``1(``0,Mvc.RazorTools.Charts.ChartHoverState)">
+            <summary>
+            Set the hover behavior. to 'False' to always show a hover legend. Set to 'True' or 'Auto' to
+            only show the hover legend when the mouse cursor is over the chart. Set to 'Always' to never
+            show a hover legend. 
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="hoverState">The hover state to set.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithAxis``1(``0)">
+            <summary>
+            Enables drawing the x and y axis.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithoutAxis``1(``0)">
+            <summary>
+            Disables drawing the x and y axis.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithGrid``1(``0)">
+            <summary>
+            Enables drawing the horizontal grid lines.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithoutGrid``1(``0)">
+            <summary>
+            Disables drawing the horizontal grid lines.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithGridTextSize``1(``0,System.Nullable{System.Int32})">
+            <summary>
+            Set the point size of the axis labels (default: 12).
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="gridTextSize">The point size of the axis labels.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithGridTextColor``1(``0,System.String)">
+            <summary>
+            Set the color of the axis labels (default: #888).
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="gridTextColor">An HTML/CSS color.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithGridTextFamily``1(``0,System.String)">
+            <summary>
+            Set the font family of the axis labels (default: sans-serif). 
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="gridTextFamily">The font family name.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithGridTextWeight``1(``0,System.String)">
+            <summary>
+            Set the font weight of the axis labels (default: normal).
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="gridTextWeight">An HTML/CSS font weight.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithLineColors``1(``0,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Sets the colors for the series lines/points.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="lineColors">Array containing colors for the series lines/points.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithLineWidth``1(``0,System.Nullable{System.Int32})">
+            <summary>
+            Sets the width of the series lines, in pixels.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="lineWidth">Width of the series lines, in pixels.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithPointFillColors``1(``0,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Sets the colors for the series points. By default uses the same values as LineColors.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="pointFillColors">An array of colors for the series points</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithPointSize``1(``0,System.Nullable{System.Int32})">
+            <summary>
+            Sets the diameter of the series points, in pixels.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="pointSize">An array of diameters.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithPointStrokeColors``1(``0,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Sets the colors for the outlines of the series points (#ffffff by default).
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="pointStrokeColors">An array of HTML/CSS colors.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithYmax``1(``0,System.String)">
+            <summary>
+            Sets the, maximum bound for Y-values. Alternatively, set this to 'auto' to compute automatically, 
+            or 'auto [num]' to automatically compute and ensure that the max y-value is at least [num]. 
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="ymax">The YMax value.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithYmin``1(``0,System.String)">
+            <summary>
+            Sets the minimum bound for Y-values. Alternatively, set this to 'auto' to compute automatically,
+            or 'auto [num]' to automatically compute and ensure that the min y-value is at most [num]. Hint: 
+            you can use this to create graphs with false origins. 
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="ymin">The YMin value.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithLineSmoothing``1(``0)">
+            <summary>
+            Enables line smoothing.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithoutLineSmoothing``1(``0)">
+            <summary>
+            Disables line smoothing.  
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithParseTime``1(``0)">
+            <summary>
+            Enables time/date parsing for X values.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithoutParseTime``1(``0)">
+            <summary>
+            Skips time/date parsing for X values, instead treating them as an equally-spaced series.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithPostUnits``1(``0,System.String)">
+            <summary>
+            Sets a string value (eg: '%') to be appended to all y-labels.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="postUnits">A value to add after all units on the Y axis.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithPreUnits``1(``0,System.String)">
+            <summary>
+            Sets a string value (eg: '$') to prefix all y-labels.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="preUnits">The value to be prefixed to all units on the Y axis.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithDateFormat``1(``0,Mvc.RazorTools.Charts.CallbackFormatter)">
+            <summary>
+            Sets the callback formatter that accepts formats dates for display as chart labels.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="dateFormat">A callback object.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithXLabels``1(``0,Mvc.RazorTools.Charts.xLabel)">
+            <summary>
+            Specifies the x axis labeling interval. By default the interval will be automatically computed.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="xLabels">A xLabel value.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithXLabelFormat``1(``0,Mvc.RazorTools.Charts.CallbackFormatter)">
+            <summary>
+            A format callback that accepts date objects and formats them for display as x-axis labels. Overrides the 
+            default formatter chosen by the automatic labeler or the xLabels option.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="xLabelFormat">A callback object.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithYLabelFormat``1(``0,Mvc.RazorTools.Charts.CallbackFormatter)">
+            <summary>
+            A format callback that accepts y-values and formats them for display as y-axis labels.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="yLabelFormat">A callback object.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithGoals``1(``0,System.Collections.Generic.IEnumerable{System.Single})">
+            <summary>
+            Sets a list of y-values to draw as horizontal 'goal' lines on the chart.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="goals">An array of Y values used to set the goal lines.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithGoalStrokeWidth``1(``0,System.Nullable{System.Int32})">
+            <summary>
+            Width, in pixels, of the goal lines.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="goalStrokeWidth">The width of the goal lines in pixels.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithGoalLineColors``1(``0,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Sets the array of color values to use for the goal line colors. If you list fewer colors here than you 
+            have goals lines, then the values will be cycled.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="goalLineColors">An array of HTML/CSS colors.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithEvents``1(``0,System.Collections.Generic.IEnumerable{System.Single})">
+            <summary>
+            Sets a list of x-values to draw as vertical 'event' lines on the chart.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="events">An array of X values used to set the event lines.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithEventStrokeWidth``1(``0,System.Nullable{System.Int32})">
+            <summary>
+            Width, in pixels, of the event lines.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="eventStrokeWidth"></param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithEventLineColors``1(``0,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="eventLineColors">The width of the event lines in pixels.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithContinuousLine``1(``0)">
+            <summary>
+            Null values will break the line and undefined values will be spanned. Note: in v0.5.0,
+            this setting will be removed and the behavior will be to break lines at null values.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithoutContinuousLine``1(``0)">
+            <summary>
+            Null and undefined values in a data series will be ignored and lines will be drawn spanning them.
+            When set to true, null values will break the line and undefined values will be spanned. Note: 
+            in v0.5.0, this setting will be removed and the behavior will be to break lines at 
+            null values.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithFillOpacity``1(``0,System.Nullable{System.Double})">
+            <summary>
+            Sets the opacity of the area fill color. Accepts values between 0.0 (for 
+            completely transparent) and 1.0 (for completely opaque).
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="fillOpacity">The opacity value.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithLineBehavior``1(``0)">
+            <summary>
+            Sets items to be overlaid on top of each other.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithoutLineBehavior``1(``0)">
+            <summary>
+            Sets items to be stacked.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithBarColors``1(``0,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Sets the colors for the series bars. 
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="barColors">An array of HTML/CSS colors.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.AsStacked``1(``0)">
+            <summary>
+            Draw bars of multiple series stacked vertically.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.AsUnstacked``1(``0)">
+            <summary>
+            Draw bars of multiple series side by side.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithColors``1(``0,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Sets the colors for each of the donut segments. Note: if
+            there are fewer colors than segments, the colors will 
+            cycle back to the start of the array when exhausted. 
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="colors">An array of HTML/CSS colors.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithFormatter``1(``0,Mvc.RazorTools.Charts.CallbackFormatter)">
+            <summary>
+            Sets a callback format that will translate a y-value into a label for the
+            center of the donut.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="formatter">A callback object.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithBackgroundColor``1(``0,System.String)">
+            <summary>
+            Sets the background color of the chart.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="backgroundColor">An HTML/CSS color.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.WithLabelColor``1(``0,System.String)">
+            <summary>
+            Sets the color of the label in the center of the chart.
+            </summary>
+            <typeparam name="TChart">The chart Type.</typeparam>
+            <param name="chart">An instance of a chart.</param>
+            <param name="labelColor">An HTML/CSS color.</param>
+            <returns>An updated instance of the chart.</returns>
+        </member>
         <member name="T:Mvc.RazorTools.Charts.HtmlExtensions">
             <summary>
             Provides a set of extension methods for the <see cref="T:Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper"/> interface. These extension
@@ -16,7 +512,7 @@
             </summary>
             <param name="html">An instance of <see cref="T:Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper"/>.</param>
             <param name="chart">An instance of the chart to display.</param>
-            <returns></returns>
+            <returns>An updated instance of the chart.</returns>
         </member>
         <member name="M:Mvc.RazorTools.Charts.HtmlExtensions.RenderChart(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Mvc.RazorTools.Charts.RazorChart)">
             <summary>
@@ -24,7 +520,14 @@
             </summary>
             <param name="html">An instance of <see cref="T:Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper"/>.</param>
             <param name="chart">An instance of the chart to display.</param>
-            <returns></returns>
+            <returns>An updated instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.HtmlExtensions.RenderChart(Mvc.RazorTools.Charts.RazorChart)">
+            <summary>
+            Extension method to display a Razor Chart in a view.
+            </summary>
+            <param name="chart">An instance of the chart to display.</param>
+            <returns>An updated instance of the chart.</returns>
         </member>
         <member name="T:Mvc.RazorTools.Charts.AppendFormatter">
             <summary>
@@ -224,15 +727,340 @@
             Specifies the X-Axis label interval will be one second.
             </summary>
         </member>
+        <member name="T:Mvc.RazorTools.Charts.IRazorAreaChart">
+            <summary>
+            Represents a Morris Area chart. Area charts take all the same options as
+            line charts but are shaded under the lines.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorAreaChart.BehaveLikeLine">
+            <summary>
+            Gets/sets a value that determines if the items are overlaid on top of each other (true)
+            instead of stacking them (false).
+            </summary>
+        </member>
+        <member name="T:Mvc.RazorTools.Charts.IRazorBarChart">
+            <summary>
+            Represents a Morris bar chart. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorBarChart.BarColors">
+            <summary>
+            Array containing colors for the series bars. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorBarChart.Stacked">
+            <summary>
+            Set to true to draw bars stacked vertically. 
+            </summary>
+        </member>
+        <member name="T:Mvc.RazorTools.Charts.IRazorChart">
+            <summary>
+            Base interface for all razor charts.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorChart.ChartHeight">
+            <summary>
+            Gets/sets the height of the div tag to preserve space for the chart. Set this value to 
+            null to allow the chart to dynamically size.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorChart.DataUrl">
+            <summary>
+            The URL to the data to plot. This is an array of objects, containing x and y attributes 
+            as described by the XKey and YKeys options. Note: ordering doesn't matter here - you  
+            can supply the data in whatever order works best for you.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorChart.Library">
+            <summary>
+            Gets the chart library used by this instance represents.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorChart.Type">
+            <summary>
+            Gets the type of chart this instance represents.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorChart.Resize">
+            <summary>
+            Set to true to enable automatic resizing when the containing element resizes (default: false).
+            This has a significant performance impact, so it is disabled by default.
+            </summary>
+        </member>
+        <member name="T:Mvc.RazorTools.Charts.IRazorDonutChart">
+            <summary>
+            Represents a razor donut chart.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorDonutChart.BackgroundColor">
+            <summary>
+            Gets/sets the background color of the chart.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorDonutChart.Colors">
+            <summary>
+            An array of strings containing HTML-style hex colors for each of the donut 
+            segments. Note: if there are fewer colors than segments, the colors will 
+            cycle back to the start of the array when exhausted. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorDonutChart.Formatter">
+            <summary>
+            Gets/sets a callback format that will translate a y-value into a label for the center of the donut.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorDonutChart.LabelColor">
+            <summary>
+            Gets/sets the color of the label in the center of the chart.
+            </summary>
+        </member>
+        <member name="T:Mvc.RazorTools.Charts.IRazorLineChart">
+            <summary>
+            Represents a Morris Line chart.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.ContinuousLine">
+            <summary>
+            When set to false (the default), all null and undefined values in a data series will be ignored and lines 
+            will be drawn spanning them. When set to true, null values will break the line and undefined values will 
+            be spanned. Note: in v0.5.0, this setting will be removed and the behavior will be to break lines at 
+            null values. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.DateFormat">
+            <summary>
+            A callback formatter that accepts formats dates for display as chart labels.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.EventLineColors">
+            <summary>
+            Array of color values to use for the event line colors. If you list fewer colors here than you 
+            have lines in events, then the values will be cycled. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.Events">
+            <summary>
+            A list of x-values to draw as vertical 'event' lines on the chart.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.EventStrokeWidth">
+            <summary>
+            Width, in pixels, of the event lines.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.FillOpacity">
+            <summary>
+            Change the opacity of the area fill color. Accepts values between 0.0 (for 
+            completely transparent) and 1.0 (for completely opaque). 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.GoalLineColors">
+            <summary>
+            Array of color values to use for the goal line colors. If you list fewer colors here than you 
+            have lines in goals, then the values will be cycled.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.Goals">
+            <summary>
+            A list of y-values to draw as horizontal 'goal' lines on the chart. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.GoalStrokeWidth">
+            <summary>
+            Width, in pixels, of the goal lines. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.LineColors">
+            <summary>
+            Array containing colors for the series lines/points.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.LineWidth">
+            <summary>
+            Width of the series lines, in pixels.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.ParseTime">
+            <summary>
+            Set to false to skip time/date parsing for X values, instead treating them as an equally-spaced series. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.PointFillColors">
+            <summary>
+            Colors for the series points. By default uses the same values as LineColors.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.PointSize">
+            <summary>
+            Diameter of the series points, in pixels.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.PointStrokeColors">
+            <summary>
+            Colors for the outlines of the series points. (#ffffff by default).
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.PostUnits">
+            <summary>
+            Set to a string value (eg: '%') to add a label suffix all y-labels. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.PreUnits">
+            <summary>
+            Set to a string value (eg: '$') to add a label prefix all y-labels. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.LineSmoothing">
+            <summary>
+            Gets/sets a value enable or disable line smoothing. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.XLabelFormat">
+            <summary>
+            A format callback that accepts date objects and formats them for display as x-axis labels. Overrides the 
+            default formatter chosen by the automatic labeler or the xLabels option. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.XLabels">
+            <summary>
+            Specifies the x axis labeling interval. By default the interval will be automatically computed.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.YLabelFormat">
+            <summary>
+            A format callback that accepts y-values and formats them for display as y-axis labels. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.Ymax">
+            <summary>
+            Maximum bound for Y-values. Alternatively, set this to 'auto' to compute automatically, or 'auto [num]' to 
+            automatically compute and ensure that the max y-value is at least [num]. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorLineChart.Ymin">
+            <summary>
+            Minimum bound for Y-values. Alternatively, set this to 'auto' to compute automatically, or 'auto [num]' 
+            to automatically compute and ensure that the min y-value is at most [num]. Hint: you can use this 
+            to create graphs with false origins. 
+            </summary>
+        </member>
+        <member name="T:Mvc.RazorTools.Charts.IRazorSeriesChart">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorSeriesChart.Axis">
+            <summary>
+            Set to false to disable drawing the x and y axis. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorSeriesChart.Grid">
+            <summary>
+            Set to false to disable drawing the horizontal grid lines.
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorSeriesChart.GridTextColor">
+            <summary>
+            Set the color of the axis labels (default: #888).
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorSeriesChart.GridTextFamily">
+            <summary>
+            Set the font family of the axis labels (default: sans-serif). 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorSeriesChart.GridTextSize">
+            <summary>
+            Set the point size of the axis labels (default: 12).
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorSeriesChart.GridTextWeight">
+            <summary>
+            Set the font weight of the axis labels (default: normal).
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorSeriesChart.HideHover">
+            <summary>
+            Set to 'False' to always show a hover legend. Set to 'True' or 'Auto' to only show the hover 
+            legend when the mouse cursor is over the chart. Set to 'Always' to never show a hover legend. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorSeriesChart.Labels">
+            <summary>
+            A list of strings containing labels for the data series to be plotted (corresponding to the 
+            values in the YKeys option). 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorSeriesChart.XKey">
+            <summary>
+            A string containing the name of the attribute that contains date (X) values. Timestamps 
+            are accepted in the form of millisecond timestamps (as returned by Date.getTime() or as 
+            strings in the following formats:
+            •2012
+            •2012 Q1
+            •2012 W1
+            •2012-02
+            •2012-02-24
+            •2012-02-24 15:00
+            •2012-02-24 15:00:00
+            •2012-02-24 15:00:00.000
+            Note: when using millisecond timestamps, it's recommended that you check out the dateFormat option. 
+            Note 2: date/time strings can optionally contain a T between the date and time parts, and/or a Z 
+            suffix, for compatibility with ISO-8601 dates. 
+            </summary>
+        </member>
+        <member name="P:Mvc.RazorTools.Charts.IRazorSeriesChart.YKeys">
+            <summary>
+            A list of strings containing names of attributes that contain Y values (one for each series of 
+            data to be plotted).
+            </summary>
+        </member>
+        <member name="T:Mvc.RazorTools.Charts.ChartHoverState">
+            <summary>
+            A list of values that can specify the
+            hover state of the legend for a chart.
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.Charts.ChartHoverState.None">
+            <summary>
+            The hide hover state is not specified.
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.Charts.ChartHoverState.Auto">
+            <summary>
+            Only show the hover legend when the mouse cursor is over the chart.
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.Charts.ChartHoverState.True">
+            <summary>
+            Only show the hover legend when the mouse cursor is over the chart.
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.Charts.ChartHoverState.False">
+            <summary>
+            Always show a hover legend. 
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.Charts.ChartHoverState.Always">
+            <summary>
+            Never show a hover legend.
+            </summary>
+        </member>
         <member name="T:Mvc.RazorTools.Charts.RazorAreaChart">
             <summary>
-            Creates Morris Area charts. Area charts take all the same options as line charts but are shaded
-            under the lines.
+            Represents a Morris Area chart. Area charts take all the same options as
+            line charts but are shaded under the lines.
+            </summary>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.RazorAreaChart.#ctor">
+            <summary>
+            Creates an instance of a Morris Area.
             </summary>
         </member>
         <member name="M:Mvc.RazorTools.Charts.RazorAreaChart.#ctor(System.String)">
             <summary>
-            Creates an instance of <see cref="T:Mvc.RazorTools.Charts.RazorAreaChart"/> with the specified ID.
+            Creates an instance of a Morris Area with the specified ID.
             </summary>
             <param name="id"></param>
         </member>
@@ -245,6 +1073,11 @@
         <member name="T:Mvc.RazorTools.Charts.RazorBarChart">
             <summary>
             Create Morris bar charts. 
+            </summary>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.RazorBarChart.#ctor">
+            <summary>
+            Creates an instance of a Morris Bar Chart.
             </summary>
         </member>
         <member name="M:Mvc.RazorTools.Charts.RazorBarChart.#ctor(System.String)">
@@ -263,40 +1096,16 @@
             Set to true to draw bars stacked vertically. 
             </summary>
         </member>
-        <member name="T:Mvc.RazorTools.Charts.RazorChartType">
-            <summary>
-            This is the base class for all Morris charts.
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.Charts.RazorChartType.None">
-            <summary>
-            The type of chart is not specified.
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.Charts.RazorChartType.Area">
-            <summary>
-            An Area Chart with lines, points and shaded area under the lines.
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.Charts.RazorChartType.Line">
-            <summary>
-            An Line Chart with lines and points.
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.Charts.RazorChartType.Donut">
-            <summary>
-            A circular graph with slices representing the data.
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.Charts.RazorChartType.Bar">
-            <summary>
-            A vertical bar chart.
-            </summary>
-        </member>
         <member name="T:Mvc.RazorTools.Charts.RazorChart">
             <summary>
             Abstract class for all razor charts.
             </summary>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.RazorChart.#ctor(Mvc.RazorTools.Charts.RazorChartType)">
+            <summary>
+            Creates a new instance of a razor chart.
+            </summary>
+            <param name="chartType">The type of chart to create.</param>
         </member>
         <member name="M:Mvc.RazorTools.Charts.RazorChart.#ctor(System.String,Mvc.RazorTools.Charts.RazorChartType)">
             <summary>
@@ -329,6 +1138,12 @@
             null to allow the chart to dynamically size.
             </summary>
         </member>
+        <member name="P:Mvc.RazorTools.Charts.RazorChart.Resize">
+            <summary>
+            Set to true to enable automatic resizing when the containing element resizes (default: false).
+            This has a significant performance impact, so it is disabled by default.
+            </summary>
+        </member>
         <member name="M:Mvc.RazorTools.Charts.RazorChart.SetAttribute(System.String,System.Object)">
             <summary>
             Sets or removes the attribute and value.
@@ -343,9 +1158,44 @@
             <param name="name">The name of the style.</param>
             <param name="value">The value of the style. A null value will remove the style.</param>
         </member>
+        <member name="T:Mvc.RazorTools.Charts.RazorChartType">
+            <summary>
+            This is the base class for all Morris charts.
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.Charts.RazorChartType.None">
+            <summary>
+            The type of chart is not specified.
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.Charts.RazorChartType.Area">
+            <summary>
+            An Area Chart with lines, points and shaded area under the lines.
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.Charts.RazorChartType.Line">
+            <summary>
+            An Line Chart with lines and points.
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.Charts.RazorChartType.Donut">
+            <summary>
+            A circular graph with slices representing the data.
+            </summary>
+        </member>
+        <member name="F:Mvc.RazorTools.Charts.RazorChartType.Bar">
+            <summary>
+            A vertical bar chart.
+            </summary>
+        </member>
         <member name="T:Mvc.RazorTools.Charts.RazorDonutChart">
             <summary>
-            A razor donut chart.
+            Represents a razor donut chart.
+            </summary>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.RazorDonutChart.#ctor">
+            <summary>
+            Creates a new instance of a Morris Donut Chart.
             </summary>
         </member>
         <member name="M:Mvc.RazorTools.Charts.RazorDonutChart.#ctor(System.String)">
@@ -358,7 +1208,7 @@
         <member name="P:Mvc.RazorTools.Charts.RazorDonutChart.Colors">
             <summary>
             An array of strings containing HTML-style hex colors for each of the donut 
-            segments.  Note: if there are fewer colors than segments, the colors will 
+            segments. Note: if there are fewer colors than segments, the colors will 
             cycle back to the start of the array when exhausted. 
             </summary>
         </member>
@@ -377,40 +1227,14 @@
             Gets/sets the color of the label in the center of the chart.
             </summary>
         </member>
-        <member name="T:Mvc.RazorTools.Charts.HideHoverState">
-            <summary>
-            A list of values that can specify the
-            hover state of the legend for a chart.
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.Charts.HideHoverState.None">
-            <summary>
-            The hide hover state is not specified.
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.Charts.HideHoverState.Auto">
-            <summary>
-            Only show the hover legend when the mouse cursor is over the chart.
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.Charts.HideHoverState.True">
-            <summary>
-            Only show the hover legend when the mouse cursor is over the chart.
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.Charts.HideHoverState.False">
-            <summary>
-            Always show a hover legend. 
-            </summary>
-        </member>
-        <member name="F:Mvc.RazorTools.Charts.HideHoverState.Always">
-            <summary>
-            Never show a hover legend.
-            </summary>
-        </member>
         <member name="T:Mvc.RazorTools.Charts.RazorLineChart">
             <summary>
-            Creates Morris Line charts.
+            Represents a Morris Line chart.
+            </summary>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.RazorLineChart.#ctor">
+            <summary>
+            Creates an instance of a Morris Line Chart.
             </summary>
         </member>
         <member name="M:Mvc.RazorTools.Charts.RazorLineChart.#ctor(System.String)">
@@ -458,7 +1282,7 @@
             to create graphs with false origins. 
             </summary>
         </member>
-        <member name="P:Mvc.RazorTools.Charts.RazorLineChart.Smooth">
+        <member name="P:Mvc.RazorTools.Charts.RazorLineChart.LineSmoothing">
             <summary>
             Gets/sets a value enable or disable line smoothing. 
             </summary>
@@ -485,7 +1309,7 @@
         </member>
         <member name="P:Mvc.RazorTools.Charts.RazorLineChart.XLabels">
             <summary>
-            
+            Specifies the x axis labeling interval. By default the interval will be automatically computed.
             </summary>
         </member>
         <member name="P:Mvc.RazorTools.Charts.RazorLineChart.XLabelFormat">
@@ -539,7 +1363,7 @@
             null values. 
             </summary>
         </member>
-        <member name="P:Mvc.RazorTools.Charts.RazorLineChart.FillOpactiy">
+        <member name="P:Mvc.RazorTools.Charts.RazorLineChart.FillOpacity">
             <summary>
             Change the opacity of the area fill color. Accepts values between 0.0 (for 
             completely transparent) and 1.0 (for completely opaque). 
@@ -549,6 +1373,12 @@
             <summary>
             This is the base class for the Morris series based charts (line, area and bar).
             </summary>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.RazorSeriesChart.#ctor(Mvc.RazorTools.Charts.RazorChartType)">
+            <summary>
+            Creates an instance of a Series Chart.
+            </summary>
+            <param name="chartType">The type of chart to create.</param>
         </member>
         <member name="M:Mvc.RazorTools.Charts.RazorSeriesChart.#ctor(System.String,Mvc.RazorTools.Charts.RazorChartType)">
             <summary>
@@ -571,7 +1401,7 @@
             •2012-02-24 15:00
             •2012-02-24 15:00:00
             •2012-02-24 15:00:00.000
-            Note: when using millisecond timestamps, it's recommended that you check out the dateFormat option.  
+            Note: when using millisecond timestamps, it's recommended that you check out the dateFormat option. 
             Note 2: date/time strings can optionally contain a T between the date and time parts, and/or a Z 
             suffix, for compatibility with ISO-8601 dates. 
             </summary>
@@ -594,9 +1424,9 @@
             legend when the mouse cursor is over the chart. Set to 'Always' to never show a hover legend. 
             </summary>
         </member>
-        <member name="P:Mvc.RazorTools.Charts.RazorSeriesChart.Axes">
+        <member name="P:Mvc.RazorTools.Charts.RazorSeriesChart.Axis">
             <summary>
-            Set to false to disable drawing the x and y axes. 
+            Set to false to disable drawing the x and y axis. 
             </summary>
         </member>
         <member name="P:Mvc.RazorTools.Charts.RazorSeriesChart.Grid">

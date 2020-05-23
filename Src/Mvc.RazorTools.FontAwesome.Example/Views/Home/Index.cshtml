@@ -17,19 +17,19 @@
 		</li>
 		<li class="list-group-item d-flex justify-content-between align-items-center">
 			<span>@Html.Fa(FaIcons.ChevronCircleRight.WithStyle(FaStyles.Solid)) Free Icons</span>
-			<span class="badge badge-primary badge-pill">@FaIconSet.All.Where(t => (t.Value.License & LicenseType.Free) == LicenseType.Free).Count().ToString("#,###")</span>
+			<span class="badge badge-primary badge-pill">@FaIconSet.All.Where(t => (t.Value.License & FaLicenseType.Free) == FaLicenseType.Free).Count().ToString("#,###")</span>
 		</li>
 		<li class="list-group-item d-flex justify-content-between align-items-center">
 			<span>@Html.Fa(FaIcons.ChevronCircleRight.WithStyle(FaStyles.Solid)) Free Icon Variations</span>
-			<span class="badge badge-primary badge-pill">@FaIconSet.All.Where(t => (t.Value.License & LicenseType.Free) == LicenseType.Free).SelectMany(t => t.Value.FreeStyles).Count().ToString("#,###")</span>
+			<span class="badge badge-primary badge-pill">@FaIconSet.All.Where(t => (t.Value.License & FaLicenseType.Free) == FaLicenseType.Free).SelectMany(t => t.Value.FreeStyles).Count().ToString("#,###")</span>
 		</li>
 		<li class="list-group-item d-flex justify-content-between align-items-center">
 			<span>@Html.Fa(FaIcons.ChevronCircleRight.WithStyle(FaStyles.Solid)) Pro Icons</span>
-			<span class="badge badge-primary badge-pill">@FaIconSet.All.Where(t => (t.Value.License & LicenseType.Pro) == LicenseType.Pro).Count().ToString("#,###")</span>
+			<span class="badge badge-primary badge-pill">@FaIconSet.All.Where(t => (t.Value.License & FaLicenseType.Pro) == FaLicenseType.Pro).Count().ToString("#,###")</span>
 		</li>
 		<li class="list-group-item d-flex justify-content-between align-items-center">
 			<span>@Html.Fa(FaIcons.ChevronCircleRight.WithStyle(FaStyles.Solid)) Pro Icon Variations</span>
-			<span class="badge badge-primary badge-pill">@FaIconSet.All.Where(t => (t.Value.License & LicenseType.Pro) == LicenseType.Pro).SelectMany(t => t.Value.ProStyles).Count().ToString("#,###")</span>
+			<span class="badge badge-primary badge-pill">@FaIconSet.All.Where(t => (t.Value.License & FaLicenseType.Pro) == FaLicenseType.Pro).SelectMany(t => t.Value.ProStyles).Count().ToString("#,###")</span>
 		</li>
 	</ul>
 

@@ -21,41 +21,28 @@ using System.Linq;
 namespace Mvc.RazorTools.Charts
 {
 	/// <summary>
-	/// This is the base class for all Morris charts.
-	/// </summary>
-	public enum RazorChartType
-	{
-		/// <summary>
-		/// The type of chart is not specified.
-		/// </summary>
-		None,
-		/// <summary>
-		/// An Area Chart with lines, points and shaded area under the lines.
-		/// </summary>
-		Area,
-		/// <summary>
-		/// An Line Chart with lines and points.
-		/// </summary>
-		Line,
-		/// <summary>
-		/// A circular graph with slices representing the data.
-		/// </summary>
-		Donut,
-		/// <summary>
-		/// A vertical bar chart.
-		/// </summary>
-		Bar
-	}
-
-	/// <summary>
 	/// Abstract class for all razor charts.
 	/// </summary>
-	public abstract class RazorChart : MvcRazorObject
+	public abstract class RazorChart : MvcRazorObject, IRazorChart
 	{
 		private RazorChartType _type = RazorChartType.None;
 		private string _library = null;
 		private string _dataUrl = null;
 		private string _height = null;
+		private bool? _resize = null;
+
+		/// <summary>
+		/// Creates a new instance of a razor chart.
+		/// </summary>
+		/// <param name="chartType">The type of chart to create.</param>
+		public RazorChart(RazorChartType chartType)
+			: base()
+		{
+			this.HtmlTag = "div";
+			this.IncludeIdInHtml = true;
+			this.Type = chartType;
+			this.Library = "morris";
+		}
 
 		/// <summary>
 		/// Creates a new instance of a razor chart of the given type with the specified
@@ -71,7 +58,6 @@ namespace Mvc.RazorTools.Charts
 			this.Type = chartType;
 			this.Library = "morris";
 		}
-
 
 		/// <summary>
 		/// Gets the chart library used by this instance represents.
@@ -137,6 +123,23 @@ namespace Mvc.RazorTools.Charts
 			{
 				_height = value;
 				this.SetStyle("height", value);
+			}
+		}
+
+		/// <summary>
+		/// Set to true to enable automatic resizing when the containing element resizes (default: false).
+		/// This has a significant performance impact, so it is disabled by default.
+		/// </summary>
+		public bool? Resize
+		{
+			get
+			{
+				return _resize;
+			}
+			set
+			{
+				_resize = value;
+				this.SetAttribute("resize", value);
 			}
 		}
 

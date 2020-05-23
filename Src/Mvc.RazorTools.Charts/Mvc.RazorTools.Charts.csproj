@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.1;netcoreapp3.1</TargetFrameworks>
+		<TargetFramework>netstandard2.1</TargetFramework>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
@@ -19,17 +19,7 @@
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<IncludeSymbols>true</IncludeSymbols>
-		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 	</PropertyGroup>
-
-	<PropertyGroup>
-		<TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
-		<EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
-	</ItemGroup>
 
 	<PropertyGroup>
 		<DocumentationFile>Mvc.RazorTools.Charts.xml</DocumentationFile>
@@ -56,8 +46,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-		<ProjectReference Include="..\Mvc.RazorTools.Base\Mvc.RazorTools.Base.csproj" />
+	  <ProjectReference Include="..\Mvc.RazorTools.Base\Mvc.RazorTools.Base.csproj" />
 	</ItemGroup>
 
 </Project>

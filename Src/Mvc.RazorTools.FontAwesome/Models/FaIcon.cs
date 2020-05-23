@@ -5,26 +5,6 @@ using System.Globalization;
 namespace Mvc.RazorTools.FontAwesome
 {
 	/// <summary>
-	/// Defines the license required to use a specific icon.
-	/// </summary>
-	[Flags]
-	public enum LicenseType
-	{
-		/// <summary>
-		/// The license type has not been specified.
-		/// </summary>
-		None = 0,
-		/// <summary>
-		/// Specifies that an icon can be used with a free license.
-		/// </summary>
-		Free = 1,
-		/// <summary>
-		/// Specifies that an icon requires the pro license.
-		/// </summary>
-		Pro = 2
-	}
-
-	/// <summary>
 	/// Defines the properties necessary to create a Font Awesome tag in an MVC Razor view.
 	/// </summary>
 	public partial class FaIcon : MvcRazorObject
@@ -62,7 +42,7 @@ namespace Mvc.RazorTools.FontAwesome
 			this.Unicode = unicode;
 		}
 
-		internal FaIcon(string iconId, int unicode, bool locked, string name, LicenseType license, IList<string> freeStyles, IList<string> proStyles)
+		internal FaIcon(string iconId, int unicode, bool locked, string name, FaLicenseType license, IList<string> freeStyles, IList<string> proStyles)
 		{
 			this.Id = iconId;
 			this.IconId = iconId;
@@ -135,11 +115,11 @@ namespace Mvc.RazorTools.FontAwesome
 			}
 		}
 
-		private LicenseType _license = LicenseType.None;
+		private FaLicenseType _license = FaLicenseType.None;
 		/// <summary>
 		/// Gets/sets the license type that is required for this icon.
 		/// </summary>
-		public LicenseType License
+		public FaLicenseType License
 		{
 			get
 			{
@@ -218,7 +198,7 @@ namespace Mvc.RazorTools.FontAwesome
 		/// <param name="freeStyles">Lists the styles supported with the free license.</param>
 		/// <param name="proStyles">Lists the styles supported with the pro license.</param>
 		/// <returns>A newly initialized <see cref="FaIcon"/> object.</returns>
-		internal static FaIcon Create(string iconId, int unicode, bool locked, string name, LicenseType license, IList<string> freeStyles, IList<string> proStyles)
+		internal static FaIcon Create(string iconId, int unicode, bool locked, string name, FaLicenseType license, IList<string> freeStyles, IList<string> proStyles)
 		{
 			return new FaIcon()
 			{

@@ -5,14 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\lib\dist\**" />
-    <Content Remove="wwwroot\lib\dist\**" />
-    <EmbeddedResource Remove="wwwroot\lib\dist\**" />
-    <None Remove="wwwroot\lib\dist\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Mvc.RazorTools.Charts" Version="2.0.0" />
+    <ProjectReference Include="..\Mvc.RazorTools.Charts\Mvc.RazorTools.Charts.csproj" />
   </ItemGroup>
 
 </Project>

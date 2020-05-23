@@ -1,8 +1,9 @@
 //
 // ***
-// *** Razor Tools Unobtrusive Charts for jQuery (https://charts.codeplex.com)
-// *** Copyright 2013-2014 Daniel M. Porrey
-// *** Licensed under https://charts.codeplex.com/license
+// *** Razor Tools Unobtrusive Charts version 2.0.0
+// *** Copyright 2013-2020 Daniel M. Porrey
+// *** Licensed under LGPL-3.0
+// *** https://github.com/porrey/Razor-Tools/blob/master/LICENSE
 // ***
 
 $(function () {
@@ -172,8 +173,8 @@ module RazorTools {
 				options['data'] = json;
 				returnValue = chartType.createChart(options);
 			}).fail(function () {
-					htmlElement.html(failureHtml);
-				});
+				htmlElement.html(failureHtml);
+			});
 
 			return returnValue;
 		}
@@ -451,7 +452,8 @@ module RazorTools {
 			new ChartOption('colors', false, true, [ChartType.MorrisDonut], OptionType.StringArray),
 			new ChartOption('formatter', false, true, [ChartType.MorrisDonut], OptionType.FormatCallback),
 			new ChartOption('labelColor', false, true, [ChartType.MorrisDonut], OptionType.String),
-			new ChartOption('backgroundColor', false, true, [ChartType.MorrisDonut], OptionType.String)
+			new ChartOption('backgroundColor', false, true, [ChartType.MorrisDonut], OptionType.String),
+			new ChartOption('resize', false, true, [ChartType.MorrisArea, ChartType.MorrisLine, ChartType.MorrisBar, ChartType.MorrisDonut], OptionType.Boolean)
 		];
 	}
 }

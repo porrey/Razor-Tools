@@ -19,43 +19,15 @@ using System.Collections.Generic;
 namespace Mvc.RazorTools.Charts
 {
 	/// <summary>
-	/// A list of values that can specify the
-	/// hover state of the legend for a chart.
+	/// Represents a Morris Line chart.
 	/// </summary>
-	public enum HideHoverState
-	{
-		/// <summary>
-		/// The hide hover state is not specified.
-		/// </summary>
-		None,
-		/// <summary>
-		/// Only show the hover legend when the mouse cursor is over the chart.
-		/// </summary>
-		Auto,
-		/// <summary>
-		/// Only show the hover legend when the mouse cursor is over the chart.
-		/// </summary>
-		True,
-		/// <summary>
-		/// Always show a hover legend. 
-		/// </summary>
-		False,
-		/// <summary>
-		/// Never show a hover legend.
-		/// </summary>
-		Always
-	}
-
-	/// <summary>
-	/// Creates Morris Line charts.
-	/// </summary>
-	public class RazorLineChart : RazorSeriesChart
+	public class RazorLineChart : RazorSeriesChart, IRazorLineChart
 	{
 		private IEnumerable<string> _lineColors = null;
 		private int? _lineWidth = null;
 		private int? _pointSize = null;
 		private IEnumerable<string> _pointFillColors = null;
-		private string _pointStrokeColors = null;
+		private IEnumerable<string> _pointStrokeColors = null;
 		private string _ymax = null;
 		private string _ymin = null;
 		private bool? _smooth = null;
@@ -76,6 +48,16 @@ namespace Mvc.RazorTools.Charts
 		private double? _fillOpacity = 1.0;
 
 		/// <summary>
+		/// Creates an instance of a Morris Line Chart.
+		/// </summary>
+		public RazorLineChart()
+			: base(RazorChartType.Line)
+		{
+			this.HtmlTag = "div";
+			this.IncludeIdInHtml = true;
+		}
+
+		/// <summary>
 		/// Creates an instance of a Morris Line Chart with
 		/// the specified ID.
 		/// </summary>
@@ -89,6 +71,13 @@ namespace Mvc.RazorTools.Charts
 
 		internal RazorLineChart(string id, RazorChartType chartType)
 			: base(id, chartType)
+		{
+			this.HtmlTag = "div";
+			this.IncludeIdInHtml = true;
+		}
+
+		internal RazorLineChart(RazorChartType chartType)
+			: base(chartType)
 		{
 			this.HtmlTag = "div";
 			this.IncludeIdInHtml = true;
@@ -161,7 +150,7 @@ namespace Mvc.RazorTools.Charts
 		/// <summary>
 		/// Colors for the outlines of the series points. (#ffffff by default).
 		/// </summary>
-		public string PointStrokeColors
+		public IEnumerable<string> PointStrokeColors
 		{
 			get
 			{
@@ -212,7 +201,7 @@ namespace Mvc.RazorTools.Charts
 		/// <summary>
 		/// Gets/sets a value enable or disable line smoothing. 
 		/// </summary>
-		public bool? Smooth
+		public bool? LineSmoothing
 		{
 			get
 			{
@@ -290,7 +279,7 @@ namespace Mvc.RazorTools.Charts
 		}
 
 		/// <summary>
-		/// 
+		/// Specifies the x axis labeling interval. By default the interval will be automatically computed.
 		/// </summary>
 		public xLabel XLabels
 		{
@@ -459,7 +448,7 @@ namespace Mvc.RazorTools.Charts
 		/// Change the opacity of the area fill color. Accepts values between 0.0 (for 
 		/// completely transparent) and 1.0 (for completely opaque). 
 		/// </summary>
-		public double? FillOpactiy
+		public double? FillOpacity
 		{
 			get
 			{

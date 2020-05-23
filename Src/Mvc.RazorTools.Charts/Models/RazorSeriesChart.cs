@@ -14,6 +14,7 @@
 // *** You should have received a copy of the GNU Lesser General Public License
 // *** along with this program. If not, see http://www.gnu.org/licenses/.
 // ***
+using System;
 using System.Collections.Generic;
 
 namespace Mvc.RazorTools.Charts
@@ -21,19 +22,30 @@ namespace Mvc.RazorTools.Charts
 	/// <summary>
 	/// This is the base class for the Morris series based charts (line, area and bar).
 	/// </summary>
-	public abstract class RazorSeriesChart : RazorChart
+	public abstract class RazorSeriesChart : RazorChart, IRazorSeriesChart
 	{
-		private string _xKey = string.Empty;
+		private string _xKey = String.Empty;
 		private IEnumerable<string> _yKeys = null;
 		private IEnumerable<string> _labels = null;
-		private HideHoverState _hideHover = HideHoverState.None;
+		private ChartHoverState _hoverState = ChartHoverState.None;
 		//hoverCallback: TO DO
-		private bool? _axes = null;
+		private bool? _axis = null;
 		private bool? _grid = null;
 		private string _gridTextColor = null;
 		private int? _gridTextSize = null;
 		private string _gridTextFamily = null;
 		private string _gridTextWeight = null;
+
+		/// <summary>
+		/// Creates an instance of a Series Chart.
+		/// </summary>
+		/// <param name="chartType">The type of chart to create.</param>
+		public RazorSeriesChart(RazorChartType chartType)
+			: base(chartType)
+		{
+			this.HtmlTag = "div";
+			this.IncludeIdInHtml = true;
+		}
 
 		/// <summary>
 		/// Creates an instance of a Series Chart with
@@ -60,7 +72,7 @@ namespace Mvc.RazorTools.Charts
 		/// •2012-02-24 15:00
 		/// •2012-02-24 15:00:00
 		/// •2012-02-24 15:00:00.000
-		/// Note: when using millisecond timestamps, it's recommended that you check out the dateFormat option.  
+		/// Note: when using millisecond timestamps, it's recommended that you check out the dateFormat option. 
 		/// Note 2: date/time strings can optionally contain a T between the date and time parts, and/or a Z 
 		/// suffix, for compatibility with ISO-8601 dates. 
 		/// </summary>
@@ -115,17 +127,17 @@ namespace Mvc.RazorTools.Charts
 		/// Set to 'False' to always show a hover legend. Set to 'True' or 'Auto' to only show the hover 
 		/// legend when the mouse cursor is over the chart. Set to 'Always' to never show a hover legend. 
 		/// </summary>
-		public HideHoverState HideHover
+		public ChartHoverState HideHover
 		{
 			get
 			{
-				return _hideHover;
+				return _hoverState;
 			}
 			set
 			{
-				_hideHover = value;
+				_hoverState = value;
 
-				if (value == HideHoverState.None)
+				if (value == ChartHoverState.None)
 				{
 					this.SetAttribute("hideHover", null);
 				}
@@ -137,17 +149,17 @@ namespace Mvc.RazorTools.Charts
 		}
 
 		/// <summary>
-		/// Set to false to disable drawing the x and y axes. 
+		/// Set to false to disable drawing the x and y axis. 
 		/// </summary>
-		public bool? Axes
+		public bool? Axis
 		{
 			get
 			{
-				return _axes;
+				return _axis;
 			}
 			set
 			{
-				_axes = value;
+				_axis = value;
 				this.SetAttribute("axes", value);
 			}
 		}
