@@ -119,7 +119,7 @@
 		<div class="col-12 mb-5 pt-3 pb-3 card">
 			<h2 class="text-left mb-3">Donut Chart 1</h2>
 			<pre class="text-left">
-@@(Chart.Create&lt;RazorBarChart&gt;()
+@@(Chart.Create&lt;RazorDonutChart&gt;()
 	.WithId("seasonalPrecipitation")
 	.UsingDataFrom(this.Url.Action("SeasonalPrecipitation", "Home"))
 	.WithColors(colors)
@@ -142,7 +142,7 @@
 		<div class="col-12 mb-5 pt-3 pb-3 card">
 			<h2 class="text-left mb-3">Donut Chart 2</h2>
 			<pre class="text-left">
-@@(Chart.Create&lt;RazorBarChart&gt;()
+@@(Chart.Create&lt;RazorDonutChart&gt;()
 	.WithId("fiveYearTotals")
 	.UsingDataFrom(this.Url.Action("FiveYearTotals", "Home"))
 	.WithHeight("200px")
@@ -171,7 +171,7 @@
 		<div class="col-12 pt-3 pb-3 card">
 			<h2 class="text-left mb-3">Area Chart</h2>
 			<pre class="text-left">
-@@(Chart.Create&lt;RazorBarChart&gt;()
+@@(Chart.Create&lt;RazorAreaChart&gt;()
 	.WithId("totalPrecipitation")
 	.UsingDataFrom(this.Url.Action("TotalPrecipitation", "Home"))
 	.WithXKey("month")

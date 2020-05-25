@@ -16,6 +16,7 @@ namespace Mvc.RazorTools.Charts
 	/// </summary>
 	public static class Chart
 	{
+		#region Create
 		/// <summary>
 		/// Creates a new chart.
 		/// </summary>
@@ -26,6 +27,43 @@ namespace Mvc.RazorTools.Charts
 		{
 			return new TChart();
 		}
+
+		/// <summary>
+		/// Creates an empty instance of <see cref="RazorBarChart"/>.
+		/// </summary>
+		/// <returns>The new empty instance of the chart.</returns>
+		public static RazorBarChart CreatBarChart()
+		{
+			return new RazorBarChart();
+		}
+
+		/// <summary>
+		/// Creates an empty instance of <see cref="RazorDonutChart"/>.
+		/// </summary>
+		/// <returns>The new empty instance of the chart.</returns>
+		public static RazorDonutChart CreatDonutChart()
+		{
+			return new RazorDonutChart();
+		}
+
+		/// <summary>
+		/// Creates an empty instance of <see cref="RazorLineChart"/>.
+		/// </summary>
+		/// <returns>The new empty instance of the chart.</returns>
+		public static RazorLineChart CreatLineChart()
+		{
+			return new RazorLineChart();
+		}
+
+		/// <summary>
+		/// Creates an empty instance of <see cref="RazorAreaChart"/>.
+		/// </summary>
+		/// <returns>The new empty instance of the chart.</returns>
+		public static RazorAreaChart CreatAreaChart()
+		{
+			return new RazorAreaChart();
+		}
+		#endregion
 
 		#region All Charts
 		/// <summary>

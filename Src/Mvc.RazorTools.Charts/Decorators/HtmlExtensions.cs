@@ -14,6 +14,7 @@
 // *** You should have received a copy of the GNU Lesser General Public License
 // *** along with this program. If not, see http://www.gnu.org/licenses/.
 // ***
+using System;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -31,6 +32,7 @@ namespace Mvc.RazorTools.Charts
 		/// <param name="html">An instance of <see cref="IHtmlHelper"/>.</param>
 		/// <param name="chart">An instance of the chart to display.</param>
 		/// <returns>An updated instance of the chart.</returns>
+		[Obsolete("Use Chart.Create<TChart> to create a new chart.")]
 		public static IHtmlContent MorrisChart(this IHtmlHelper html, RazorChart chart)
 		{
 			return chart;

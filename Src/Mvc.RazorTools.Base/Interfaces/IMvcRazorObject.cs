@@ -23,7 +23,7 @@ namespace Mvc.RazorTools
 	/// Provides the basic methods for an HTML tag object in this library
 	/// including basic operations to add custom class attributes.
 	/// </summary>
-	public interface IMvcRazorObject : IMvcRazorAttributes, IMvcRazorStyles, IMvcRazorClassAttributes, ICloneable
+	public interface IMvcRazorObject : IMvcRazorAttributes, IMvcRazorStyles, IMvcRazorClassAttributes, IHtmlContent, ICloneable
 	{
 		/// <summary>
 		/// Gets/sets the HTML node ID for this object. Read-only if this implementation is locked.

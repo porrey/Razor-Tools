@@ -16,6 +16,30 @@
             <typeparam name="TChart">Specify the chart type to create.</typeparam>
             <returns>The newly created instance of the chart.</returns>
         </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.CreatBarChart">
+            <summary>
+            Creates an empty instance of <see cref="T:Mvc.RazorTools.Charts.RazorBarChart"/>.
+            </summary>
+            <returns>The new empty instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.CreatDonutChart">
+            <summary>
+            Creates an empty instance of <see cref="T:Mvc.RazorTools.Charts.RazorDonutChart"/>.
+            </summary>
+            <returns>The new empty instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.CreatLineChart">
+            <summary>
+            Creates an empty instance of <see cref="T:Mvc.RazorTools.Charts.RazorLineChart"/>.
+            </summary>
+            <returns>The new empty instance of the chart.</returns>
+        </member>
+        <member name="M:Mvc.RazorTools.Charts.Chart.CreatAreaChart">
+            <summary>
+            Creates an empty instance of <see cref="T:Mvc.RazorTools.Charts.RazorAreaChart"/>.
+            </summary>
+            <returns>The new empty instance of the chart.</returns>
+        </member>
         <member name="M:Mvc.RazorTools.Charts.Chart.WithId``1(``0,System.String)">
             <summary>
             Sets the HTML node ID for this chart.
