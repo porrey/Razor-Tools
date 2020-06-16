@@ -120,7 +120,7 @@ namespace Mvc.RazorTools.FontAwesome
 		/// generated for this icon.</returns>
 		public static string CssOnly(this FaIcon icon)
 		{
-			return icon.ClassAttributes.Values.Aggregate(String.Empty, (o, i) => o + Constants.Space + i).TrimStart();
+			return icon.ClassAttributes.Aggregate(String.Empty, (o, i) => o + Constants.Space + i).TrimStart();
 		}
 	}
 }

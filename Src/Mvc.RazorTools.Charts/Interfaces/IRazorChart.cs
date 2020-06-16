@@ -19,7 +19,7 @@ namespace Mvc.RazorTools.Charts
 	/// <summary>
 	/// Base interface for all razor charts.
 	/// </summary>
-	public interface IRazorChart : IMvcRazorObject
+	public interface IRazorChart : IRazorToolsObject
 	{
 		/// <summary>
 		/// Gets/sets the height of the div tag to preserve space for the chart. Set this value to 

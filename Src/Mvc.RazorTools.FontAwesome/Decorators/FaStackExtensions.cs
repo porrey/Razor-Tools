@@ -3,31 +3,28 @@
 namespace Mvc.RazorTools.FontAwesome
 {
 	/// <summary>
-	/// Provides a set of extension methods for a Mvc.RazorTools.FontAwesome.FontAwesomeStack
+	/// Provides a set of extension methods for a <see cref="FaStack"/>
 	/// object to be used within the Razor view.
 	/// </summary>
 	public static class FaStackExtensions
 	{
 		/// <summary>
-		/// Customizes an existing Mvc.RazorTools.FontAwesome.FontAwesomeStack by adding
+		/// Customizes an existing <see cref="FaStack"/> by adding
 		/// class attributes and returning the object. This method can be chained to
 		/// apply multiple styles.
 		/// </summary>
-		/// <param name="stack">The existing Mvc.RazorTools.FontAwesome.FontAwesomeStack to modify.</param>
+		/// <param name="stack">The existing <see cref="FaStack"/> to modify.</param>
 		/// <param name="items">The class attributes to be added to the existing instance.</param>
-		/// <returns>A new modified instance of the Mvc.RazorTools.FontAwesome.FontAwesomeStack object.</returns>
+		/// <returns>A new modified instance of the <see cref="FaStack"/> object.</returns>
 		public static FaStack Customize([NotNull]this FaStack stack, [NotNull]params string[] items)
 		{
 			FaStack returnValue = stack.Clone() as FaStack;
-
-			// ***
-			// *** Make a copy of each class descriptor
-			// ***
-			foreach (string item in items)
-			{
-				returnValue.UpdateClassAttribute(item);
-			}
-
+			
+			returnValue.MergeClassAttributes(stack.ClassAttributes);
+			returnValue.MergeAttributes(stack.Attributes);
+			returnValue.MergeStyles(stack.Styles);
+			returnValue.MergeClassAttributes(items);
+			
 			return returnValue;
 		}
 

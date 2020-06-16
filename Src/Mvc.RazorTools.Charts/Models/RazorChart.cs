@@ -23,14 +23,8 @@ namespace Mvc.RazorTools.Charts
 	/// <summary>
 	/// Abstract class for all razor charts.
 	/// </summary>
-	public abstract class RazorChart : MvcRazorObject, IRazorChart
+	public abstract class RazorChart : RazorToolsObject, IRazorChart
 	{
-		private RazorChartType _type = RazorChartType.None;
-		private string _library = null;
-		private string _dataUrl = null;
-		private string _height = null;
-		private bool? _resize = null;
-
 		/// <summary>
 		/// Creates a new instance of a razor chart.
 		/// </summary>
@@ -59,6 +53,7 @@ namespace Mvc.RazorTools.Charts
 			this.Library = "morris";
 		}
 
+		private string _library = null;
 		/// <summary>
 		/// Gets the chart library used by this instance represents.
 		/// </summary>
@@ -75,6 +70,7 @@ namespace Mvc.RazorTools.Charts
 			}
 		}
 
+		private RazorChartType _type = RazorChartType.None;
 		/// <summary>
 		/// Gets the type of chart this instance represents.
 		/// </summary>
@@ -91,6 +87,7 @@ namespace Mvc.RazorTools.Charts
 			}
 		}
 
+		private string _dataUrl = null;
 		/// <summary>
 		/// The URL to the data to plot. This is an array of objects, containing x and y attributes 
 		/// as described by the XKey and YKeys options. Note: ordering doesn't matter here - you  
@@ -109,6 +106,7 @@ namespace Mvc.RazorTools.Charts
 			}
 		}
 
+		private string _chartHeight = null;
 		/// <summary>
 		/// Gets/sets the height of the div tag to preserve space for the chart. Set this value to 
 		/// null to allow the chart to dynamically size.
@@ -117,15 +115,16 @@ namespace Mvc.RazorTools.Charts
 		{
 			get
 			{
-				return _height;
+				return _chartHeight;
 			}
 			set
 			{
-				_height = value;
+				_chartHeight = value;
 				this.SetStyle("height", value);
 			}
 		}
 
+		private bool? _resize = null;
 		/// <summary>
 		/// Set to true to enable automatic resizing when the containing element resizes (default: false).
 		/// This has a significant performance impact, so it is disabled by default.

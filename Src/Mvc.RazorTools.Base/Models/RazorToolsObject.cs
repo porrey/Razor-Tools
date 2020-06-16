@@ -27,10 +27,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace Mvc.RazorTools
 {
 	/// <summary>
-	/// Provides a default abstract implementation of the <see cref="IMvcRazorObject"/> interface.
+	/// Provides a default abstract implementation of the <see cref="IRazorToolsObject"/> interface.
 	/// </summary>
 	[DefaultProperty("Html")]
-	public class MvcRazorObject : IMvcRazorObject, IHtmlContent
+	public class RazorToolsObject : IRazorToolsObject, IHtmlContent
 	{
 		/// <summary>
 		/// Constants used internally.
@@ -48,34 +48,26 @@ namespace Mvc.RazorTools
 			public static string Space = " ";
 		}
 
-		// ***
-		// *** Fields for properties that are read-only
-		// *** when the object is locked.
-		// ***
-		private string _id = null;
-		private string _htmlTag = null;
-		private string _name = null;
-		private bool _locked = false;
-
 		/// <summary>
-		/// Initializes a new instance of a <see cref="MvcRazorObject"/> object.
+		/// Initializes a new instance of a <see cref="RazorToolsObject"/> object.
 		/// </summary>
-		protected MvcRazorObject()
+		protected RazorToolsObject()
 		{
 		}
 
 		/// <summary>
-		/// Initializes a new instance of a <see cref="MvcRazorObject"/> object with the
+		/// Initializes a new instance of a <see cref="RazorToolsObject"/> object with the
 		/// specified Id.
 		/// </summary>
 		/// <param name="id">The CSS style sheet name of the icon this instance represents.</param>
-		protected MvcRazorObject(string id)
+		protected RazorToolsObject(string id)
 			: this()
 		{
 			this.Id = id;
 		}
 
 		#region Public Members
+		private string _id = null;
 		/// <summary>
 		/// Gets/sets the HTML node ID for this object. Read-only if this instanced is locked.
 		/// </summary>
@@ -103,6 +95,7 @@ namespace Mvc.RazorTools
 			}
 		}
 
+		private bool _locked = false;
 		/// <summary>
 		/// Gets/sets value that indicates of this instance is locked. Once locked,
 		/// the instance cannot be unlocked.
@@ -126,6 +119,7 @@ namespace Mvc.RazorTools
 			}
 		}
 
+		private string _htmlTag = null;
 		/// <summary>
 		/// Gets/sets the HTML tag that is used to represent the object when the
 		/// the HTML markup is generated. This value should be the text portion of
@@ -148,6 +142,7 @@ namespace Mvc.RazorTools
 			}
 		}
 
+		private string _name = null;
 		/// <summary>
 		/// Gets/sets the name of this instance. This value is for display or managing
 		/// purposes only and is not used internally by this library. Read-only if 
@@ -179,7 +174,7 @@ namespace Mvc.RazorTools
 
 		/// <summary>
 		/// Gets/sets value that determines if the element Id tag is included in the
-		/// Class Attributes HTL.
+		/// Class Attributes HTML.
 		/// </summary>
 		public bool IncludeIdInHtml { get; set; }
 
@@ -316,7 +311,7 @@ namespace Mvc.RazorTools
 		/// <summary>
 		/// Gets a list of class attributes added when formatting the HTML tag.
 		/// </summary>
-		public virtual IDictionary<string, string> ClassAttributes { get; set; } = new Dictionary<string, string>();
+		public virtual IList<string> ClassAttributes { get; set; } = new List<string>();
 
 		/// <summary>
 		/// Add a custom class attribute to the set contained within this instance. The
@@ -326,74 +321,11 @@ namespace Mvc.RazorTools
 		/// <param name="item"></param>
 		public virtual void AddClassAttribute(string item)
 		{
-			this.ClassAttributes.Add(item, item);
-		}
+			string existingItem = this.ClassAttributes.Where(t => t == item).SingleOrDefault();
 
-		/// <summary>
-		/// Add a custom class attribute to the set contained within this instance. the key is used for 
-		/// here for lookup and replacement of existing attribute. Item is the value that will be used when 
-		/// formatting the HTML class attribute.
-		/// </summary>
-		/// <param name="key">A <see cref="String"/> value to provide a key to lookup the attribute in this set.</param>
-		/// <param name="item">A <see cref="String"/> value containing the attribute to be included in the HTML markup.</param>
-		public virtual void AddClassAttribute(string key, string item)
-		{
-			this.ClassAttributes.Add(key, item);
-		}
-
-		/// <summary>
-		/// Update an exiting custom class attribute contained in this instance. The value for
-		/// item is to lookup the existing attribute. If the value exists it will be replaced 
-		/// otherwise it will added to the list.
-		/// </summary>
-		/// <param name="item">A <see cref="String"/> value containing the attribute to be included in the HTML markup.</param>
-		public virtual void UpdateClassAttribute(string item)
-		{
-			if (this.ClassAttributes.ContainsKey(item))
+			if (existingItem == null)
 			{
-				this.ClassAttributes[item] = item;
-			}
-			else
-			{
-				this.AddClassAttribute(item);
-			}
-		}
-
-		/// <summary>
-		/// Update an exiting custom class attribute contained in this instance. The value for
-		/// key is used to lookup the existing attribute. If the value exists it will be 
-		/// replaced otherwise it will added to the list.
-		/// </summary>
-		/// <param name="key">A <see cref="String"/> value to provide a key to lookup the attribute in this set.</param>
-		/// <param name="item">A <see cref="String"/> value containing the attribute to be included in the HTML markup.</param>
-		public virtual void UpdateClassAttribute(string key, string item)
-		{
-			if (this.ClassAttributes.ContainsKey(key))
-			{
-				this.ClassAttributes[key] = item;
-			}
-			else
-			{
-				this.AddClassAttribute(key, item);
-			}
-		}
-
-		/// <summary>
-		/// Merges a set of class attributes with the current items.
-		/// </summary>
-		/// <param name="items">A list of attribute keys and values to be merged
-		/// into the current set in this instance.</param>
-		public virtual void MergeClassAttributes(IDictionary<string, string> items)
-		{
-			if (items != null)
-			{
-				// ***
-				// *** Make a copy of each class descriptor
-				// ***
-				foreach (KeyValuePair<string, string> item in items)
-				{
-					this.UpdateClassAttribute(item.Key, item.Value);
-				}
+				this.ClassAttributes.Add(item);
 			}
 		}
 
@@ -407,21 +339,80 @@ namespace Mvc.RazorTools
 			if (items != null)
 			{
 				// ***
+				// *** Get items not in the list.
+				// ***
+				IEnumerable<string> newList = items.Except(this.ClassAttributes);
+
+				// ***
 				// *** Make a copy of each class descriptor
 				// ***
-				foreach (string item in items)
+				foreach (string item in newList)
 				{
-					this.UpdateClassAttribute(item);
+					this.AddClassAttribute(item);
 				}
 			}
 		}
 		#endregion
 
+		#region Data Attributes
+		/// <summary>
+		/// Gets a list of data attributes added when formatting the HTML markup.
+		/// </summary>
+		public IDictionary<string, object> DataAttributes { get; set; } = new Dictionary<string, object>();
+
+		/// <summary>
+		/// Merges a set of data attributes with the current items.
+		/// </summary>
+		/// <param name="items">A list of data attribute names and values to be merged
+		/// into the current set in this instance.</param>
+		public virtual void MergeDataAttributes(IDictionary<string, object> items)
+		{
+			if (items != null)
+			{
+				// ***
+				// *** Make a copy of each class descriptor
+				// ***
+				foreach (KeyValuePair<string, object> item in items)
+				{
+					this.UpdateDataAttribute(item.Key, item.Value);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Update an exiting attribute contained in this instance. If the value exists 
+		/// it will be replaced otherwise it will added to the list.
+		/// </summary>
+		/// <param name="name">A <see cref="String"/> representing the data attribute name.</param>
+		/// <param name="value">A <see cref="String"/> value containing the data attribute to be included in the HTML markup.</param>
+		public virtual void UpdateDataAttribute(string name, object value)
+		{
+			if (this.DataAttributes.ContainsKey(name))
+			{
+				this.DataAttributes[name] = value;
+			}
+			else
+			{
+				this.AddDataAttribute(name, value);
+			}
+		}
+
+		/// <summary>
+		/// Add a data attribute to the set contained within this instance when formatting the HTML markup.
+		/// </summary>
+		/// <param name="name">A <see cref="String"/> representing the data attribute name.</param>
+		/// <param name="value">A <see cref="String"/> value containing the data attribute to be included in the HTML markup.</param>
+		public virtual void AddDataAttribute(string name, object value)
+		{
+			this.DataAttributes.Add(name, value);
+		}
+		#endregion
+
 		#region Protected Members
 		/// <summary>
-		/// Gets an MvcHtmlString object containing the HTML markup for this instance. This method must be overridden.
+		/// Gets an <see cref="IHtmlContent"/> object containing the HTML markup for this instance.
 		/// </summary>
-		/// <returns>A System.Web.Mvc.MvcHtmlString object containing the HTML markup for this object.</returns>
+		/// <returns>A <see cref="IHtmlContent"/> object containing the HTML markup for this object.</returns>
 		protected virtual IHtmlContent OnGetHtml()
 		{
 			TagBuilder tag = this.OnGetHtmlStart();
@@ -473,17 +464,21 @@ namespace Mvc.RazorTools
 		/// <returns>Returns a deep copy of this instance.</returns>
 		protected virtual object OnClone()
 		{
-			MvcRazorObject returnValue = new MvcRazorObject(this.Id)
+			RazorToolsObject returnValue = new RazorToolsObject(this.Id)
 			{
-				HtmlTag = this.HtmlTag,
-				Name = this.Name,
-				ClassAttributes = this.ClassAttributes,
-
 				// ***
 				// *** Cloning always unlocks the object
 				// ***
-				Locked = false
+				Locked = false,
+				Id = this.Id,
+				HtmlTag = this.HtmlTag,
+				Name = this.Name,
+				IncludeIdInHtml = this.IncludeIdInHtml
 			};
+
+			returnValue.MergeClassAttributes(this.ClassAttributes);
+			returnValue.MergeAttributes(this.Attributes);
+			returnValue.MergeStyles(this.Styles);
 
 			return returnValue;
 		}
@@ -524,9 +519,9 @@ namespace Mvc.RazorTools
 			// ***
 			// *** Add these in reverse order
 			// ***
-			foreach (KeyValuePair<string, string> item in this.ClassAttributes.Reverse())
+			foreach (string item in this.ClassAttributes.Reverse())
 			{
-				tag.AddCssClass(item.Value);
+				tag.AddCssClass(item);
 			}
 		}
 
@@ -580,8 +575,8 @@ namespace Mvc.RazorTools
 		/// Called to get inner HTML markup. This is the sixth 
 		/// step in a series of steps to build the markup.
 		/// </summary>
-		/// <param name="html">The TagBuilder object used to create the HTML markup.</param>
-		protected virtual void OnGetInnerHtml(TagBuilder html)
+		/// <param name="tag">The TagBuilder object used to create the HTML markup.</param>
+		protected virtual void OnGetInnerHtml(TagBuilder tag)
 		{
 		}
 
@@ -589,8 +584,8 @@ namespace Mvc.RazorTools
 		/// Called to add any final attributes to the HTML markup tag. This is the seventh 
 		/// and final step in a series of steps to build the markup.
 		/// </summary>
-		/// <param name="html">The TagBuilder object used to create the HTML markup.</param>
-		protected virtual void OnGetHtmlStartComplete(TagBuilder html)
+		/// <param name="tag">The TagBuilder object used to create the HTML markup.</param>
+		protected virtual void OnGetHtmlStartComplete(TagBuilder tag)
 		{
 		}
 		#endregion

@@ -14,40 +14,41 @@
 // *** You should have received a copy of the GNU Lesser General Public License
 // *** along with this program. If not, see http://www.gnu.org/licenses/.
 // ***
+using System;
 using System.Collections.Generic;
 
 namespace Mvc.RazorTools
 {
 	/// <summary>
-	/// The styles added when the HTML tag is rendered.
+	/// The attributes added when the HTML tag is rendered.
 	/// </summary>
-	public interface IMvcRazorStyles
+	public interface IRazorToolsAttributes
 	{
 		/// <summary>
-		/// Gets a list of styles added when formatting the HTML markup.
+		/// Gets a list of attributes added when formatting the HTML markup.
 		/// </summary>
-		IDictionary<string, string> Styles { get; }
+		IDictionary<string, string> Attributes { get; }
 
 		/// <summary>
-		/// Add a style to the set contained within this instance when formatting the HTML markup.
+		/// Add an attribute to the set contained within this instance when formatting the HTML markup.
 		/// </summary>
-		/// <param name="name">A System.String representing the style name.</param>
-		/// <param name="value">A System.String representing the style value..</param>
-		void AddStyle(string name, string value);
+		/// <param name="name">A <see cref="String"/> representing the attribute name.</param>
+		/// <param name="value">A <see cref="String"/> value containing the attribute to be included in the HTML markup.</param>
+		void AddAttribute(string name, string value);
 
 		/// <summary>
-		/// Merges a set of styles with the current items.
+		/// Merges a set of attributes with the current items.
 		/// </summary>
-		/// <param name="items">A list of style names and values to be merged
+		/// <param name="items">A list of attribute names and values to be merged
 		/// into the current set in this instance.</param>
-		void MergeStyles(IDictionary<string, string> items);
+		void MergeAttributes(IDictionary<string, string> items);
 
 		/// <summary>
-		/// Update an exiting style contained in this instance. If the value exists 
+		/// Update an exiting attribute contained in this instance. If the value exists 
 		/// it will be replaced otherwise it will added to the list.
 		/// </summary>
-		/// <param name="name">A System.String representing the style name.</param>
-		/// <param name="value">A System.String representing the style value.</param>
-		void UpdateStyle(string name, string value);
+		/// <param name="name">A <see cref="String"/> representing the attribute name.</param>
+		/// <param name="value">A <see cref="String"/> value containing the attribute to be included in the HTML markup.</param>
+		void UpdateAttribute(string name, string value);
 	}
 }

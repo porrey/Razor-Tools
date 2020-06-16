@@ -23,7 +23,7 @@ namespace Mvc.RazorTools
 	/// Provides the basic methods for an HTML tag object in this library
 	/// including basic operations to add custom class attributes.
 	/// </summary>
-	public interface IMvcRazorObject : IMvcRazorAttributes, IMvcRazorStyles, IMvcRazorClassAttributes, IHtmlContent, ICloneable
+	public interface IRazorToolsObject : IRazorToolsAttributes, IRazorToolsStyles, IRazorToolsClassAttributes, IRazorToolsDataAttributes, IHtmlContent, ICloneable
 	{
 		/// <summary>
 		/// Gets/sets the HTML node ID for this object. Read-only if this implementation is locked.
@@ -50,13 +50,13 @@ namespace Mvc.RazorTools
 		bool Locked { get; set; }
 
 		/// <summary>
-		/// Gets the MvcHtmlString containing the HTML markup of this implementation.
+		/// Gets the <see cref="IHtmlContent"/> containing the HTML markup of this implementation.
 		/// </summary>
 		IHtmlContent Html { get; }
 
 		/// <summary>
 		/// Gets/sets value that determines if the element Id tag is included in the
-		/// Class Attributes HTL.
+		/// Class Attributes HTML.
 		/// </summary>
 		bool IncludeIdInHtml { get; set; }
 	}

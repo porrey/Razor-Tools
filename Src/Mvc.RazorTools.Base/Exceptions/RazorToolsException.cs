@@ -36,7 +36,7 @@ namespace Mvc.RazorTools
 		/// Initializes a new instance of the Mvc.RazorTools.MvcRazorException 
 		/// class with the specified error message.
 		/// </summary>
-		/// <param name="message">A System.String containing the error message that describes the exception.</param>
+		/// <param name="message">A <see cref="String"/> containing the error message that describes the exception.</param>
 		public RazorToolsException(string message)
 			: base(message)
 		{
