@@ -5,14 +5,14 @@
 	https://github.com/porrey/Razor-Tools/blob/master/LICENSE
 */
 
-// ***
-// *** HTML to display when chart data cannot be loaded
-// ***
+//
+// HTML to display when chart data cannot be loaded
+//
 var _ChartDataFailedDisplay = '<div class="alert alert-danger">Failed to load data</div>';
 
-// ***
-// *** Defines the chart types available
-// ***
+//
+// Defines the chart types available
+//
 var chartTypes = {
 	Area: { value: 0, name: "area" },
 	Line: { value: 0, name: "line" },
@@ -20,10 +20,10 @@ var chartTypes = {
 	Bar: { value: 0, name: "bar" },
 };
 
-// ***
-// *** Defines chart option types that will drive
-// *** how the options for the chart are set
-// ***
+//
+// Defines chart option types that will drive
+// how the options for the chart are set
+//
 var chartOptionTypes = {
 	Id: { value: 0, name: "id" },
 	String: { value: 1, name: "string" },
@@ -34,11 +34,11 @@ var chartOptionTypes = {
 	FloatArray: { value: 6, name: "floatArray" }
 };
 
-// ***
-// *** Defines all of the possible options for the various charts, whether or not they are required, if the option
-// *** should be automatically loaded (if detected), which chart supports the option type that will drive how the
-// *** option is loaded or picked up from the data attributes.
-// ***
+//
+// Defines all of the possible options for the various charts, whether or not they are required, if the option
+// should be automatically loaded (if detected), which chart supports the option type that will drive how the
+// option is loaded or picked up from the data attributes.
+//
 var chartOptions =
 	[
 		{ name: 'element', isRequired: true, autoLoad: true, chart: [chartTypes.Area, chartTypes.Line, chartTypes.Bar, chartTypes.Donut], optionType: chartOptionTypes.Id },
@@ -89,15 +89,15 @@ var chartOptions =
 		{ name: 'xLabelAngle', isRequired: false, autoLoad: true, chart: [chartTypes.Area, chartTypes.Line], optionType: chartOptionTypes.String }
 	];
 
-// ***
-// *** Defines the formatter functions. More functions can be added to
-// *** create custom formatters. The format attribute is defined as
-// *** attributeName="formatterType(formatString)". For example, the
-// *** the xLabelFormat for a Line Chart is defined as 
-// *** data-chart-xLabelFormat="date(MMMM, YYYY)" where the text 'date'
-// *** matches one of the defined formats. The parameter 'value' is passed
-// *** by the Morris.js chart library to the function.
-// ***
+//
+// Defines the formatter functions. More functions can be added to
+// create custom formatters. The format attribute is defined as
+// attributeName="formatterType(formatString)". For example, the
+// the xLabelFormat for a Line Chart is defined as 
+// data-chart-xLabelFormat="date(MMMM, YYYY)" where the text 'date'
+// matches one of the defined formats. The parameter 'value' is passed
+// by the Morris.js chart library to the function.
+//
 var formatters =
 {
 	date: function (value, formatString) { return new moment(value).format(formatString); },
@@ -107,79 +107,79 @@ var formatters =
 	percent: function (value, formatString) { return Number.parseFloat(value * 100.0).toFixed(formatString) + '%'; }
 };
 
-// ***
-// ***
-// ***
+//
+//
+//
 $(function () {
-	// ***
-	// *** Attach to the resize event. De-bounce will ensure this is called once
-	// *** after the window stops resizing.
-	// ***
+	//
+	// Attach to the resize event. De-bounce will ensure this is called once
+	// after the window stops resizing.
+	//
 	//$(window).resize($.debounce(250, true, function (e) {
 	//	initializeCharts();
 	//}));
 
-	// ***
-	// *** Initialize all charts
-	// ***
+	//
+	// Initialize all charts
+	//
 	initializeCharts();
 });
 
-// ***
-// *** Find all HTML elements that have a data-chart
-// *** element defined and initialize them.
-// ***
+//
+// Find all HTML elements that have a data-chart
+// element defined and initialize them.
+//
 function initializeCharts() {
-	// ***
-	// *** Find all charts
-	// ***
+	//
+	// Find all charts
+	//
 	$('div[data-chart-type]').each(function () {
-		// ***
-		// *** Get a reference to the HTML element where
-		// *** the chart is to be created
-		// ***
+		//
+		// Get a reference to the HTML element where
+		// the chart is to be created
+		//
 		var htmlElement = $(this);
 
-		// ***
-		// *** Get the chart type name from the attribute
-		// ***
+		//
+		// Get the chart type name from the attribute
+		//
 		var chartTypeName = htmlElement.attr('data-chart-type');
 
-		// ***
-		// *** Convert the chart type name to a chartType
-		// ***
+		//
+		// Convert the chart type name to a chartType
+		//
 		var chartType = getChartTypeByName(chartTypeName);
 
-		// ***
-		// *** If chartType is null then an invalid chart type
-		// *** was specified.
-		// ***
+		//
+		// If chartType is null then an invalid chart type
+		// was specified.
+		//
 		if (chartType !== null) {
 			if (chartType !== null) {
-				// ***
-				// *** Initialize the HTML element
-				// ***
+				//
+				// Initialize the HTML element
+				//
 				initializeHtmlElement(htmlElement);
 
-				// ***
-				// *** Create a chart of the specified type
-				// ***
+				//
+				// Create a chart of the specified type
+				//
 				var chart = createChart(chartType, htmlElement);
 			}
 		}
 		else {
-			// ***
-			// *** Throw an exception
-			// ***
+			//
+			// Throw an exception
+			//
 			jQuery.error('The chart type "' + chartTypeName + '" is invalid.');
 		}
 	});
 }
 
-// ***
-// *** Given the name of a chart type it returns
-// *** a chartType object.
-// ***
+//
+// Given the name of a chart type it returns
+// a chartType object.
+//
 function getChartTypeByName(chartTypeName) {
 	var returnValue = "";
 
@@ -201,20 +201,20 @@ function getChartTypeByName(chartTypeName) {
 	return returnValue;
 }
 
-// ***
-// *** Performs necessary initialization on the HTML element
-// ***
+//
+// Performs necessary initialization on the HTML element
+//
 function initializeHtmlElement(htmlElement) {
-	// ***
-	// *** Using jQuery to select the chart div by id. Remove all
-	// *** child nodes of the set of matched elements from the DOM.
-	// ***
+	//
+	// Using jQuery to select the chart div by id. Remove all
+	// child nodes of the set of matched elements from the DOM.
+	//
 	htmlElement.empty();
 }
 
-// ***
-// *** Creates the specified chart type
-// ***
+//
+// Creates the specified chart type
+//
 function createChart(chartType, htmlElement) {
 	var chart = null;
 	var optionsContainer = createOptions(htmlElement, chartType);
@@ -258,62 +258,62 @@ function createChart(chartType, htmlElement) {
 	return chart;
 }
 
-// ***
-// *** Creates the options array and populates it for a chart
-// ***
+//
+// Creates the options array and populates it for a chart
+//
 function createOptions(htmlElement, chartType) {
-	// ***
-	// *** Create an array that will contain the options for a chart
-	// ***
+	//
+	// Create an array that will contain the options for a chart
+	//
 	var chart = { chartType: chartType, options: {} };
 
-	// ***
-	// *** Set the chart options
-	// ***
+	//
+	// Set the chart options
+	//
 	for (var i = 0; i < chartOptions.length; i++) {
-		// ***
-		// *** Setting all properties that are not required
-		// ***
+		//
+		// Setting all properties that are not required
+		//
 		if (chartOptions[i].chart.indexOf(chart.chartType) >= 0) {
-			// ***
-			// *** Only set those marked as autoLoad = true
-			// ***
+			//
+			// Only set those marked as autoLoad = true
+			//
 			if (chartOptions[i].autoLoad) {
 				switch (chartOptions[i].optionType) {
 					case chartOptionTypes.Id:
-						// ***
-						// *** The attribute value contains a string value
-						// ***
+						//
+						// The attribute value contains a string value
+						//
 						setChartElementOption(htmlElement, chart);
 						break;
 					case chartOptionTypes.Boolean:
-						// ***
-						// *** The attribute value contains a string value
-						// ***
+						//
+						// The attribute value contains a string value
+						//
 						setDataChartBooleanOption(htmlElement, chart, chartOptions[i].name, chartOptions[i].isRequired);
 						break;
 					case chartOptionTypes.String:
-						// ***
-						// *** The attribute value contains a string value
-						// ***
+						//
+						// The attribute value contains a string value
+						//
 						setDataChartOption(htmlElement, chart, chartOptions[i].name, chartOptions[i].isRequired);
 						break;
 					case chartOptionTypes.FormatCallback:
-						// ***
-						// *** The attribute value contains a format string
-						// ***
+						//
+						// The attribute value contains a format string
+						//
 						setFormatCallbackOption(htmlElement, chart, chartOptions[i].name, chartOptions[i].isRequired);
 						break;
 					case chartOptionTypes.StringArray:
-						// ***
-						// *** The attribute value contains a format string
-						// ***
+						//
+						// The attribute value contains a format string
+						//
 						setStringArrayDataChartOption(htmlElement, chart, chartOptions[i].name, chartOptions[i].isRequired);
 						break;
 					case chartOptionTypes.FloatArray:
-						// ***
-						// *** The attribute value contains a format string
-						// ***
+						//
+						// The attribute value contains a format string
+						//
 						setFloatArrayDataChartOption(htmlElement, chart, chartOptions[i].name, chartOptions[i].isRequired);
 						break;
 				}
@@ -321,9 +321,9 @@ function createOptions(htmlElement, chartType) {
 		}
 		else {
 			if (isDefined(htmlElement, chartOptions[i].name)) {
-				// ***
-				// *** Throw an exception
-				// ***
+				//
+				// Throw an exception
+				//
 				jQuery.error('The chart option "' + chartOptions[i].name + '" is invalid for a "' + chart.chartType.name + '" chart.');
 			}
 		}
@@ -332,14 +332,14 @@ function createOptions(htmlElement, chartType) {
 	return chart;
 }
 
-// ***
-// *** Determines if a specific attribute exists
-// *** on the HTML element.
-// ***
+//
+// Determines if a specific attribute exists
+// on the HTML element.
+//
 function isDefined(htmlElement, attributeName) {
-	// ***
-	// *** Determine if the element exists
-	// ***
+	//
+	// Determine if the element exists
+	//
 	var value = htmlElement.attr('data-chart-' + attributeName);
 
 	if (value == '' || value == null) {
@@ -350,10 +350,10 @@ function isDefined(htmlElement, attributeName) {
 	}
 }
 
-// ***
-// *** Sets a chart option by name by retrieving the chart option
-// *** value from the associated attribute.
-// ***
+//
+// Sets a chart option by name by retrieving the chart option
+// value from the associated attribute.
+//
 function setChartElementOption(htmlElement, chart) {
 	var value = htmlElement.attr("Id");
 
@@ -362,31 +362,31 @@ function setChartElementOption(htmlElement, chart) {
 	}
 }
 
-// ***
-// *** Sets a chart option by name by retrieving the chart option
-// *** value from the associated data-chart attribute and converts
-// *** it to a boolean (expected values are "true" or "false").
-// ***
+//
+// Sets a chart option by name by retrieving the chart option
+// value from the associated data-chart attribute and converts
+// it to a boolean (expected values are "true" or "false").
+//
 function setDataChartBooleanOption(htmlElement, chart, optionName, isRequired) {
 	if (isDefined(htmlElement, optionName)) {
 		chart.options[optionName] = (getDataChartAttributeValue(htmlElement, optionName, isRequired, "false") == "true");
 	}
 }
 
-// ***
-// *** Sets a chart option by name by retrieving the chart option
-// *** value from the associated data-chart attribute.
-// ***
+//
+// Sets a chart option by name by retrieving the chart option
+// value from the associated data-chart attribute.
+//
 function setDataChartOption(htmlElement, chart, optionName, isRequired) {
 	if (isDefined(htmlElement, optionName)) {
 		chart.options[optionName] = getDataChartAttributeValue(htmlElement, optionName, isRequired);
 	}
 }
 
-// ***
-// *** Sets a chart option by name by retrieving the chart option
-// *** value from the associated data-chart attribute.
-// ***
+//
+// Sets a chart option by name by retrieving the chart option
+// value from the associated data-chart attribute.
+//
 function setStringArrayDataChartOption(htmlElement, chart, optionName, isRequired) {
 	if (isDefined(htmlElement, optionName)) {
 		var arrayLine = getDataChartAttributeValue(htmlElement, optionName, isRequired);
@@ -395,10 +395,10 @@ function setStringArrayDataChartOption(htmlElement, chart, optionName, isRequire
 	}
 }
 
-// ***
-// *** Sets a chart option by name by retrieving the chart option
-// *** value from the associated data-chart attribute.
-// ***
+//
+// Sets a chart option by name by retrieving the chart option
+// value from the associated data-chart attribute.
+//
 function setFloatArrayDataChartOption(htmlElement, chart, optionName, isRequired) {
 	if (isDefined(htmlElement, optionName)) {
 		var arrayLine = getDataChartAttributeValue(htmlElement, optionName, isRequired);
@@ -411,71 +411,71 @@ function setFloatArrayDataChartOption(htmlElement, chart, optionName, isRequired
 	}
 }
 
-// ***
-// *** Sets a formatter function for options that require a callback (function)
-// *** to format data.
-// ***
+//
+// Sets a formatter function for options that require a callback (function)
+// to format data.
+//
 function setFormatCallbackOption(htmlElement, chart, optionName, isRequired) {
 	if (isDefined(htmlElement, optionName)) {
-		// ***
-		// *** Get the value that contains the formatter type and the format string
-		// *** which is in the format 'formatterType[formatString]'
-		// ***
+		//
+		// Get the value that contains the formatter type and the format string
+		// which is in the format 'formatterType[formatString]'
+		//
 		var attributeValue = getDataChartAttributeValue(htmlElement, optionName, false);
 		var expression = /\s*\((.+?)\)/;
 
-		// ***
-		// *** Parse the formatter
-		// ***
+		//
+		// Parse the formatter
+		//
 		if (expression.test(attributeValue)) {
-			// ***
-			// *** Parse the string
-			// ***
+			//
+			// Parse the string
+			//
 			var parsed = attributeValue.split(expression);
 
-			// ***
-			// *** The formatter type will choose the function
-			// *** to call.
-			// ***
+			//
+			// The formatter type will choose the function
+			// to call.
+			//
 			var formatterType = parsed[0];
 
-			// ***
-			// *** The formatString is passed to the function
-			// ***
+			//
+			// The formatString is passed to the function
+			//
 			var formatString = parsed[1];
 
-			// ***
-			// *** Choose the correct formatter by type
-			// ***
+			//
+			// Choose the correct formatter by type
+			//
 			if (formatters[formatterType] == undefined) {
-				// ***
-				// *** Assign the callback to the chart option
-				// ***
+				//
+				// Assign the callback to the chart option
+				//
 				jQuery.error('The formatter type "' + formatterType + '" is not a recognized callback formatter.');
 			}
 			else {
-				// ***
-				// *** There is no formatter function defined for this type
-				// ***
+				//
+				// There is no formatter function defined for this type
+				//
 				chart.options[optionName] = function (value) { return formatters[formatterType](value, formatString); };
 			}
 		}
 		else {
-			// ***
-			// *** The entire attribute value was not recognized (could not be parsed)
-			// ***
+			//
+			// The entire attribute value was not recognized (could not be parsed)
+			//
 			jQuery.error('The formatter text "' + attributeValue + '" is not recognized.');
 		}
 	}
 }
 
-// ***
-// *** Gets the value of a specific attribute
-// ***
+//
+// Gets the value of a specific attribute
+//
 function getChartAttributeValue(htmlElement, attributeName, isRequired) {
-	// ***
-	// *** Determine if the element exists
-	// ***
+	//
+	// Determine if the element exists
+	//
 	var value = htmlElement.attr(attributeName);
 
 	if (value == '' || value == null) {
@@ -488,9 +488,9 @@ function getChartAttributeValue(htmlElement, attributeName, isRequired) {
 	}
 }
 
-// ***
-// *** Gets the value of a specific data-chart-* attribute
-// ***
+//
+// Gets the value of a specific data-chart-* attribute
+//
 function getDataChartAttributeValue(htmlElement, attributeName, isRequired) {
 	return getChartAttributeValue(htmlElement, 'data-chart-' + attributeName, isRequired);
 }

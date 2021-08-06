@@ -1,0 +1,39 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div class="table-responsive">
+	@(DataTables.Create("example1")
+		.UsingDataFrom(this.Url.Action("TableData", "Home"), MethodTypes.Post)
+		.WithClass("table", "table-bordered", "table-striped", "table-hover", "display", "responsive nowrap")
+		.WithAttribute("cellspacing", "0")
+		.WithDataAttribute("server-side", "true")
+		.WithDataAttribute("processing", "true")
+		.WithDataAttribute("searching", "true")
+		.WithDataAttribute("auto-width", "true")
+		.WithDataAttribute("state-save", "true")
+		.WithDataAttribute("responsive", "true")
+		.WithDataAttribute("paging", "true")
+		.WithDataAttribute("length-menu", "[ [5, 10, 15, 25, 50], [5, 10, 15, 25, 50] ]")
+		.WithDataAttribute("paging-type", "full")
+		.WithDataAttribute("page-length", "10")
+		.WithDataAttribute("scroll-collapse", "false")
+		.WithDataAttribute("search-delay", "1500")
+		.WithLanguageOption(new Language() { Processing = "Loading Data...", LoadingRecords = "Loading Data..." })
+		.WithColumns(new Column[]
+						{
+							new Column() { Title="ID", Data = "id", Name="id"},
+							new Column() { Title="First Name", Data = "firstName", Name="firstName"},
+							new Column() { Title="Last Name", Data = "lastName", Name="lastName" },
+							new Column() { Title="Address", Data = "address", Name="address" },
+							new Column() { Title="City", Data = "city", Name="city" },
+							new Column() { Title="State", Data = "state", Name="state" },
+							new Column() { Title="Zip", Data = "zip", Name="zip" },
+							new Column() { Title="Mobile Phone Number", Data = "mobilePhoneNumber", Name="mobilePhoneNumber", Orderable = false },
+							new Column() { Title="Work Phone Number", Data = "workPhoneNumber", Name="workPhoneNumber", Orderable = false },
+							new Column() { Title="Web Site", Data = "webSite", Name="webSite", Searchable = false, Type="date" },
+							new Column() { Title="Email", Data = "email", Name="email", Searchable = false, Type="date" }
+						})
+		.WithDataAttribute("dom", "RlCfrtip")
+		.WithDataAttribute("col-vis", "{\"buttonText\": \"Columns\"}"))
+</div>

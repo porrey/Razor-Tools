@@ -1,4 +1,20 @@
-﻿using System;
+﻿//
+// Copyright(C) 2014-2020, Daniel M. Porrey. All rights reserved.
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published
+// by the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program. If not, see http://www.gnu.org/licenses/.
+//
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
@@ -28,64 +44,64 @@ namespace Mvc.RazorTools.FontAwesome.CodeDesigner
 
 			foreach (FileInfo file in files)
 			{
-				// ***
-				// *** Read the json file.
-				// ***
+				//
+				// Read the json file.
+				//
 				string json = File.ReadAllText(file.FullName);
 
-				// ***
-				// *** Parse the json.
-				// ***
+				//
+				// Parse the json.
+				//
 				JArray jarray = JsonConvert.DeserializeObject<JArray>(json);
 
-				// ***
-				// *** Get the data array (list of font icons)
-				// ***
+				//
+				// Get the data array (list of font icons)
+				//
 				JToken items = jarray[2]["data"];
 
 				foreach (JToken item in items)
 				{
-					// ***
-					// *** Get the ID.
-					// ***
+					//
+					// Get the ID.
+					//
 					string id = item["id"].Value<string>();
 
-					// ***
-					// *** Get the membership (free or pro).
-					// ***
+					//
+					// Get the membership (free or pro).
+					//
 					JToken membership = item["attributes"]["membership"];
 
-					// ***
-					// *** get the Unicode for the font.
-					// ***
+					//
+					// get the Unicode for the font.
+					//
 					string hexcode = item["attributes"]["unicode"].Value<string>();
 					int unicode = Int32.Parse(hexcode, NumberStyles.HexNumber);
 
-					// ***
-					// *** Get the styles for this font icon that are free.
-					// ***
+					//
+					// Get the styles for this font icon that are free.
+					//
 					string[] freeStyles = (from tbl in (membership["free"] as JArray)
 										   select tbl.Value<string>()).ToArray();
 
 					if (freeStyles.Count() > 0)
 					{
-						// ***
-						// ***
-						// ***
+						//
+						//
+						//
 						fonts.AddUpdateFont(id, LicenseType.Free, hexcode, unicode, freeStyles);
 					}
 
-					// ***
-					// *** Get the styles for this font icon that are part of the pro edition.
-					// ***
+					//
+					// Get the styles for this font icon that are part of the pro edition.
+					//
 					string[] proStyles = (from tbl in (membership["pro"] as JArray)
 										  select tbl.Value<string>()).ToArray();
 
 					if (proStyles.Count() > 0)
 					{
-						// ***
-						// ***
-						// ***
+						//
+						//
+						//
 						fonts.AddUpdateFont(id, LicenseType.Pro, hexcode, unicode, proStyles);
 					}
 				}
@@ -159,19 +175,19 @@ namespace Mvc.RazorTools.FontAwesome.CodeDesigner
 		{
 			StringBuilder code = new StringBuilder();
 
-			// ***
-			// *** Create the target path.
-			// ***
+			//
+			// Create the target path.
+			//
 			string targetPath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)}\{source.Template.Name}";
 
-			// ***
-			// *** Read the template.
-			// ***
+			//
+			// Read the template.
+			//
 			string templateCode = File.ReadAllText(source.Template.FullName);
 
-			// ***
-			// *** Generate the source code.
-			// ***
+			//
+			// Generate the source code.
+			//
 			var fonts = source.Fonts.Select(t => t.Value).OrderBy(t => t.Id);
 			foreach (Font font in fonts)
 			{
@@ -208,14 +224,14 @@ namespace Mvc.RazorTools.FontAwesome.CodeDesigner
 				}
 			}
 
-			// ***
-			// *** Update the code template.
-			// ***
+			//
+			// Update the code template.
+			//
 			templateCode = templateCode.Replace("//[%CODE%]", code.ToString());
 
-			// ***
-			// *** Write the output file.
-			// ***
+			//
+			// Write the output file.
+			//
 			File.WriteAllText(targetPath, templateCode);
 
 			return source;
@@ -225,19 +241,19 @@ namespace Mvc.RazorTools.FontAwesome.CodeDesigner
 		{
 			StringBuilder code = new StringBuilder();
 
-			// ***
-			// *** Create the target path.
-			// ***
+			//
+			// Create the target path.
+			//
 			string targetPath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)}\{source.Template.Name}";
 
-			// ***
-			// *** Read the template.
-			// ***
+			//
+			// Read the template.
+			//
 			string templateCode = File.ReadAllText(source.Template.FullName);
 
-			// ***
-			// *** Generate the source code.
-			// ***
+			//
+			// Generate the source code.
+			//
 			var fonts = source.Fonts.Select(t => t.Value).OrderBy(t => t.Id);
 			foreach (Font font in fonts)
 			{
@@ -249,14 +265,14 @@ namespace Mvc.RazorTools.FontAwesome.CodeDesigner
 				}
 			}
 
-			// ***
-			// *** Update the code template.
-			// ***
+			//
+			// Update the code template.
+			//
 			templateCode = templateCode.Replace("//[%CODE%]", code.ToString()).Replace("[%VERSION%]", version);
 
-			// ***
-			// *** Write the output file.
-			// ***
+			//
+			// Write the output file.
+			//
 			File.WriteAllText(targetPath, templateCode);
 
 			return source;

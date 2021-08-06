@@ -1,4 +1,20 @@
-﻿using System;
+﻿//
+// Copyright(C) 2014-2020, Daniel M. Porrey. All rights reserved.
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published
+// by the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program. If not, see http://www.gnu.org/licenses/.
+//
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 
@@ -7,7 +23,7 @@ namespace Mvc.RazorTools.FontAwesome
 	/// <summary>
 	/// Defines the properties necessary to create a Font Awesome tag in an MVC Razor view.
 	/// </summary>
-	public partial class FaIcon : MvcRazorObject
+	public partial class FaIcon : RazorToolsObject
 	{
 		/// <summary>
 		/// Initializes a new empty instance of a <see cref="FaIcon"/> object. Note
@@ -71,7 +87,7 @@ namespace Mvc.RazorTools.FontAwesome
 				if (!this.Locked)
 				{
 					_iconId = value;
-					this.UpdateClassAttribute($"fa-{_iconId}");
+					this.AddClassAttribute($"fa-{_iconId}");
 				}
 				else
 				{
@@ -164,9 +180,9 @@ namespace Mvc.RazorTools.FontAwesome
 		public static FaIcon Create(string iconId)
 		{
 			return new FaIcon()
-			{ 
-				Id = iconId, 
-				IconId = iconId 
+			{
+				Id = iconId,
+				IconId = iconId
 			};
 		}
 
@@ -180,10 +196,10 @@ namespace Mvc.RazorTools.FontAwesome
 		public static FaIcon Create(string iconId, int unicode)
 		{
 			return new FaIcon()
-			{ 
-				Id = iconId, 
-				IconId = iconId, 
-				Unicode = unicode 
+			{
+				Id = iconId,
+				IconId = iconId,
+				Unicode = unicode
 			};
 		}
 
@@ -220,7 +236,7 @@ namespace Mvc.RazorTools.FontAwesome
 		/// <param name="iconId">The CSS style sheet name of the icon this instance represents.</param>
 		/// <param name="classAttributes">A list of custom class attributes for this instance.</param>
 		/// <returns>A newly initialized <see cref="FaIcon"/> object.</returns>
-		public static FaIcon Create(string iconId, IDictionary<string, string> classAttributes)
+		public static FaIcon Create(string iconId, IEnumerable<string> classAttributes)
 		{
 			FaIcon returnValue = new FaIcon(iconId);
 
@@ -237,7 +253,7 @@ namespace Mvc.RazorTools.FontAwesome
 		/// <param name="unicode">A <see cref="Int32"/> value that represents the Unicode value of the font.</param>
 		/// <param name="classAttributes">A list of custom class attributes for this instance.</param>
 		/// <returns>A newly initialized <see cref="FaIcon"/> object.</returns>
-		public static FaIcon Create(string iconId, int unicode, IDictionary<string, string> classAttributes)
+		public static FaIcon Create(string iconId, int unicode, IEnumerable<string> classAttributes)
 		{
 			FaIcon returnValue = new FaIcon(iconId, unicode);
 
@@ -261,9 +277,22 @@ namespace Mvc.RazorTools.FontAwesome
 		/// <returns></returns>
 		protected override object OnClone()
 		{
-			FaIcon returnValue = FaIcon.Create(this.IconId, this.Unicode);
-			returnValue.Locked = false;
+			FaIcon returnValue = new FaIcon(this.Id)
+			{
+				//
+				// Cloning always unlocks the object
+				//
+				Locked = false,
+				Id = this.Id,
+				HtmlTag = this.HtmlTag,
+				Name = this.Name,
+				IncludeIdInHtml = this.IncludeIdInHtml
+			};
+
 			returnValue.MergeClassAttributes(this.ClassAttributes);
+			returnValue.MergeAttributes(this.Attributes);
+			returnValue.MergeStyles(this.Styles);
+
 			return returnValue;
 		}
 

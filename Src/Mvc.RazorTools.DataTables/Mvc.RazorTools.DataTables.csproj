@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFrameworks>netstandard2.1;net50;netcoreapp3.1</TargetFrameworks>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	  <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
+	  <Version>5.0.5</Version>
+	  <Description>Provides DataTables in MVC Razor views that can be written using standard C# code.</Description>
+	  <PackageProjectUrl>https://github.com/porrey/Razor-Tools</PackageProjectUrl>
+	  <NeutralLanguage>en-US</NeutralLanguage>
+	  <Copyright>Copyright © Daniel Porrey 2014-2021</Copyright>
+	  <Authors>Daniel M Porrey</Authors>
+	  <PackageReleaseNotes>Updated for Microsoft AspNetCore.</PackageReleaseNotes>
+	  <AssemblyName>Mvc.RazorTools.DataTables</AssemblyName>
+	  <RootNamespace>Mvc.RazorTools.DataTables</RootNamespace>
+	  <PackageIcon>Mvc.RazorTools.DataTables.png</PackageIcon>
+	  <RepositoryUrl>https://github.com/porrey/Razor-Tools</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	  <PublishRepositoryUrl>true</PublishRepositoryUrl>
+	  <EmbedUntrackedSources>true</EmbedUntrackedSources>
+	  <IncludeSymbols>true</IncludeSymbols>
+	  <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	  <FileVersion>5.0.5</FileVersion>
+	  <AssemblyVersion>5.0.5</AssemblyVersion>
+	  <PackageIconUrl />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="wwwroot\lib\razortools\dist\js\razortools.datatables.unobtrusive.js" />
+    <None Include="..\..\Images\Mvc.RazorTools.DataTables.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\lib\razortools\dist\js\razortools.datatables.unobtrusive.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mvc.RazorTools.Base\Mvc.RazorTools.Base.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -6,122 +6,122 @@
 */
 
 $(function () {
-	// ***
-	// *** Find all charts
-	// ***
+	//
+	// Find all charts
+	//
 	$('div[data-chart-type]').each(function () {
-		// ***
-		// *** Get a reference to the HTML element where
-		// *** the chart is to be created
-		// ***
+		//
+		// Get a reference to the HTML element where
+		// the chart is to be created
+		//
 		var razorChart = new RazorTools.Chart($(this));
 	});
 });
 
 module RazorTools {
-	// ***
-	// *** Represents a chart created by a div tag
-	// ***
+	//
+	// Represents a chart created by a div tag
+	//
 	export class Chart {
-		// ***
-		// *** Constructor 
-		// ***
+		//
+		// Constructor 
+		//
 		constructor(htmlElement: JQuery) {
 			this.htmlElement = htmlElement;
 			this.create();
 		}
 
-		// ***
-		// *** The jQuery object that represents the div tag
-		// *** defining the chart
-		// ***
+		//
+		// The jQuery object that represents the div tag
+		// defining the chart
+		//
 		private htmlElement: JQuery
 		private chartType: ChartType
 
-		// ***
-		// *** Loads the chart properties from the div tag
-		// *** and creates the chart.
-		// ***
+		//
+		// Loads the chart properties from the div tag
+		// and creates the chart.
+		//
 		private create(): void {
-			// ***
-			// *** Find the chart type for this instance
-			// ***
+			//
+			// Find the chart type for this instance
+			//
 			if ((this.chartType = ChartType.findChartType(this.htmlElement)) != undefined) {
 				var options = this.loadOptions();
 				this.chartType.create(this.chartType, options, this.htmlElement, Chart.FailureHtml);
 			}
 		}
 
-		// ***
-		// *** Load the chart options
-		// ***
+		//
+		// Load the chart options
+		//
 		private loadOptions() {
-			// ***
-			// *** Create an array for the options
-			// ***
+			//
+			// Create an array for the options
+			//
 			var options = {};
 
-			// ***
-			// *** Loop through all options, this way any required options
-			// *** that are missing can be detected.
-			// ***
+			//
+			// Loop through all options, this way any required options
+			// that are missing can be detected.
+			//
 			for (var i = 0; i < ChartOption.AllOptions.length; i++) {
-				// ***
-				// *** Get a reference to the chart option to make the
-				// *** code simpler
-				// ***
+				//
+				// Get a reference to the chart option to make the
+				// code simpler
+				//
 				var chartOption = ChartOption.AllOptions[i];
 
-				// ***
-				// *** Check if this option is required for the current chart type
-				// ***
+				//
+				// Check if this option is required for the current chart type
+				//
 				if (chartOption.chart.indexOf(this.chartType) >= 0) {
-					// ***
-					// *** Only load those marked as autoLoad = true
-					// ***
+					//
+					// Only load those marked as autoLoad = true
+					//
 					if (chartOption.autoLoad) {
-						// ***
-						// *** Get the value for this attribute.
-						// ***
+						//
+						// Get the value for this attribute.
+						//
 						var value: string = this.htmlElement.attr(chartOption.attributeName());
 
-						// ***
-						// *** Check if this attribute has a value
-						// ***
+						//
+						// Check if this attribute has a value
+						//
 						if (value != undefined) {
-							// ***
-							// *** Convert the string value to the type required by the option.
-							// ***
+							//
+							// Convert the string value to the type required by the option.
+							//
 							if (chartOption.optionType.getValue != undefined) {
-								// ***
-								// *** Get the conversion function and 
-								// *** convert the string value.
-								// ***
+								//
+								// Get the conversion function and 
+								// convert the string value.
+								//
 								options[chartOption.name] = chartOption.optionType.getValue(value);;
 							}
 							else {
-								// ***
-								// *** Throw an exception; a conversion function was not defined
-								// *** for this option type.
-								// ***
+								//
+								// Throw an exception; a conversion function was not defined
+								// for this option type.
+								//
 								jQuery.error('The option type "' + chartOption.optionType.name + '" does not have a conversion function defined.');
 							}
 						}
 						else {
 							if (ChartOption.AllOptions[i].isRequired) {
-								// ***
-								// *** Throw an exception since this is a required option; show the
-								// *** option name and not the attributeName.
-								// ***
+								//
+								// Throw an exception since this is a required option; show the
+								// option name and not the attributeName.
+								//
 								jQuery.error('The element "' + chartOption.name + '" is required.');
 							}
 						}
 					}
 					else {
 						if (this.isDefined(chartOption)) {
-							// ***
-							// *** Throw an exception
-							// ***
+							//
+							// Throw an exception
+							//
 							jQuery.error('The chart option "' + chartOption.name + '" is invalid for a "' + this.chartType.name + '" chart.');
 						}
 					}
@@ -131,14 +131,14 @@ module RazorTools {
 			return options;
 		}
 
-		// ***
-		// *** Determines if a specific attribute exists
-		// *** on the HTML element.
-		// ***
+		//
+		// Determines if a specific attribute exists
+		// on the HTML element.
+		//
 		private isDefined(chartOption: ChartOption) {
-			// ***
-			// *** Determine if the element exists
-			// ***
+			//
+			// Determine if the element exists
+			//
 			var value = this.htmlElement.attr(chartOption.attributeName());
 
 			if (value == undefined) {
@@ -149,22 +149,22 @@ module RazorTools {
 			}
 		}
 
-		// ***
-		// *** This will be displayed if the data load fails
-		// ***
+		//
+		// This will be displayed if the data load fails
+		//
 		static FailureHtml: string = '<div class="alert alert-danger">Failed to load data</div>';
 	}
 
-	// ***
-	// *** This class defines the type of charts available
-	// ***
+	//
+	// This class defines the type of charts available
+	//
 	class ChartType {
 		constructor(public name: string, public library: string, public createChart: any) {
 		}
 
-		// ***
-		// *** Loads the data and then creates and displays the chart
-		// ***
+		//
+		// Loads the data and then creates and displays the chart
+		//
 		create(chartType: ChartType, options: any, htmlElement: JQuery, failureHtml: string): any {
 			var returnValue = undefined;
 
@@ -178,16 +178,16 @@ module RazorTools {
 			return returnValue;
 		}
 
-		// ***
-		// *** The are the attribute names expected defining the
-		// *** library and the chart
-		// ***
+		//
+		// The are the attribute names expected defining the
+		// library and the chart
+		//
 		static LibraryTag: string = "data-chart-library";
 		static ChartTag: string = "data-chart-type";
 
-		// ***
-		// *** This array contains all known chart types
-		// ***
+		//
+		// This array contains all known chart types
+		//
 		static AllChartTypes: ChartType[] = [
 			new ChartType('area', 'morris', function (options) { return new Morris.Area(options); }),
 			new ChartType('line', 'morris', function (options) { return new Morris.Line(options); }),
@@ -195,65 +195,65 @@ module RazorTools {
 			new ChartType('donut', 'morris', function (options) { return new Morris.Donut(options); })
 		];
 
-		// ***
-		// *** Static definitions to allow charts by name
-		// ***
+		//
+		// Static definitions to allow charts by name
+		//
 		static MorrisArea: ChartType = ChartType.AllChartTypes[0];
 		static MorrisLine: ChartType = ChartType.AllChartTypes[1];
 		static MorrisBar: ChartType = ChartType.AllChartTypes[2];
 		static MorrisDonut: ChartType = ChartType.AllChartTypes[3];
 
-		// ***
-		// *** Determines the chart type by looking at two specific
-		// *** attributes on the div tag
-		// ***
+		//
+		// Determines the chart type by looking at two specific
+		// attributes on the div tag
+		//
 		static findChartType(htmlElement: JQuery): ChartType {
 			var returnValue: ChartType = undefined
 
-			// ***
-			// *** Get the chart library and type from the attributes
-			// ***
+			//
+			// Get the chart library and type from the attributes
+			//
 			var library = htmlElement.attr(ChartType.LibraryTag);
 			var type = htmlElement.attr(ChartType.ChartTag);
 
-			// ***
-			// *** jQuery returns undefined if the attributes are not defined
-			// ***
+			//
+			// jQuery returns undefined if the attributes are not defined
+			//
 			if (library != undefined) {
 				if (type != undefined) {
-					// ***
-					// *** Search the array for the library
-					// ***
+					//
+					// Search the array for the library
+					//
 					for (var i = 0; i < ChartType.AllChartTypes.length; i++) {
 						var item = ChartType.AllChartTypes[i];
 
 						if (item.library == library && item.name == type) {
-							// ***
-							// *** Set the return item and break from the loop
-							// ***
+							//
+							// Set the return item and break from the loop
+							//
 							returnValue = item;
 							break;
 						}
 					};
 
-					// ***
-					// *** make sure a chart type was found
-					// ***
+					//
+					// make sure a chart type was found
+					//
 					if (returnValue == undefined) {
 						jQuery.error('The chart type "' + library + '.' + type + '" is not supported.');
 					}
 				}
 				else {
-					// ***
-					// *** Throw an exception
-					// ***
+					//
+					// Throw an exception
+					//
 					jQuery.error('The chart is missing attribute "' + ChartType.ChartTag + '"');
 				}
 			}
 			else {
-				// ***
-				// *** Throw an exception
-				// ***
+				//
+				// Throw an exception
+				//
 				jQuery.error('The chart is missing attribute "' + ChartType.LibraryTag + '"');
 			}
 
@@ -261,9 +261,9 @@ module RazorTools {
 		}
 	}
 
-	// ***
-	// *** Represents a callback formatter for text in a chart
-	// ***
+	//
+	// Represents a callback formatter for text in a chart
+	//
 	class Formatter {
 		constructor(public name: string, public format: any) {
 		}
@@ -275,30 +275,30 @@ module RazorTools {
 			new Formatter('currency', function (value, formatString) { return formatString + value; })
 		];
 
-		// ***
-		// *** Determines the formatter by name
-		// ***
+		//
+		// Determines the formatter by name
+		//
 		static findFormatter(name: string): Formatter {
 			var returnValue: Formatter = undefined;
 
-			// ***
-			// *** Search the array for the library
-			// ***
+			//
+			// Search the array for the library
+			//
 			for (var i = 0; i < Formatter.AllFormatters.length; i++) {
 				var item = Formatter.AllFormatters[i];
 
 				if (item.name == name) {
-					// ***
-					// *** Set the return item and break from the loop
-					// ***
+					//
+					// Set the return item and break from the loop
+					//
 					returnValue = item;
 					break;
 				}
 			};
 
-			// ***
-			// *** Make sure a chart type was found
-			// ***
+			//
+			// Make sure a chart type was found
+			//
 			if (returnValue == undefined) {
 				jQuery.error('The formatter "' + name + '" does not exist.');
 			}
@@ -307,11 +307,11 @@ module RazorTools {
 		}
 	}
 
-	// ***
-	// *** Represents a type of chart option and defines how to convert
-	// *** the string value in the attribute to the necessary data type
-	// *** for the given option.
-	// ***
+	//
+	// Represents a type of chart option and defines how to convert
+	// the string value in the attribute to the necessary data type
+	// for the given option.
+	//
 	class OptionType {
 		constructor(public name: string, public getValue: any) {
 		}
@@ -326,58 +326,58 @@ module RazorTools {
 		setFormatCallbackOption(value: string): any {
 			var returnValue: any
 
-			// ***
-			// *** Get the value that contains the formatter type and the format string
-			// *** which is in the format 'formatterType[formatString]'
-			// ***
+			//
+			// Get the value that contains the formatter type and the format string
+			// which is in the format 'formatterType[formatString]'
+			//
 			var expression = /\s*\((.+?)\)/;
 
-			// ***
-			// *** Parse the formatter
-			// ***
+			//
+			// Parse the formatter
+			//
 			if (expression.test(value)) {
-				// ***
-				// *** Parse the string
-				// ***
+				//
+				// Parse the string
+				//
 				var parsed = value.split(expression);
 
-				// ***
-				// *** The formatter type will choose the function
-				// *** to call.
-				// ***
+				//
+				// The formatter type will choose the function
+				// to call.
+				//
 				var formatterType = parsed[0];
 
-				// ***
-				// *** The formatString is passed to the function
-				// ***
+				//
+				// The formatString is passed to the function
+				//
 				var formatString = parsed[1];
 
-				// ***
-				// *** Find the formatter
-				// ***
+				//
+				// Find the formatter
+				//
 				var formatter = Formatter.findFormatter(formatterType);
 
-				// ***
-				// *** Choose the correct formatter by type
-				// ***
+				//
+				// Choose the correct formatter by type
+				//
 				if (formatter == undefined) {
-					// ***
-					// *** There is no formatter function defined for this type
-					// ***
+					//
+					// There is no formatter function defined for this type
+					//
 					jQuery.error('The formatter type "' + formatterType + '" is not a recognized callback formatter.');
 				}
 				else {
-					// ***
-					// *** Assign the callback to the chart option. This is essentially
-					// *** assigning a function within a function.
-					// ***
+					//
+					// Assign the callback to the chart option. This is essentially
+					// assigning a function within a function.
+					//
 					returnValue = function (value) { return formatter.format(value, formatString); };
 				}
 			}
 			else {
-				// ***
-				// *** The entire attribute value was not recognized (could not be parsed)
-				// ***
+				//
+				// The entire attribute value was not recognized (could not be parsed)
+				//
 				jQuery.error('The formatter text "' + value + '" is not recognized.');
 			}
 
@@ -385,10 +385,10 @@ module RazorTools {
 		}
 	}
 
-	// ***
-	// *** Defines an option for a chart specifying the chart types that support
-	// *** the option.
-	// ***
+	//
+	// Defines an option for a chart specifying the chart types that support
+	// the option.
+	//
 	class ChartOption {
 		constructor(public name: string, public isRequired: Boolean,
 			public autoLoad: Boolean, public chart: ChartType[], public optionType: OptionType) {

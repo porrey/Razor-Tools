@@ -1,4 +1,20 @@
-﻿using System.Collections.Generic;
+﻿//
+// Copyright(C) 2014-2020, Daniel M. Porrey. All rights reserved.
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published
+// by the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program. If not, see http://www.gnu.org/licenses/.
+//
+using System.Collections.Generic;
 
 namespace Mvc.RazorTools.Charts
 {
@@ -16,6 +32,7 @@ namespace Mvc.RazorTools.Charts
 	/// </summary>
 	public static class Chart
 	{
+		#region Create
 		/// <summary>
 		/// Creates a new chart.
 		/// </summary>
@@ -26,6 +43,43 @@ namespace Mvc.RazorTools.Charts
 		{
 			return new TChart();
 		}
+
+		/// <summary>
+		/// Creates an empty instance of <see cref="RazorBarChart"/>.
+		/// </summary>
+		/// <returns>The new empty instance of the chart.</returns>
+		public static RazorBarChart CreatBarChart()
+		{
+			return new RazorBarChart();
+		}
+
+		/// <summary>
+		/// Creates an empty instance of <see cref="RazorDonutChart"/>.
+		/// </summary>
+		/// <returns>The new empty instance of the chart.</returns>
+		public static RazorDonutChart CreatDonutChart()
+		{
+			return new RazorDonutChart();
+		}
+
+		/// <summary>
+		/// Creates an empty instance of <see cref="RazorLineChart"/>.
+		/// </summary>
+		/// <returns>The new empty instance of the chart.</returns>
+		public static RazorLineChart CreatLineChart()
+		{
+			return new RazorLineChart();
+		}
+
+		/// <summary>
+		/// Creates an empty instance of <see cref="RazorAreaChart"/>.
+		/// </summary>
+		/// <returns>The new empty instance of the chart.</returns>
+		public static RazorAreaChart CreatAreaChart()
+		{
+			return new RazorAreaChart();
+		}
+		#endregion
 
 		#region All Charts
 		/// <summary>

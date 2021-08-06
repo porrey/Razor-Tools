@@ -5,17 +5,17 @@
 
     <IsPackable>false</IsPackable>
 
-    <Version>2.0.3</Version>
+    <Version>5.0.5</Version>
 
-    <FileVersion>2.0.3</FileVersion>
+    <FileVersion>5.0.5</FileVersion>
 
-    <AssemblyVersion>2.0.3</AssemblyVersion>
+    <AssemblyVersion>5.0.5</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NUnit" Version="3.12.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
   </ItemGroup>
 
 </Project>
