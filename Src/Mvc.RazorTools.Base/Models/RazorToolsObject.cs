@@ -1,19 +1,19 @@
-﻿// ***
-// *** Copyright(C) 2014-2020, Daniel M. Porrey. All rights reserved.
-// *** 
-// *** This program is free software: you can redistribute it and/or modify
-// *** it under the terms of the GNU Lesser General Public License as published
-// *** by the Free Software Foundation, either version 3 of the License, or
-// *** (at your option) any later version.
-// *** 
-// *** This program is distributed in the hope that it will be useful,
-// *** but WITHOUT ANY WARRANTY; without even the implied warranty of
-// *** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-// *** GNU Lesser General Public License for more details.
-// *** 
-// *** You should have received a copy of the GNU Lesser General Public License
-// *** along with this program. If not, see http://www.gnu.org/licenses/.
-// ***
+﻿//
+// Copyright(C) 2014-2020, Daniel M. Porrey. All rights reserved.
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published
+// by the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program. If not, see http://www.gnu.org/licenses/.
+//
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -214,9 +214,9 @@ namespace Mvc.RazorTools
 		{
 			if (items != null)
 			{
-				// ***
-				// *** Make a copy of each class descriptor
-				// ***
+				//
+				// Make a copy of each class descriptor
+				//
 				foreach (KeyValuePair<string, string> item in items)
 				{
 					this.UpdateAttribute(item.Key, item.Value);
@@ -268,9 +268,9 @@ namespace Mvc.RazorTools
 		{
 			if (items != null)
 			{
-				// ***
-				// *** Make a copy of each class descriptor
-				// ***
+				//
+				// Make a copy of each class descriptor
+				//
 				foreach (KeyValuePair<string, string> item in items)
 				{
 					this.UpdateStyle(item.Key, item.Value);
@@ -338,14 +338,14 @@ namespace Mvc.RazorTools
 		{
 			if (items != null)
 			{
-				// ***
-				// *** Get items not in the list.
-				// ***
+				//
+				// Get items not in the list.
+				//
 				IEnumerable<string> newList = items.Except(this.ClassAttributes);
 
-				// ***
-				// *** Make a copy of each class descriptor
-				// ***
+				//
+				// Make a copy of each class descriptor
+				//
 				foreach (string item in newList)
 				{
 					this.AddClassAttribute(item);
@@ -369,9 +369,9 @@ namespace Mvc.RazorTools
 		{
 			if (items != null)
 			{
-				// ***
-				// *** Make a copy of each class descriptor
-				// ***
+				//
+				// Make a copy of each class descriptor
+				//
 				foreach (KeyValuePair<string, object> item in items)
 				{
 					this.UpdateDataAttribute(item.Key, item.Value);
@@ -466,9 +466,9 @@ namespace Mvc.RazorTools
 		{
 			RazorToolsObject returnValue = new RazorToolsObject(this.Id)
 			{
-				// ***
-				// *** Cloning always unlocks the object
-				// ***
+				//
+				// Cloning always unlocks the object
+				//
 				Locked = false,
 				Id = this.Id,
 				HtmlTag = this.HtmlTag,
@@ -516,9 +516,9 @@ namespace Mvc.RazorTools
 		/// <param name="tag">The TagBuilder object used to create the HTML markup.</param>
 		protected virtual void OnGetHtmlClassAttributes(TagBuilder tag)
 		{
-			// ***
-			// *** Add these in reverse order
-			// ***
+			//
+			// Add these in reverse order
+			//
 			foreach (string item in this.ClassAttributes.Reverse())
 			{
 				tag.AddCssClass(item);
@@ -532,9 +532,9 @@ namespace Mvc.RazorTools
 		/// <param name="tag">The TagBuilder object used to create the HTML markup.</param>
 		protected virtual void OnGetHtmlAttributes(TagBuilder tag)
 		{
-			// ***
-			// *** Add these in reverse order
-			// ***
+			//
+			// Add these in reverse order
+			//
 			foreach (KeyValuePair<string, string> item in this.Attributes.Reverse())
 			{
 				tag.Attributes.Add(item.Key, item.Value);
@@ -550,23 +550,23 @@ namespace Mvc.RazorTools
 		{
 			if (this.Styles.Count() > 0)
 			{
-				// ***
-				// *** Create a StringBuilder to concatenate the
-				// *** styles into...
-				// ***
+				//
+				// Create a StringBuilder to concatenate the
+				// styles into...
+				//
 				StringBuilder stylesValue = new StringBuilder();
 
-				// ***
-				// *** Concatenate the styles into a single string
-				// ***
+				//
+				// Concatenate the styles into a single string
+				//
 				foreach (KeyValuePair<string, string> style in this.Styles)
 				{
 					stylesValue.Append(String.Format("{0}: {1};", style.Key, style.Value));
 				}
 
-				// ***
-				// *** Set the styles attribute
-				// ***
+				//
+				// Set the styles attribute
+				//
 				tag.Attributes.Add("style", stylesValue.ToString());
 			}
 		}

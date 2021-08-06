@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.1</TargetFramework>
+		<TargetFrameworks>netstandard2.1;net50;netcoreapp3.1</TargetFrameworks>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
@@ -10,9 +10,9 @@
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/porrey/Razor-Tools</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/porrey/Razor-Tools</PackageProjectUrl>
-		<Copyright>Copyright © Daniel Porrey 2014-2020</Copyright>
+		<Copyright>Copyright © Daniel Porrey 2014-2021</Copyright>
 		<Authors>Daniel M Porrey</Authors>
-		<Version>2.0.4</Version>
+		<Version>5.0.5</Version>
 		<PackageReleaseNotes>Updated for Microsoft AspNetCore.</PackageReleaseNotes>
 		<PackageIcon>Mvc.RazorTools.Base.png</PackageIcon>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -28,8 +28,8 @@
 	
 	<PropertyGroup>
 		<DocumentationFile>Mvc.RazorTools.Base.xml</DocumentationFile>
-		<FileVersion>2.0.4</FileVersion>
-		<AssemblyVersion>2.0.4</AssemblyVersion>
+		<FileVersion>5.0.5</FileVersion>
+		<AssemblyVersion>5.0.5</AssemblyVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
