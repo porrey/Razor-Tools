@@ -15,14 +15,9 @@
 // along with this program. If not, see http://www.gnu.org/licenses/.
 //
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Mvc.RazorTools.FontAwesome.CodeDesigner;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -41,10 +36,10 @@ namespace Mvc.RazorTools.FontAwesome.CodeDesigner
 			string currentVersion = await this.GetVersion();
 
 			sourceDirectory.WithDirectory()
-							.ReadFiles()
-							.BuildFontDictionary()
-							.WithTemplate(@".\Templates\FaIcons.cs").GenerateIconsClass()
-							.WithTemplate(@".\Templates\FaIconSet.cs").GenerateIconsSetClass(currentVersion);
+						   .ReadFiles()
+						   .BuildFontDictionary()
+						   .WithTemplate(@".\Templates\FaIcons.cs").GenerateIconsClass()
+						   .WithTemplate(@".\Templates\FaIconSet.cs").GenerateIconsSetClass(currentVersion);
 		}
 
 		public async Task<string> GetVersion()
@@ -53,7 +48,8 @@ namespace Mvc.RazorTools.FontAwesome.CodeDesigner
 
 			using (HttpClient client = new HttpClient())
 			{
-				object requestObject = new { query = "query { release(version: \"latest\") { version } }" };
+				//object requestObject = new { query = "query { release(version: \"latest\") { version } }" };
+				object requestObject = new { query = "query { search(version: \"latest\", query: \"coff\", first: 9999) { id, styles, membership } }" };
 				string requestJson = JsonConvert.SerializeObject(requestObject);
 
 				using (StringContent content = new StringContent(requestJson, Encoding.UTF8, "application/json"))
